@@ -15,7 +15,7 @@ class OnboardingCollectionViewCell: BaseCollectionViewCell {
         let view = UILabel()
         view.textAlignment = .center
         view.numberOfLines = 0
-        view.font = UIFont(name: "NotoSansCJKKR-Medium", size: 24)
+        view.font = UIFont(name: Font.NotoSansMedium.rawValue, size: 24)
         return view
     }()
     
