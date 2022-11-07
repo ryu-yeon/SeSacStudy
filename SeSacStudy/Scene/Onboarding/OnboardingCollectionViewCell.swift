@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class OnboardingCollectionViewCell: BaseCollectionViewCell {
+final class OnboardingCollectionViewCell: BaseCollectionViewCell {
     
     let textLabel: UILabel = {
         let view = UILabel()
