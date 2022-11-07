@@ -37,7 +37,9 @@ final class OnboardingViewController: BaseViewController {
         mainView.startButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                
+                let nextVC = LoginViewController()
+                nextVC.modalPresentationStyle = .fullScreen
+                vc.present(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
         

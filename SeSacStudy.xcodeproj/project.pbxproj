@@ -29,6 +29,9 @@
 		889215F0291979A300DE147C /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */; };
 		889215F1291979A300DE147C /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */; };
 		889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215F2291983AF00DE147C /* ReusableViewProtocol.swift */; };
+		889215F62919884C00DE147C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215F52919884C00DE147C /* LoginView.swift */; };
+		889215F92919885900DE147C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215F82919885900DE147C /* LoginViewController.swift */; };
+		889215FB2919887100DE147C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215FA2919887100DE147C /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		889215F2291983AF00DE147C /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		889215F52919884C00DE147C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		889215F82919885900DE147C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		889215FA2919887100DE147C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				88556FF82918F12D003CD336 /* Onboarding */,
+				889215F72919884F00DE147C /* Login */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -174,6 +181,16 @@
 				889215F2291983AF00DE147C /* ReusableViewProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		889215F72919884F00DE147C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				889215F52919884C00DE147C /* LoginView.swift */,
+				889215F82919885900DE147C /* LoginViewController.swift */,
+				889215FA2919887100DE147C /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,14 +278,17 @@
 				88556FF72918F12A003CD336 /* OnboardingView.swift in Sources */,
 				885570092919591A003CD336 /* OnboardingCollectionViewCell.swift in Sources */,
 				88556FD22918E248003CD336 /* ViewController.swift in Sources */,
+				889215F62919884C00DE147C /* LoginView.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
 				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
 				88556FCE2918E248003CD336 /* AppDelegate.swift in Sources */,
 				8855700B29195D04003CD336 /* BaseCollectionViewCell.swift in Sources */,
 				885570002918F651003CD336 /* Extension+UIFont.swift in Sources */,
 				88556FFB2918F153003CD336 /* OnboardingViewController.swift in Sources */,
+				889215FB2919887100DE147C /* LoginViewModel.swift in Sources */,
 				88556FD02918E248003CD336 /* SceneDelegate.swift in Sources */,
 				88556FEA2918E757003CD336 /* BaseViewController.swift in Sources */,
+				889215F92919885900DE147C /* LoginViewController.swift in Sources */,
 				889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
