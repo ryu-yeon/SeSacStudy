@@ -28,6 +28,7 @@
 		8855700D2919600F003CD336 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855700C2919600F003CD336 /* OnboardingData.swift */; };
 		889215F0291979A300DE147C /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */; };
 		889215F1291979A300DE147C /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */; };
+		889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215F2291983AF00DE147C /* ReusableViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		8855700C2919600F003CD336 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		889215F2291983AF00DE147C /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			children = (
 				88556FE82918E74E003CD336 /* Base */,
 				88556FFE2918F28F003CD336 /* Extension */,
+				889215F4291983C700DE147C /* Protocol */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -163,6 +166,14 @@
 				889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		889215F4291983C700DE147C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				889215F2291983AF00DE147C /* ReusableViewProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 				88556FFB2918F153003CD336 /* OnboardingViewController.swift in Sources */,
 				88556FD02918E248003CD336 /* SceneDelegate.swift in Sources */,
 				88556FEA2918E757003CD336 /* BaseViewController.swift in Sources */,
+				889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
 			);
