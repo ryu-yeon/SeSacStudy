@@ -16,6 +16,18 @@
 		88556FE72918E74B003CD336 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FE62918E74B003CD336 /* BaseView.swift */; };
 		88556FEA2918E757003CD336 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FE92918E757003CD336 /* BaseViewController.swift */; };
 		88556FF52918EF31003CD336 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88556FF42918EF31003CD336 /* SnapKit */; };
+		88556FF72918F12A003CD336 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FF62918F12A003CD336 /* OnboardingView.swift */; };
+		88556FFB2918F153003CD336 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FFA2918F153003CD336 /* OnboardingViewController.swift */; };
+		88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FFC2918F28C003CD336 /* Extension+UIColor.swift */; };
+		885570002918F651003CD336 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FFF2918F651003CD336 /* Extension+UIFont.swift */; };
+		885570032919585A003CD336 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 885570022919585A003CD336 /* RxCocoa */; };
+		885570052919585A003CD336 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 885570042919585A003CD336 /* RxSwift */; };
+		885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885570062919586A003CD336 /* OnboardingViewModel.swift */; };
+		885570092919591A003CD336 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885570082919591A003CD336 /* OnboardingCollectionViewCell.swift */; };
+		8855700B29195D04003CD336 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855700A29195D04003CD336 /* BaseCollectionViewCell.swift */; };
+		8855700D2919600F003CD336 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855700C2919600F003CD336 /* OnboardingData.swift */; };
+		889215F0291979A300DE147C /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */; };
+		889215F1291979A300DE147C /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +41,16 @@
 		88556FDB2918E249003CD336 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88556FE62918E74B003CD336 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		88556FE92918E757003CD336 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		88556FF62918F12A003CD336 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		88556FFA2918F153003CD336 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		88556FFC2918F28C003CD336 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		88556FFF2918F651003CD336 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
+		885570062919586A003CD336 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		885570082919591A003CD336 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		8855700A29195D04003CD336 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		8855700C2919600F003CD336 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885570052919585A003CD336 /* RxSwift in Frameworks */,
+				885570032919585A003CD336 /* RxCocoa in Frameworks */,
 				88556FF52918EF31003CD336 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,8 +91,11 @@
 				88556FD12918E248003CD336 /* ViewController.swift */,
 				88556FD32918E248003CD336 /* Main.storyboard */,
 				88556FD82918E249003CD336 /* LaunchScreen.storyboard */,
+				8855700E29196011003CD336 /* Model */,
+				88556FF92918F140003CD336 /* Scene */,
 				88556FF22918EE62003CD336 /* Utility */,
 				88556FD62918E249003CD336 /* Assets.xcassets */,
+				889215ED2919783500DE147C /* Source */,
 				88556FDB2918E249003CD336 /* Info.plist */,
 			);
 			path = SeSacStudy;
@@ -79,6 +106,7 @@
 			children = (
 				88556FE62918E74B003CD336 /* BaseView.swift */,
 				88556FE92918E757003CD336 /* BaseViewController.swift */,
+				8855700A29195D04003CD336 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -87,8 +115,54 @@
 			isa = PBXGroup;
 			children = (
 				88556FE82918E74E003CD336 /* Base */,
+				88556FFE2918F28F003CD336 /* Extension */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		88556FF82918F12D003CD336 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				88556FF62918F12A003CD336 /* OnboardingView.swift */,
+				88556FFA2918F153003CD336 /* OnboardingViewController.swift */,
+				885570062919586A003CD336 /* OnboardingViewModel.swift */,
+				885570082919591A003CD336 /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		88556FF92918F140003CD336 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				88556FF82918F12D003CD336 /* Onboarding */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		88556FFE2918F28F003CD336 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				88556FFC2918F28C003CD336 /* Extension+UIColor.swift */,
+				88556FFF2918F651003CD336 /* Extension+UIFont.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8855700E29196011003CD336 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8855700C2919600F003CD336 /* OnboardingData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		889215ED2919783500DE147C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */,
+				889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +183,8 @@
 			name = SeSacStudy;
 			packageProductDependencies = (
 				88556FF42918EF31003CD336 /* SnapKit */,
+				885570022919585A003CD336 /* RxCocoa */,
+				885570042919585A003CD336 /* RxSwift */,
 			);
 			productName = SeSacStudy;
 			productReference = 88556FCA2918E248003CD336 /* SeSacStudy.app */;
@@ -140,6 +216,7 @@
 			mainGroup = 88556FC12918E248003CD336;
 			packageReferences = (
 				88556FF32918EF31003CD336 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				885570012919585A003CD336 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 88556FCB2918E248003CD336 /* Products */;
 			projectDirPath = "";
@@ -156,8 +233,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				88556FDA2918E249003CD336 /* LaunchScreen.storyboard in Resources */,
+				889215F0291979A300DE147C /* NotoSansCJKkr-Regular.otf in Resources */,
 				88556FD72918E249003CD336 /* Assets.xcassets in Resources */,
 				88556FD52918E248003CD336 /* Main.storyboard in Resources */,
+				889215F1291979A300DE147C /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,11 +247,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88556FF72918F12A003CD336 /* OnboardingView.swift in Sources */,
+				885570092919591A003CD336 /* OnboardingCollectionViewCell.swift in Sources */,
 				88556FD22918E248003CD336 /* ViewController.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
+				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
 				88556FCE2918E248003CD336 /* AppDelegate.swift in Sources */,
+				8855700B29195D04003CD336 /* BaseCollectionViewCell.swift in Sources */,
+				885570002918F651003CD336 /* Extension+UIFont.swift in Sources */,
+				88556FFB2918F153003CD336 /* OnboardingViewController.swift in Sources */,
 				88556FD02918E248003CD336 /* SceneDelegate.swift in Sources */,
 				88556FEA2918E757003CD336 /* BaseViewController.swift in Sources */,
+				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
+				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +489,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		885570012919585A003CD336 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -409,6 +504,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88556FF32918EF31003CD336 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		885570022919585A003CD336 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 885570012919585A003CD336 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		885570042919585A003CD336 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 885570012919585A003CD336 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
