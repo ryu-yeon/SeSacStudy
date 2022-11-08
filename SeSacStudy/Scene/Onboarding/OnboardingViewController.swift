@@ -37,7 +37,7 @@ final class OnboardingViewController: BaseViewController {
         mainView.startButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                let nextVC = LoginViewController()
+                let nextVC = UINavigationController(rootViewController: LoginViewController())
                 nextVC.modalPresentationStyle = .fullScreen
                 vc.present(nextVC, animated: true)
             }
@@ -50,9 +50,6 @@ final class OnboardingViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-//        mainView.collectionView.rx.setDelegate(self)
-//            .disposed(by: disposeBag)
-
         mainView.pageControl.addTarget(self, action: #selector(pageChanged), for: .valueChanged)
         
         viewModel.fetch()
@@ -64,20 +61,4 @@ final class OnboardingViewController: BaseViewController {
         mainView.collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
         print(mainView.pageControl.currentPage)
     }
-    
-
 }
-
-//extension OnboardingViewController: UICollectionViewDelegate {
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let width = scrollView.bounds.size.width
-//        let x = scrollView.contentOffset.x + (width/2)
-//
-//        let newPage = Int(x/width)
-//        if mainView.pageControl.currentPage != newPage {
-//            mainView.pageControl.currentPage = newPage
-//        }
-//        print(mainView.pageControl.currentPage)
-//    }
-//}
