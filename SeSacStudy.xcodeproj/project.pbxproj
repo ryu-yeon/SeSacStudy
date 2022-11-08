@@ -33,6 +33,10 @@
 		889215F92919885900DE147C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215F82919885900DE147C /* LoginViewController.swift */; };
 		889215FB2919887100DE147C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215FA2919887100DE147C /* LoginViewModel.swift */; };
 		889215FD291A1EDD00DE147C /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215FC291A1EDD00DE147C /* Extension+UILabel.swift */; };
+		88921601291A29EF00DE147C /* LoginCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921600291A29EF00DE147C /* LoginCheckView.swift */; };
+		88921603291A29FC00DE147C /* LoginCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921602291A29FC00DE147C /* LoginCheckViewController.swift */; };
+		88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921604291A2A0500DE147C /* LoginCheckViewModel.swift */; };
+		88921607291AB85000DE147C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88921606291AB85000DE147C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,10 @@
 		889215F82919885900DE147C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		889215FA2919887100DE147C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		889215FC291A1EDD00DE147C /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
+		88921600291A29EF00DE147C /* LoginCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckView.swift; sourceTree = "<group>"; };
+		88921602291A29FC00DE147C /* LoginCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckViewController.swift; sourceTree = "<group>"; };
+		88921604291A2A0500DE147C /* LoginCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckViewModel.swift; sourceTree = "<group>"; };
+		88921606291AB85000DE147C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 				88556FD62918E249003CD336 /* Assets.xcassets */,
 				889215ED2919783500DE147C /* Source */,
 				88556FDB2918E249003CD336 /* Info.plist */,
+				88921606291AB85000DE147C /* GoogleService-Info.plist */,
 			);
 			path = SeSacStudy;
 			sourceTree = "<group>";
@@ -189,11 +198,30 @@
 		889215F72919884F00DE147C /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				889215FE291A29CA00DE147C /* 0_1_Login */,
+				889215FF291A29DC00DE147C /* 0_2_Login */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		889215FE291A29CA00DE147C /* 0_1_Login */ = {
+			isa = PBXGroup;
+			children = (
 				889215F52919884C00DE147C /* LoginView.swift */,
 				889215F82919885900DE147C /* LoginViewController.swift */,
 				889215FA2919887100DE147C /* LoginViewModel.swift */,
 			);
-			path = Login;
+			path = 0_1_Login;
+			sourceTree = "<group>";
+		};
+		889215FF291A29DC00DE147C /* 0_2_Login */ = {
+			isa = PBXGroup;
+			children = (
+				88921600291A29EF00DE147C /* LoginCheckView.swift */,
+				88921602291A29FC00DE147C /* LoginCheckViewController.swift */,
+				88921604291A2A0500DE147C /* LoginCheckViewModel.swift */,
+			);
+			path = 0_2_Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +296,7 @@
 				88556FD72918E249003CD336 /* Assets.xcassets in Resources */,
 				88556FD52918E248003CD336 /* Main.storyboard in Resources */,
 				889215F1291979A300DE147C /* NotoSansCJKkr-Medium.otf in Resources */,
+				88921607291AB85000DE147C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +310,7 @@
 				88556FF72918F12A003CD336 /* OnboardingView.swift in Sources */,
 				885570092919591A003CD336 /* OnboardingCollectionViewCell.swift in Sources */,
 				88556FD22918E248003CD336 /* ViewController.swift in Sources */,
+				88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */,
 				889215F62919884C00DE147C /* LoginView.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
 				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
@@ -296,6 +326,8 @@
 				889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
+				88921601291A29EF00DE147C /* LoginCheckView.swift in Sources */,
+				88921603291A29FC00DE147C /* LoginCheckViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
