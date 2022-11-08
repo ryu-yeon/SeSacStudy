@@ -36,8 +36,8 @@
 		88921601291A29EF00DE147C /* LoginCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921600291A29EF00DE147C /* LoginCheckView.swift */; };
 		88921603291A29FC00DE147C /* LoginCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921602291A29FC00DE147C /* LoginCheckViewController.swift */; };
 		88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921604291A2A0500DE147C /* LoginCheckViewModel.swift */; };
-		88921609291ABB0800DE147C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88921608291ABB0800DE147C /* GoogleService-Info.plist */; };
 		8892160C291ABBB500DE147C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8892160B291ABBB500DE147C /* FirebaseAuth */; };
+		8892160F291AC49800DE147C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8892160E291AC49800DE147C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +69,8 @@
 		88921600291A29EF00DE147C /* LoginCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckView.swift; sourceTree = "<group>"; };
 		88921602291A29FC00DE147C /* LoginCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckViewController.swift; sourceTree = "<group>"; };
 		88921604291A2A0500DE147C /* LoginCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckViewModel.swift; sourceTree = "<group>"; };
-		88921608291ABB0800DE147C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8892160D291ABE1300DE147C /* SeSacStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSacStudy.entitlements; sourceTree = "<group>"; };
+		8892160E291AC49800DE147C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 		88556FCC2918E248003CD336 /* SeSacStudy */ = {
 			isa = PBXGroup;
 			children = (
+				8892160D291ABE1300DE147C /* SeSacStudy.entitlements */,
 				88556FCD2918E248003CD336 /* AppDelegate.swift */,
 				88556FCF2918E248003CD336 /* SceneDelegate.swift */,
 				88556FD12918E248003CD336 /* ViewController.swift */,
@@ -117,7 +119,7 @@
 				88556FD62918E249003CD336 /* Assets.xcassets */,
 				889215ED2919783500DE147C /* Source */,
 				88556FDB2918E249003CD336 /* Info.plist */,
-				88921608291ABB0800DE147C /* GoogleService-Info.plist */,
+				8892160E291AC49800DE147C /* GoogleService-Info.plist */,
 			);
 			path = SeSacStudy;
 			sourceTree = "<group>";
@@ -300,7 +302,7 @@
 				88556FD72918E249003CD336 /* Assets.xcassets in Resources */,
 				88556FD52918E248003CD336 /* Main.storyboard in Resources */,
 				889215F1291979A300DE147C /* NotoSansCJKkr-Medium.otf in Resources */,
-				88921609291ABB0800DE147C /* GoogleService-Info.plist in Resources */,
+				8892160F291AC49800DE147C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSacStudy/SeSacStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CH36BYYATY;
@@ -505,6 +508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSacStudy/SeSacStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CH36BYYATY;

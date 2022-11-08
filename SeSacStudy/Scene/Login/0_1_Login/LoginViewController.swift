@@ -48,6 +48,8 @@ final class LoginViewController: BaseViewController {
             .bind { (vc, _) in
                 if vc.viewModel.isValid {
                     print("인증시작")
+                    vc.viewModel.phoneNumber = vc.mainView.numberTextField.text ?? ""
+                    vc.viewModel.sendSMS()
                     let nextVC = LoginCheckViewController()
                     vc.navigationController?.pushViewController(nextVC, animated: true)
                 } else {
