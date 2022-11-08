@@ -12,4 +12,20 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func setNavigationBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.setBackIndicatorImage(UIImage(named: "left"), transitionMaskImage: UIImage(named: "left"))
+        appearance.backgroundColor = .white
+        appearance.shadowColor = .gray6
+        appearance.shadowImage = UIImage()
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+
+        navigationItem.backButtonTitle = ""
+        navigationController?.navigationBar.tintColor = .black
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "left")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "left")
+    }
 }
