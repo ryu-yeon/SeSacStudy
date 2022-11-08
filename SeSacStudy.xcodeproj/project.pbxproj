@@ -32,6 +32,7 @@
 		889215F62919884C00DE147C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215F52919884C00DE147C /* LoginView.swift */; };
 		889215F92919885900DE147C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215F82919885900DE147C /* LoginViewController.swift */; };
 		889215FB2919887100DE147C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215FA2919887100DE147C /* LoginViewModel.swift */; };
+		889215FD291A1EDD00DE147C /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215FC291A1EDD00DE147C /* Extension+UILabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		889215F52919884C00DE147C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		889215F82919885900DE147C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		889215FA2919887100DE147C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		889215FC291A1EDD00DE147C /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			children = (
 				88556FFC2918F28C003CD336 /* Extension+UIColor.swift */,
 				88556FFF2918F651003CD336 /* Extension+UIFont.swift */,
+				889215FC291A1EDD00DE147C /* Extension+UILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				889215F62919884C00DE147C /* LoginView.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
 				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
+				889215FD291A1EDD00DE147C /* Extension+UILabel.swift in Sources */,
 				88556FCE2918E248003CD336 /* AppDelegate.swift in Sources */,
 				8855700B29195D04003CD336 /* BaseCollectionViewCell.swift in Sources */,
 				885570002918F651003CD336 /* Extension+UIFont.swift in Sources */,
