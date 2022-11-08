@@ -16,6 +16,7 @@ final class OnboardingCollectionViewCell: BaseCollectionViewCell {
         view.textAlignment = .center
         view.numberOfLines = 0
         view.font = UIFont(name: Font.NotoSansMedium.rawValue, size: 24)
+        view.setLineHeight(lineHeight: 1.08)
         return view
     }()
     

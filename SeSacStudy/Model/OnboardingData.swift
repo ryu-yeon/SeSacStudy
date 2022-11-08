@@ -10,4 +10,5 @@ import Foundation
 struct OnboardingData {
     let text: String
     let image: String
+    let range: Int
 }

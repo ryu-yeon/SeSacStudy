@@ -27,7 +27,7 @@ final class OnboardingViewController: BaseViewController {
         
         viewModel.list
             .bind(to: mainView.collectionView.rx.items(cellIdentifier: OnboardingCollectionViewCell.reusableIdentifier, cellType: OnboardingCollectionViewCell.self)) { (item, element, cell) in
-                cell.textLabel.text = element.text
+                cell.textLabel.setRangeTextColor(text: element.text, length: element.range, color: .brandGreen)
                 cell.onboardingImage.image = UIImage(named: element.image)
             }
             .disposed(by: disposeBag)
@@ -50,8 +50,8 @@ final class OnboardingViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        mainView.collectionView.rx.setDelegate(self)
-            .disposed(by: disposeBag)
+//        mainView.collectionView.rx.setDelegate(self)
+//            .disposed(by: disposeBag)
 
         mainView.pageControl.addTarget(self, action: #selector(pageChanged), for: .valueChanged)
         
@@ -64,18 +64,20 @@ final class OnboardingViewController: BaseViewController {
         mainView.collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
         print(mainView.pageControl.currentPage)
     }
+    
+
 }
 
-extension OnboardingViewController: UICollectionViewDelegate {
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let width = scrollView.bounds.size.width
-        let x = scrollView.contentOffset.x + (width/2)
-
-        let newPage = Int(x/width)
-        if mainView.pageControl.currentPage != newPage {
-            mainView.pageControl.currentPage = newPage
-        }
-        print(mainView.pageControl.currentPage)
-    }
-}
+//extension OnboardingViewController: UICollectionViewDelegate {
+//
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let width = scrollView.bounds.size.width
+//        let x = scrollView.contentOffset.x + (width/2)
+//
+//        let newPage = Int(x/width)
+//        if mainView.pageControl.currentPage != newPage {
+//            mainView.pageControl.currentPage = newPage
+//        }
+//        print(mainView.pageControl.currentPage)
+//    }
+//}
