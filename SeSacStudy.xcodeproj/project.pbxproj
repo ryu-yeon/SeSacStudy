@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8826E2BA291AFAA600AF8023 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2B9291AFAA600AF8023 /* NicknameView.swift */; };
+		8826E2BC291AFC5100AF8023 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2BB291AFC5100AF8023 /* NicknameViewController.swift */; };
+		8826E2BE291AFCAD00AF8023 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2BD291AFCAD00AF8023 /* NicknameViewModel.swift */; };
+		8826E2C3291B718900AF8023 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2C2291B718900AF8023 /* FirebaseAuthManager.swift */; };
 		88556FCE2918E248003CD336 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FCD2918E248003CD336 /* AppDelegate.swift */; };
 		88556FD02918E248003CD336 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FCF2918E248003CD336 /* SceneDelegate.swift */; };
 		88556FD22918E248003CD336 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FD12918E248003CD336 /* ViewController.swift */; };
@@ -38,9 +42,14 @@
 		88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921604291A2A0500DE147C /* LoginCheckViewModel.swift */; };
 		8892160C291ABBB500DE147C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8892160B291ABBB500DE147C /* FirebaseAuth */; };
 		8892160F291AC49800DE147C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8892160E291AC49800DE147C /* GoogleService-Info.plist */; };
+		88921612291AD5C200DE147C /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 88921611291AD5C200DE147C /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8826E2B9291AFAA600AF8023 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		8826E2BB291AFC5100AF8023 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		8826E2BD291AFCAD00AF8023 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		8826E2C2291B718900AF8023 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		88556FCA2918E248003CD336 /* SeSacStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88556FCD2918E248003CD336 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88556FCF2918E248003CD336 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +90,7 @@
 				885570052919585A003CD336 /* RxSwift in Frameworks */,
 				885570032919585A003CD336 /* RxCocoa in Frameworks */,
 				88556FF52918EF31003CD336 /* SnapKit in Frameworks */,
+				88921612291AD5C200DE147C /* Toast in Frameworks */,
 				8892160C291ABBB500DE147C /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +98,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8826E2B3291AF9D800AF8023 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				8826E2B5291AFA4000AF8023 /* Nickname */,
+				8826E2B6291AFA5600AF8023 /* Birth */,
+				8826E2B7291AFA6100AF8023 /* Email */,
+				8826E2B8291AFA7F00AF8023 /* Gender */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		8826E2B4291AF9F500AF8023 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8826E2B5291AFA4000AF8023 /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				8826E2B9291AFAA600AF8023 /* NicknameView.swift */,
+				8826E2BB291AFC5100AF8023 /* NicknameViewController.swift */,
+				8826E2BD291AFCAD00AF8023 /* NicknameViewModel.swift */,
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
+		8826E2B6291AFA5600AF8023 /* Birth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Birth;
+			sourceTree = "<group>";
+		};
+		8826E2B7291AFA6100AF8023 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		8826E2B8291AFA7F00AF8023 /* Gender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gender;
+			sourceTree = "<group>";
+		};
+		8826E2C4291B718E00AF8023 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				8826E2C2291B718900AF8023 /* FirebaseAuthManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		88556FC12918E248003CD336 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +180,7 @@
 				88556FD12918E248003CD336 /* ViewController.swift */,
 				88556FD32918E248003CD336 /* Main.storyboard */,
 				88556FD82918E249003CD336 /* LaunchScreen.storyboard */,
+				8826E2C4291B718E00AF8023 /* Firebase */,
 				8855700E29196011003CD336 /* Model */,
 				88556FF92918F140003CD336 /* Scene */,
 				88556FF22918EE62003CD336 /* Utility */,
@@ -160,6 +228,8 @@
 			children = (
 				88556FF82918F12D003CD336 /* Onboarding */,
 				889215F72919884F00DE147C /* Login */,
+				8826E2B3291AF9D800AF8023 /* Signup */,
+				8826E2B4291AF9F500AF8023 /* Home */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -249,6 +319,7 @@
 				885570022919585A003CD336 /* RxCocoa */,
 				885570042919585A003CD336 /* RxSwift */,
 				8892160B291ABBB500DE147C /* FirebaseAuth */,
+				88921611291AD5C200DE147C /* Toast */,
 			);
 			productName = SeSacStudy;
 			productReference = 88556FCA2918E248003CD336 /* SeSacStudy.app */;
@@ -282,6 +353,7 @@
 				88556FF32918EF31003CD336 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				885570012919585A003CD336 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				8892160A291ABBB500DE147C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				88921610291AD5C200DE147C /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 88556FCB2918E248003CD336 /* Products */;
 			projectDirPath = "";
@@ -318,9 +390,11 @@
 				88556FD22918E248003CD336 /* ViewController.swift in Sources */,
 				88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */,
 				889215F62919884C00DE147C /* LoginView.swift in Sources */,
+				8826E2BC291AFC5100AF8023 /* NicknameViewController.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
 				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
 				889215FD291A1EDD00DE147C /* Extension+UILabel.swift in Sources */,
+				8826E2BA291AFAA600AF8023 /* NicknameView.swift in Sources */,
 				88556FCE2918E248003CD336 /* AppDelegate.swift in Sources */,
 				8855700B29195D04003CD336 /* BaseCollectionViewCell.swift in Sources */,
 				885570002918F651003CD336 /* Extension+UIFont.swift in Sources */,
@@ -331,9 +405,11 @@
 				889215F92919885900DE147C /* LoginViewController.swift in Sources */,
 				889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
+				8826E2BE291AFCAD00AF8023 /* NicknameViewModel.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
 				88921601291A29EF00DE147C /* LoginCheckView.swift in Sources */,
 				88921603291A29FC00DE147C /* LoginCheckViewController.swift in Sources */,
+				8826E2C3291B718900AF8023 /* FirebaseAuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +657,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		88921610291AD5C200DE147C /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -603,6 +687,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8892160A291ABBB500DE147C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		88921611291AD5C200DE147C /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88921610291AD5C200DE147C /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
