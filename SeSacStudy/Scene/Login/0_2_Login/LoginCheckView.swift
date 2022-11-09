@@ -13,6 +13,7 @@ final class LoginCheckView: BaseView {
     let textLabel: UILabel = {
         let view = UILabel()
         view.text = "인증문자가 문자로 전송되었어요"
+        view.textColor = .black
         view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 20)
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
