@@ -14,6 +14,7 @@ final class LoginView: BaseView {
     let textLabel: UILabel = {
         let view = UILabel()
         view.text = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요"
+        view.textColor = .black
         view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 20)
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
@@ -55,7 +56,7 @@ final class LoginView: BaseView {
     
     override func setConstraints() {
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(81)
+            make.top.equalTo(self.safeAreaLayoutGuide).offset(125)
             make.leading.trailing.equalTo(self).inset(74)
             make.height.equalTo(64)
         }
