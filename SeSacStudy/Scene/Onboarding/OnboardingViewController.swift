@@ -37,9 +37,13 @@ final class OnboardingViewController: BaseViewController {
         mainView.startButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
+                UserDefaults.standard.set(true, forKey: "start")
+                
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 let nextVC = UINavigationController(rootViewController: LoginViewController())
-                nextVC.modalPresentationStyle = .fullScreen
-                vc.present(nextVC, animated: true)
+                sceneDelegate?.window?.rootViewController = nextVC
+                sceneDelegate?.window?.makeKeyAndVisible()
             }
             .disposed(by: disposeBag)
         
@@ -57,8 +61,8 @@ final class OnboardingViewController: BaseViewController {
     
     @objc func pageChanged() {
 
-        let indexPath = IndexPath(item: mainView.pageControl.currentPage, section: 0)
-        mainView.collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
-        print(mainView.pageControl.currentPage)
+        let index = IndexPath(item: mainView.pageControl.currentPage, section: 0)
+        let rect = mainView.collectionView.layoutAttributesForItem(at: index)?.frame
+        mainView.collectionView.scrollRectToVisible(rect!, animated: true)
     }
 }

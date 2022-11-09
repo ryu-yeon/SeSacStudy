@@ -11,6 +11,16 @@
 		8826E2BC291AFC5100AF8023 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2BB291AFC5100AF8023 /* NicknameViewController.swift */; };
 		8826E2BE291AFCAD00AF8023 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2BD291AFCAD00AF8023 /* NicknameViewModel.swift */; };
 		8826E2C3291B718900AF8023 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2C2291B718900AF8023 /* FirebaseAuthManager.swift */; };
+		8826E2C6291B818200AF8023 /* BirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2C5291B818200AF8023 /* BirthView.swift */; };
+		8826E2C8291B829900AF8023 /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2C7291B829900AF8023 /* BirthViewController.swift */; };
+		8826E2CA291B82CF00AF8023 /* BirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2C9291B82CF00AF8023 /* BirthViewModel.swift */; };
+		8826E2CE291BF10600AF8023 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2CD291BF10600AF8023 /* DateView.swift */; };
+		8826E2D0291BF91200AF8023 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2CF291BF91200AF8023 /* EmailView.swift */; };
+		8826E2D2291BF91A00AF8023 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2D1291BF91A00AF8023 /* EmailViewController.swift */; };
+		8826E2D4291C58F800AF8023 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2D3291C58F800AF8023 /* EmailViewModel.swift */; };
+		8826E2D6291C5A1100AF8023 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2D5291C5A1100AF8023 /* GenderView.swift */; };
+		8826E2D8291C5A1700AF8023 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2D7291C5A1700AF8023 /* GenderViewController.swift */; };
+		8826E2DA291C5A1E00AF8023 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2D9291C5A1E00AF8023 /* GenderViewModel.swift */; };
 		88556FCE2918E248003CD336 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FCD2918E248003CD336 /* AppDelegate.swift */; };
 		88556FD02918E248003CD336 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FCF2918E248003CD336 /* SceneDelegate.swift */; };
 		88556FD22918E248003CD336 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88556FD12918E248003CD336 /* ViewController.swift */; };
@@ -50,6 +60,16 @@
 		8826E2BB291AFC5100AF8023 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		8826E2BD291AFCAD00AF8023 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		8826E2C2291B718900AF8023 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		8826E2C5291B818200AF8023 /* BirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthView.swift; sourceTree = "<group>"; };
+		8826E2C7291B829900AF8023 /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
+		8826E2C9291B82CF00AF8023 /* BirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewModel.swift; sourceTree = "<group>"; };
+		8826E2CD291BF10600AF8023 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		8826E2CF291BF91200AF8023 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		8826E2D1291BF91A00AF8023 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		8826E2D3291C58F800AF8023 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		8826E2D5291C5A1100AF8023 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		8826E2D7291C5A1700AF8023 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
+		8826E2D9291C5A1E00AF8023 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
 		88556FCA2918E248003CD336 /* SeSacStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88556FCD2918E248003CD336 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88556FCF2918E248003CD336 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +149,10 @@
 		8826E2B6291AFA5600AF8023 /* Birth */ = {
 			isa = PBXGroup;
 			children = (
+				8826E2C5291B818200AF8023 /* BirthView.swift */,
+				8826E2C7291B829900AF8023 /* BirthViewController.swift */,
+				8826E2C9291B82CF00AF8023 /* BirthViewModel.swift */,
+				8826E2CD291BF10600AF8023 /* DateView.swift */,
 			);
 			path = Birth;
 			sourceTree = "<group>";
@@ -136,6 +160,9 @@
 		8826E2B7291AFA6100AF8023 /* Email */ = {
 			isa = PBXGroup;
 			children = (
+				8826E2CF291BF91200AF8023 /* EmailView.swift */,
+				8826E2D1291BF91A00AF8023 /* EmailViewController.swift */,
+				8826E2D3291C58F800AF8023 /* EmailViewModel.swift */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -143,6 +170,9 @@
 		8826E2B8291AFA7F00AF8023 /* Gender */ = {
 			isa = PBXGroup;
 			children = (
+				8826E2D5291C5A1100AF8023 /* GenderView.swift */,
+				8826E2D7291C5A1700AF8023 /* GenderViewController.swift */,
+				8826E2D9291C5A1E00AF8023 /* GenderViewModel.swift */,
 			);
 			path = Gender;
 			sourceTree = "<group>";
@@ -388,14 +418,19 @@
 				88556FF72918F12A003CD336 /* OnboardingView.swift in Sources */,
 				885570092919591A003CD336 /* OnboardingCollectionViewCell.swift in Sources */,
 				88556FD22918E248003CD336 /* ViewController.swift in Sources */,
+				8826E2D4291C58F800AF8023 /* EmailViewModel.swift in Sources */,
 				88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */,
+				8826E2D8291C5A1700AF8023 /* GenderViewController.swift in Sources */,
+				8826E2C6291B818200AF8023 /* BirthView.swift in Sources */,
 				889215F62919884C00DE147C /* LoginView.swift in Sources */,
 				8826E2BC291AFC5100AF8023 /* NicknameViewController.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
 				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
+				8826E2CE291BF10600AF8023 /* DateView.swift in Sources */,
 				889215FD291A1EDD00DE147C /* Extension+UILabel.swift in Sources */,
 				8826E2BA291AFAA600AF8023 /* NicknameView.swift in Sources */,
 				88556FCE2918E248003CD336 /* AppDelegate.swift in Sources */,
+				8826E2CA291B82CF00AF8023 /* BirthViewModel.swift in Sources */,
 				8855700B29195D04003CD336 /* BaseCollectionViewCell.swift in Sources */,
 				885570002918F651003CD336 /* Extension+UIFont.swift in Sources */,
 				88556FFB2918F153003CD336 /* OnboardingViewController.swift in Sources */,
@@ -404,12 +439,17 @@
 				88556FEA2918E757003CD336 /* BaseViewController.swift in Sources */,
 				889215F92919885900DE147C /* LoginViewController.swift in Sources */,
 				889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */,
+				8826E2C8291B829900AF8023 /* BirthViewController.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
 				8826E2BE291AFCAD00AF8023 /* NicknameViewModel.swift in Sources */,
+				8826E2D2291BF91A00AF8023 /* EmailViewController.swift in Sources */,
+				8826E2DA291C5A1E00AF8023 /* GenderViewModel.swift in Sources */,
+				8826E2D6291C5A1100AF8023 /* GenderView.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
 				88921601291A29EF00DE147C /* LoginCheckView.swift in Sources */,
 				88921603291A29FC00DE147C /* LoginCheckViewController.swift in Sources */,
 				8826E2C3291B718900AF8023 /* FirebaseAuthManager.swift in Sources */,
+				8826E2D0291BF91200AF8023 /* EmailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
