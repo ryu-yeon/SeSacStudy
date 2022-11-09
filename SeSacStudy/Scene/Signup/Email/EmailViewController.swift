@@ -32,14 +32,16 @@ final class EmailViewController: BaseViewController {
             .orEmpty
             .withUnretained(self)
             .bind { vc, value in
+                vc.mainView.lineView.backgroundColor = value != "" ? .black : .gray3
                 vc.viewModel.isVaildEmail(email: value)
             }
             .disposed(by: disposeBag)
         
         
         viewModel.vaild
-            .bind { value in
-                self.mainView.nextButton.backgroundColor = value ? .brandGreen : .gray6
+            .withUnretained(self)
+            .bind { (vc, value) in
+                vc.mainView.nextButton.backgroundColor = value ? .brandGreen : .gray6
             }
             .disposed(by: disposeBag)
         

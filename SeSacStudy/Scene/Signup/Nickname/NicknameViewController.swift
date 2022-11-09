@@ -32,6 +32,7 @@ final class NicknameViewController: BaseViewController {
             .orEmpty
             .withUnretained(self)
             .bind { vc, value in
+                vc.mainView.lineView.backgroundColor = value != "" ? .black : .gray3
                 vc.viewModel.isVaildNickname(nickname: value)
             }
             .disposed(by: disposeBag)
