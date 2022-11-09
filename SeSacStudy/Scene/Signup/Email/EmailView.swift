@@ -44,7 +44,7 @@ final class EmailView: BaseView {
     
     let lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray6
+        view.backgroundColor = .gray3
         return view
     }()
     
