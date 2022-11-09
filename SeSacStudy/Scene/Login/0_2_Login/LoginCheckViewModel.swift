@@ -12,4 +12,15 @@ import RxSwift
 
 class LoginCheckViewModel {
     
+    var isValid = false
+    var phoneNumber = ""
+    var code = ""
+    
+    let firebaseAuthManager = FirebaseAuthManager()
+    
+    func isValidNumber() {
+        let phoneRegex = "^[0-9]{6}$"
+        let pred = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        isValid = pred.evaluate(with: code)
+    }
 }
