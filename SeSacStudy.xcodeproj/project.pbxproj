@@ -129,11 +129,11 @@
 			path = Signup;
 			sourceTree = "<group>";
 		};
-		8826E2B4291AF9F500AF8023 /* Home */ = {
+		8826E2B4291AF9F500AF8023 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Home;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		8826E2B5291AFA4000AF8023 /* Nickname */ = {
@@ -259,7 +259,7 @@
 				88556FF82918F12D003CD336 /* Onboarding */,
 				889215F72919884F00DE147C /* Login */,
 				8826E2B3291AF9D800AF8023 /* Signup */,
-				8826E2B4291AF9F500AF8023 /* Home */,
+				8826E2B4291AF9F500AF8023 /* Main */,
 			);
 			path = Scene;
 			sourceTree = "<group>";

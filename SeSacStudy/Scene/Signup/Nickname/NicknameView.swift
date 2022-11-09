@@ -27,7 +27,7 @@ final class NicknameView: BaseView {
         view.placeholder = "10자 이내로 입력"
         view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
         view.borderStyle = .none
-        view.keyboardType = .phonePad
+        view.keyboardType = .default
         return view
     }()
     
