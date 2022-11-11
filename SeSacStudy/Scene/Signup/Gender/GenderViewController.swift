@@ -14,7 +14,7 @@ import Toast
 final class GenderViewController: BaseViewController {
     
     private let mainView = GenderView()
-    private let viewModel = GenderViewModel()
+    let viewModel = GenderViewModel()
     private let disposeBag = DisposeBag()
     
     override func loadView() {
@@ -25,11 +25,17 @@ final class GenderViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setGenderButton()
+        setNextButton()
         
+        viewModel.fetch()
+    }
+    
+    private func setGenderButton() {
         mainView.manButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                vc.viewModel.gender = 1
+                vc.viewModel.profile?.gender = 1
                 vc.viewModel.fetch()
             }
             .disposed(by: disposeBag)
@@ -37,7 +43,7 @@ final class GenderViewController: BaseViewController {
         mainView.womanButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                vc.viewModel.gender = 0
+                vc.viewModel.profile?.gender = 0
                 vc.viewModel.fetch()
             }
             .disposed(by: disposeBag)
@@ -55,12 +61,59 @@ final class GenderViewController: BaseViewController {
                 vc.mainView.nextButton.backgroundColor = .brandGreen
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func setNextButton() {
         mainView.nextButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                
+                guard let profile = vc.viewModel.profile else { return }
+                print(profile)
+                if profile.gender >= 0 {
+                    let token = UserDefaults.standard.string(forKey: "token") ?? ""
+                    vc.viewModel.apiService.signup(idToken: token, profile: profile) { statusCode in
+                        vc.checkStatusCode(statusCode)
+                    }
+                } else {
+                    vc.mainView.makeToast("성별을 선택해 주세요.", duration: 1.0, position: .top)
+                }
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func checkStatusCode(_ statusCode: Int) {
+        switch statusCode {
+        case 200:
+            print("회원가입 성공🟢")
+            print(self.viewModel.profile)
+            goToVC(vc: MainTabBarController())
+        case 201:
+            print("이미 가입한 유저")
+        case 202:
+            print("사용할 수 없는 닉네임")
+            guard let viewControllerStack = self.navigationController?.viewControllers else { return }
+                for viewController in viewControllerStack {
+                    if let nicknameVC = viewController as? NicknameViewController {
+                        nicknameVC.viewModel.profile = self.viewModel.profile
+                        self.navigationController?.popToViewController(nicknameVC, animated: true)
+                    }
+                }
+        case 401:
+            print("Firebase Token Error🔴")
+            guard let profile = self.viewModel.profile else { return }
+            self.viewModel.firebaseAuthManager.getIdToken { [weak self] idToken in
+                if let idToken {
+                    self?.viewModel.apiService.signup(idToken: idToken, profile: profile, complitionHandler: { [weak self] status in
+                        self?.checkStatusCode(statusCode)
+                    })
+                }
+            }
+        case 500:
+            print("Server Error🔴")
+        case 501:
+            print("Client Error🔴")
+        default:
+            break
+        }
     }
 }
