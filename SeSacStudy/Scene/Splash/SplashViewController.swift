@@ -20,8 +20,7 @@ final class SplashViewController: BaseViewController {
         super.viewDidLoad()
         
         if UserDefaults.standard.bool(forKey: "start") {
-//            checkUser()
-            goToVC(vc: LoginCheckViewController())
+            checkUser()
         } else {
             goToVC(vc: OnboardingViewController())
         }
@@ -49,7 +48,6 @@ final class SplashViewController: BaseViewController {
             print("Firebase Token Error🔴")
         case 406:
             print("미가입 유저😀")
-            goToVC(vc: NicknameViewController())
         case 500:
             print("Server Error🔴")
         case 501:
