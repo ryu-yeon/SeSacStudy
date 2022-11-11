@@ -48,7 +48,7 @@ final class SplashViewController: BaseViewController {
             print("Firebase Token Error🔴")
         case 406:
             print("미가입 유저😀")
-            goToVC(vc: LoginViewController())
+            goToVC(vc: NicknameViewController())
         case 500:
             print("Server Error🔴")
         case 501:
