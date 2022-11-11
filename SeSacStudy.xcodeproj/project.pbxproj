@@ -31,6 +31,7 @@
 		880559B4291E485600F4D4A2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559B3291E485600F4D4A2 /* SplashView.swift */; };
 		880559B7291E487200F4D4A2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559B6291E487200F4D4A2 /* SplashViewController.swift */; };
 		880559B9291E488300F4D4A2 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559B8291E488300F4D4A2 /* SplashViewModel.swift */; };
+		880559BF291E8A2600F4D4A2 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 880559BE291E8A2600F4D4A2 /* RxKeyboard */; };
 		8826E2BA291AFAA600AF8023 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2B9291AFAA600AF8023 /* NicknameView.swift */; };
 		8826E2BC291AFC5100AF8023 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2BB291AFC5100AF8023 /* NicknameViewController.swift */; };
 		8826E2BE291AFCAD00AF8023 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2BD291AFCAD00AF8023 /* NicknameViewModel.swift */; };
@@ -154,6 +155,7 @@
 				88055997291D22B400F4D4A2 /* FirebaseMessaging in Frameworks */,
 				885570032919585A003CD336 /* RxCocoa in Frameworks */,
 				88556FF52918EF31003CD336 /* SnapKit in Frameworks */,
+				880559BF291E8A2600F4D4A2 /* RxKeyboard in Frameworks */,
 				88055989291CFC5300F4D4A2 /* Alamofire in Frameworks */,
 				88921612291AD5C200DE147C /* Toast in Frameworks */,
 			);
@@ -464,6 +466,7 @@
 				88055988291CFC5300F4D4A2 /* Alamofire */,
 				88055994291D22B400F4D4A2 /* FirebaseAuth */,
 				88055996291D22B400F4D4A2 /* FirebaseMessaging */,
+				880559BE291E8A2600F4D4A2 /* RxKeyboard */,
 			);
 			productName = SeSacStudy;
 			productReference = 88556FCA2918E248003CD336 /* SeSacStudy.app */;
@@ -499,6 +502,7 @@
 				88921610291AD5C200DE147C /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				88055987291CFC5300F4D4A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				88055993291D22B400F4D4A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				880559BD291E8A2600F4D4A2 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 			);
 			productRefGroup = 88556FCB2918E248003CD336 /* Products */;
 			projectDirPath = "";
@@ -824,6 +828,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		880559BD291E8A2600F4D4A2 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		88556FF32918EF31003CD336 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -865,6 +877,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88055993291D22B400F4D4A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		880559BE291E8A2600F4D4A2 /* RxKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 880559BD291E8A2600F4D4A2 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
 		};
 		88556FF42918EF31003CD336 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

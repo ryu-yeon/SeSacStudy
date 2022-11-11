@@ -92,9 +92,9 @@ final class EmailView: BaseView {
         }
         
         nextButton.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom).offset(72)
             make.leading.trailing.equalTo(self).inset(16)
             make.height.equalTo(48)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(UserDefaults.standard.float(forKey: "bottom"))
         }
     }
 }

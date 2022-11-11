@@ -74,9 +74,15 @@ final class LoginView: BaseView {
         }
         
         checkButton.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom).offset(72)
             make.leading.trailing.equalTo(self).inset(16)
             make.height.equalTo(48)
+            make.bottom.equalTo(-347)
+        }
+    }
+    
+    func updateConstraintsForKeyboard(_ view: UIView, height: CGFloat) {
+        view.snp.updateConstraints { make in
+            make.bottom.equalTo(height)
         }
     }
 }

@@ -113,10 +113,10 @@ final class GenderView: BaseView {
         }
         
         manButton.snp.makeConstraints { make in
-            make.top.equalTo(subTextLabel.snp.bottom).offset(32)
+            make.top.equalTo(subTextLabel.snp.bottom).offset(24)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self.snp.centerX).offset(-6)
-            make.height.equalTo(120)
+            make.height.equalTo(110)
         }
         
         manImageView.snp.makeConstraints { make in
@@ -124,7 +124,7 @@ final class GenderView: BaseView {
             make.centerX.equalTo(manButton)
             make.width.height.equalTo(64)
         }
-        
+
         manLabel.snp.makeConstraints { make in
             make.bottom.equalTo(manButton).inset(14)
             make.centerX.equalTo(manButton)
@@ -133,10 +133,10 @@ final class GenderView: BaseView {
         }
         
         womanButton.snp.makeConstraints { make in
-            make.top.equalTo(subTextLabel.snp.bottom).offset(32)
+            make.top.equalTo(subTextLabel.snp.bottom).offset(24)
             make.leading.equalTo(self.snp.centerX).offset(6)
             make.trailing.equalTo(self).offset(-16)
-            make.height.equalTo(120)
+            make.height.equalTo(110)
         }
         
         womanImageView.snp.makeConstraints { make in
@@ -153,9 +153,9 @@ final class GenderView: BaseView {
         }
         
         nextButton.snp.makeConstraints { make in
-            make.top.equalTo(manButton.snp.bottom).offset(32)
             make.leading.trailing.equalTo(self).inset(16)
             make.height.equalTo(48)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(UserDefaults.standard.float(forKey: "bottom"))
         }
     }
 }

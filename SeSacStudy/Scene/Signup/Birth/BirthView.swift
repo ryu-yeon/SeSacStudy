@@ -96,9 +96,9 @@ final class BirthView: BaseView {
         }
         
         nextButton.snp.makeConstraints { make in
-            make.top.equalTo(yearView.snp.bottom).offset(72)
             make.leading.trailing.equalTo(self).inset(16)
             make.height.equalTo(48)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(UserDefaults.standard.float(forKey: "bottom"))
         }
         
         datePicker.snp.makeConstraints { make in

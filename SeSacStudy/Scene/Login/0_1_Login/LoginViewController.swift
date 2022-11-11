@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import RxKeyboard
 import Toast
 
 final class LoginViewController: BaseViewController {
@@ -87,5 +88,14 @@ final class LoginViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
+        RxKeyboard.instance.visibleHeight
+                 .drive(onNext: { [unowned self] keyboardHeight in
+                     mainView.updateConstraintsForKeyboard(mainView.checkButton, height: -54 - keyboardHeight)
+                     UserDefaults.standard.set(-54 - keyboardHeight, forKey: "bottom")
+                     print(UserDefaults.standard.float(forKey: "bottom"))
+                     mainView.layoutIfNeeded()
+                 })
+                 .disposed(by: disposeBag)
     }
 }
