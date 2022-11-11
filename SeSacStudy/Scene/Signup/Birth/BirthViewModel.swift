@@ -19,6 +19,7 @@ final class BirthViewModel {
     var mouth = ""
     var day = ""
     var isVaild = false
+    var profile: Profile?
     
     func isVaildDate(date: Date) {
         let age = Calendar.current.dateComponents([.year], from: date, to: Date()).year ?? 0

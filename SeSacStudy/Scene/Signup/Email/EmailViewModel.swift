@@ -14,6 +14,7 @@ final class EmailViewModel {
     
     var vaild = PublishSubject<Bool>()
     var isVaild = false
+    var profile: Profile?
     
     func isVaildEmail(email: String) {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

@@ -11,7 +11,8 @@ import RxCocoa
 import RxSwift
 
 final class NicknameViewModel {
-    
+
+    var profile: Profile?
     var vaild = PublishSubject<Bool>()
     var isVaild = false
     
