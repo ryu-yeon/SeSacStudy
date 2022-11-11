@@ -38,8 +38,8 @@ final class LoginCheckView: BaseView {
     
     let timerLabel: UILabel = {
         let view = UILabel()
-        view.text = "05:00"
         view.font = UIFont(name: Font.NotoSansMedium.rawValue, size: 14)
+        view.textAlignment = .right
         view.textColor = .brandGreen
         return view
     }()
