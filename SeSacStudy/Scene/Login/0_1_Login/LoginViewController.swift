@@ -35,7 +35,13 @@ final class LoginViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setTextField()
+        setCheckButton()
         
+        viewModel.fetch()
+    }
+    
+    private func setTextField() {
         mainView.numberTextField.becomeFirstResponder()
         
         mainView.numberTextField.rx.text
@@ -47,7 +53,9 @@ final class LoginViewController: BaseViewController {
                 vc.mainView.numberTextField.text = vc.viewModel.phoneNumber
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func setCheckButton() {
         viewModel.valid
             .withUnretained(self)
             .bind { (vc, value) in
@@ -60,21 +68,24 @@ final class LoginViewController: BaseViewController {
             .bind { (vc, _) in
                 if vc.viewModel.isValid {
                     let phoneNumber = vc.mainView.numberTextField.text ?? ""
-                    vc.viewModel.firebaseAuthManager.sendSMS(phoneNumber: phoneNumber) { error in
+                    vc.viewModel.firebaseAuthManager.sendSMS(phoneNumber: phoneNumber) { error, code  in
                         if error != nil {
-                            vc.mainView.makeToast("에러가 발생했습니다. 다시 시도해주세요", duration: 1.0, position: .top)
+                            if code == FBAError.manyTry.rawValue {
+                                vc.mainView.makeToast(FBAMessage.manyTry.rawValue, duration: 1.0, position: .top)
+                            } else {
+                                vc.mainView.makeToast(FBAMessage.error.rawValue, duration: 1.0, position: .top)
+                            }
                         } else {
+                            vc.mainView.makeToast(FBAMessage.start.rawValue, duration: 1.0, position: .top)
                             let nextVC = LoginCheckViewController()
                             vc.navigationController?.pushViewController(nextVC, animated: true)
                             nextVC.viewModel.phoneNumber = phoneNumber
                         }
                     }
                 } else {
-                    vc.mainView.makeToast("잘못된 전화번호 형식입니다.", duration: 1.0, position: .top)
+                    vc.mainView.makeToast(FBAMessage.invaild.rawValue, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)
-        
-        viewModel.fetch()
     }
 }
