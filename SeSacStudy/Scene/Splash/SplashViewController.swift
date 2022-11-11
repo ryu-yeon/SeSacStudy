@@ -20,7 +20,8 @@ final class SplashViewController: BaseViewController {
         super.viewDidLoad()
         
         if UserDefaults.standard.bool(forKey: "start") {
-            checkUser()
+//            checkUser()
+            goToVC(vc: LoginCheckViewController())
         } else {
             goToVC(vc: OnboardingViewController())
         }
