@@ -21,14 +21,16 @@ final class LoginCheckViewController: BaseViewController {
         self.view = mainView
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        mainView.makeToast("전화 번호 인증 시작", duration: 1.0, position: .top)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTimer()
+        setTextField()
+        setCheckButton()
+        setResendButton()
+    }
+    
+    private func setTextField() {
         mainView.numberTextField.becomeFirstResponder()
         
         mainView.numberTextField.rx.text
@@ -45,36 +47,101 @@ final class LoginCheckViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
-        
-        mainView.resendButton.rx.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                vc.viewModel.firebaseAuthManager.sendSMS(phoneNumber: vc.viewModel.phoneNumber) { error in
-                    if error != nil {
-                        self.mainView.makeToast("에러가 발생했습니다. 다시 시도해주세요", duration: 1.0, position: .top)
-                    } else {
-                        vc.mainView.makeToast("전화 번호 인증 시작", duration: 1.0, position: .top)
-                    }
-                }
+    }
+    
+    private func setCheckButton() {
+        viewModel.vaild
+            .bind { value in
+                self.mainView.checkButton.backgroundColor = value ? .brandGreen : .gray6
             }
             .disposed(by: disposeBag)
         
         mainView.checkButton.rx.tap
-            .bind { _ in
-                if self.viewModel.isValid {
-                    self.viewModel.firebaseAuthManager.checkCode(code: self.viewModel.code) { error in
-                        if let error {
-                            print(error.localizedDescription)
-                            self.mainView.makeToast("전화 번호 인증 실패", duration: 1.0, position: .top)
+            .withUnretained(self)
+            .bind { (vc, _) in
+                if vc.viewModel.isValid {
+                    vc.viewModel.firebaseAuthManager.checkCode(code: vc.viewModel.code) { error in
+                        if error != nil {
+                            vc.mainView.makeToast(FBAMessage.fail.rawValue, duration: 1.0, position: .top)
                         } else {
-                            let nextVC = NicknameViewController()
-                            self.navigationController?.pushViewController(nextVC, animated: true)
+                            vc.viewModel.getPhoneNumber()
+                            vc.viewModel.firebaseAuthManager.getIdToken { idToken in
+                                if let idToken {
+                                    vc.viewModel.apiService.login(idToken: idToken) { data, statusCode in
+                                        vc.checkStatusCode(statusCode, data: data)
+                                    }
+                                }
+                            }
                         }
                     }
                 } else {
-                    self.mainView.makeToast("전화 번호 인증 실패", duration: 1.0, position: .top)
+                    vc.mainView.makeToast(FBAMessage.fail.rawValue, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)
     }
+    
+    private func checkStatusCode(_ statusCode: Int, data: User?) {
+        switch statusCode {
+        case 200:
+            print("로그인 성공🟢")
+            print(data)
+            goToVC(vc: MainTabBarController())
+        case 401:
+            print("Firebase Token Error🔴")
+        case 406:
+            print("미가입 유저😀")
+            let nextVC = NicknameViewController()
+            nextVC.viewModel.profile = self.viewModel.profile
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        case 500:
+            print("Server Error🔴")
+        case 501:
+            print("Client Error🔴")
+        default:
+            break
+        }
+    }
+    
+    private func setResendButton() {
+        mainView.resendButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.viewModel.timer?.dispose()
+                vc.setTimer()
+                vc.mainView.numberTextField.text = ""
+                vc.viewModel.vaild.onNext(false)
+                vc.viewModel.firebaseAuthManager.sendSMS(phoneNumber: vc.viewModel.phoneNumber) { error, code  in
+                    if error != nil {
+                        if code == 17010 {
+                            vc.mainView.makeToast(FBAMessage.manyTry.rawValue, duration: 1.0, position: .top)
+                        } else {
+                            vc.mainView.makeToast(FBAMessage.error.rawValue, duration: 1.0, position: .top)
+                        }
+                    } else {
+                        vc.mainView.makeToast(FBAMessage.start.rawValue, duration: 1.0, position: .top)
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func setTimer() {
+        let startTime = Date()
+        
+        viewModel.timer?.dispose()
+        viewModel.timer = Observable<Int>.interval(
+            .seconds(1),
+            scheduler: MainScheduler.instance)
+        .take(60)
+        .withUnretained(self)
+        .subscribe(onNext: { (vc, value) in
+            let elapseSeconds = Date().timeIntervalSince(startTime)
+            vc.mainView.timerLabel.text = "\(60 - Int(elapseSeconds))"
+        }, onCompleted: {
+            self.viewModel.vaild.onNext(false)
+            self.viewModel.timer?.dispose()
+        })
+    }
 }
+
