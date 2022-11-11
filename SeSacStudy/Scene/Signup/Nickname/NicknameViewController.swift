@@ -14,7 +14,7 @@ import Toast
 final class NicknameViewController: BaseViewController {
     
     private let mainView = NicknameView()
-    private let viewModel = NicknameViewModel()
+    let viewModel = NicknameViewModel()
     private let disposeBag = DisposeBag()
     
     override func loadView() {
@@ -25,8 +25,16 @@ final class NicknameViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setTextField()
+        setNextButton()
         
+        viewModel.fetch()
+    }
+    
+    private func setTextField() {
         mainView.nicknameTextField.becomeFirstResponder()
+        
+        mainView.nicknameTextField.text = viewModel.profile?.nickname
         
         mainView.nicknameTextField.rx.text
             .orEmpty
@@ -34,10 +42,12 @@ final class NicknameViewController: BaseViewController {
             .bind { vc, value in
                 vc.mainView.lineView.backgroundColor = value != "" ? .black : .gray3
                 vc.viewModel.isVaildNickname(nickname: value)
+                vc.viewModel.profile?.nickname = value
             }
             .disposed(by: disposeBag)
-        
-        
+    }
+    
+    private func setNextButton() {
         viewModel.vaild
             .bind { value in
                 self.mainView.nextButton.backgroundColor = value ? .brandGreen : .gray6
@@ -50,13 +60,12 @@ final class NicknameViewController: BaseViewController {
                 
                 if vc.viewModel.isVaild {
                     let nextVC = BirthViewController()
+                    nextVC.viewModel.profile = vc.viewModel.profile
                     vc.navigationController?.pushViewController(nextVC, animated: true)
                 } else {
                     vc.mainView.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요.", duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)
-     
-        viewModel.fetch()
     }
 }

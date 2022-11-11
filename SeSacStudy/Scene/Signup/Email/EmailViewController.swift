@@ -14,7 +14,7 @@ import Toast
 final class EmailViewController: BaseViewController {
     
     private let mainView = EmailView()
-    private let viewModel = EmailViewModel()
+    let viewModel = EmailViewModel()
     private let disposeBag = DisposeBag()
     
     override func loadView() {
@@ -25,8 +25,16 @@ final class EmailViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setTextField()
+        setNextButton()
         
+        viewModel.fetch()
+    }
+    
+    private func setTextField() {
         mainView.emailTextField.becomeFirstResponder()
+        
+        mainView.emailTextField.text = viewModel.profile?.email
         
         mainView.emailTextField.rx.text
             .orEmpty
@@ -34,10 +42,12 @@ final class EmailViewController: BaseViewController {
             .bind { vc, value in
                 vc.mainView.lineView.backgroundColor = value != "" ? .black : .gray3
                 vc.viewModel.isVaildEmail(email: value)
+                vc.viewModel.profile?.email = value
             }
             .disposed(by: disposeBag)
-        
-        
+    }
+    
+    private func setNextButton() {
         viewModel.vaild
             .withUnretained(self)
             .bind { (vc, value) in
@@ -48,16 +58,14 @@ final class EmailViewController: BaseViewController {
         mainView.nextButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                
                 if vc.viewModel.isVaild {
                     let nextVC = GenderViewController()
+                    nextVC.viewModel.profile = vc.viewModel.profile
                     vc.navigationController?.pushViewController(nextVC, animated: true)
                 } else {
                     vc.mainView.makeToast("이메일 형식이 올바르지 않습니다.", duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)
-     
-        viewModel.fetch()
     }
 }
