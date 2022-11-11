@@ -23,6 +23,14 @@ final class OnboardingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setCollectionView()
+        setPageControl()
+        setStartButton()
+
+        viewModel.fetch()
+    }
+
+    private func setCollectionView() {
         mainView.collectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.reusableIdentifier)
         
         viewModel.list
@@ -32,37 +40,32 @@ final class OnboardingViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        mainView.pageControl.numberOfPages = viewModel.data.count
-        
-        mainView.startButton.rx.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                UserDefaults.standard.set(true, forKey: "start")
-                
-                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                let nextVC = UINavigationController(rootViewController: LoginViewController())
-                sceneDelegate?.window?.rootViewController = nextVC
-                sceneDelegate?.window?.makeKeyAndVisible()
-            }
-            .disposed(by: disposeBag)
-        
         mainView.collectionView.rx.willEndDragging
             .bind { (velocity, targetContentOffset) in
                 let page = Int(targetContentOffset.pointee.x / self.mainView.frame.width)
                 self.mainView.pageControl.currentPage = page
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func setPageControl() {
+        mainView.pageControl.numberOfPages = viewModel.data.count
         mainView.pageControl.addTarget(self, action: #selector(pageChanged), for: .valueChanged)
-        
-        viewModel.fetch()
     }
     
     @objc func pageChanged() {
-
         let index = IndexPath(item: mainView.pageControl.currentPage, section: 0)
         let rect = mainView.collectionView.layoutAttributesForItem(at: index)?.frame
         mainView.collectionView.scrollRectToVisible(rect!, animated: true)
+    }
+    
+    private func setStartButton() {
+        mainView.startButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                UserDefaults.standard.set(true, forKey: "start")
+                self.goToVC(vc: LoginViewController())
+            }
+            .disposed(by: disposeBag)
     }
 }
