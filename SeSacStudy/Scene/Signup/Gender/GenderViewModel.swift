@@ -12,11 +12,14 @@ import RxSwift
 
 final class GenderViewModel {
     
-    var gender = -1
+    var profile: Profile?
     
     var data = PublishSubject<Int>()
     
+    let firebaseAuthManager = FirebaseAuthManager()
+    let apiService = APIService()
+    
     func fetch() {
-        data.onNext(gender)
+        data.onNext(profile?.gender ?? -1)
     }
 }
