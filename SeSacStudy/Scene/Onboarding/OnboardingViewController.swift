@@ -64,7 +64,7 @@ final class OnboardingViewController: BaseViewController {
             .withUnretained(self)
             .bind { (vc, _) in
                 UserDefaults.standard.set(true, forKey: "start")
-                self.goToVC(vc: LoginViewController())
+                self.goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
             }
             .disposed(by: disposeBag)
     }

@@ -32,8 +32,7 @@ class BaseViewController: UIViewController {
     func goToVC(vc: UIViewController) {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        let nextVC = UINavigationController(rootViewController: vc)
-        sceneDelegate?.window?.rootViewController = nextVC
+        sceneDelegate?.window?.rootViewController = vc
         sceneDelegate?.window?.makeKeyAndVisible()
     }
 }
