@@ -7,8 +7,6 @@
 
 import UIKit
 
-import SnapKit
-
 class BaseCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
