@@ -33,7 +33,7 @@ final class SplashViewController: BaseViewController {
                     self?.checkStatusCode(statusCode, data: data)
                 }
             } else {
-                self?.goToVC(vc: LoginViewController())
+                self?.goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
             }
         }
     }
