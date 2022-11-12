@@ -17,19 +17,19 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func configureTabBarController() {
-        let firstVC = HomeViewController()
+        let firstVC = UINavigationController(rootViewController: HomeViewController())
         firstVC.tabBarItem.title = "홈"
         firstVC.tabBarItem.image = UIImage(named: "home")
         
-        let secondVC = ShopViewController()
+        let secondVC = UINavigationController(rootViewController: ShopViewController())
         secondVC.tabBarItem.title = "새싹샵"
         secondVC.tabBarItem.image = UIImage(named: "shop")
         
-        let thirdVC = FriendViewController()
+        let thirdVC = UINavigationController(rootViewController: FriendViewController())
         thirdVC.tabBarItem.title = "새싹친구"
         thirdVC.tabBarItem.image = UIImage(named: "friend")
         
-        let fourthVC = MyInfoViewController()
+        let fourthVC = UINavigationController(rootViewController: MyInfoViewController())
         fourthVC.tabBarItem.title = "내정보"
         fourthVC.tabBarItem.image = UIImage(named: "my")
         
