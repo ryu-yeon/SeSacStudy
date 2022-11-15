@@ -15,7 +15,7 @@ final class DateView: BaseView {
         let view = UILabel()
         view.textAlignment = .left
         view.textColor = .gray7
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
+        view.font = .body3_R14
         return view
     }()
     
@@ -23,7 +23,7 @@ final class DateView: BaseView {
         let view = UILabel()
         view.textAlignment = .right
         view.textColor = .black
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
+        view.font = .body3_R14
         return view
     }()
     

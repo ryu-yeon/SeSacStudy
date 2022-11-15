@@ -32,15 +32,15 @@ final class EmailViewController: BaseViewController {
     }
     
     private func setTextField() {
-        mainView.emailTextField.becomeFirstResponder()
+        mainView.emailTextField.textField.becomeFirstResponder()
         
-        mainView.emailTextField.text = viewModel.profile?.email
+        mainView.emailTextField.textField.text = viewModel.profile?.email
         
-        mainView.emailTextField.rx.text
+        mainView.emailTextField.textField.rx.text
             .orEmpty
             .withUnretained(self)
             .bind { vc, value in
-                vc.mainView.lineView.backgroundColor = value != "" ? .black : .gray3
+                vc.mainView.emailTextField.lineView.backgroundColor = value != "" ? .black : .gray3
                 vc.viewModel.isVaildEmail(email: value)
                 vc.viewModel.profile?.email = value
             }

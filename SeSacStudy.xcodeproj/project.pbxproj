@@ -78,6 +78,17 @@
 		88921603291A29FC00DE147C /* LoginCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921602291A29FC00DE147C /* LoginCheckViewController.swift */; };
 		88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921604291A2A0500DE147C /* LoginCheckViewModel.swift */; };
 		88921612291AD5C200DE147C /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 88921611291AD5C200DE147C /* Toast */; };
+		88992777292237B000294B6B /* SetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88992776292237B000294B6B /* SetInfoView.swift */; };
+		8899277A292239DB00294B6B /* SetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88992779292239DB00294B6B /* SetInfoViewController.swift */; };
+		8899277C29223B2000294B6B /* SetInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899277B29223B2000294B6B /* SetInfoViewModel.swift */; };
+		8899277E292248D900294B6B /* CardTabeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899277D292248D900294B6B /* CardTabeViewCell.swift */; };
+		8899278029224A3700294B6B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899277F29224A3700294B6B /* InfoView.swift */; };
+		8899278229224C4900294B6B /* SetInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278129224C4900294B6B /* SetInfoCollectionViewCell.swift */; };
+		889927852922728A00294B6B /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 889927842922728A00294B6B /* RxDataSources */; };
+		88992787292377FB00294B6B /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88992786292377FB00294B6B /* PopupView.swift */; };
+		8899278A29237B0C00294B6B /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278929237B0C00294B6B /* PopupViewController.swift */; };
+		8899278C2923A83A00294B6B /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278B2923A83A00294B6B /* BaseButton.swift */; };
+		8899278E2923A91300294B6B /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278D2923A91300294B6B /* BaseTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +158,16 @@
 		88921602291A29FC00DE147C /* LoginCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckViewController.swift; sourceTree = "<group>"; };
 		88921604291A2A0500DE147C /* LoginCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckViewModel.swift; sourceTree = "<group>"; };
 		8892160D291ABE1300DE147C /* SeSacStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSacStudy.entitlements; sourceTree = "<group>"; };
+		88992776292237B000294B6B /* SetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoView.swift; sourceTree = "<group>"; };
+		88992779292239DB00294B6B /* SetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoViewController.swift; sourceTree = "<group>"; };
+		8899277B29223B2000294B6B /* SetInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoViewModel.swift; sourceTree = "<group>"; };
+		8899277D292248D900294B6B /* CardTabeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTabeViewCell.swift; sourceTree = "<group>"; };
+		8899277F29224A3700294B6B /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		8899278129224C4900294B6B /* SetInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		88992786292377FB00294B6B /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		8899278929237B0C00294B6B /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		8899278B2923A83A00294B6B /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		8899278D2923A91300294B6B /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +181,7 @@
 				885570032919585A003CD336 /* RxCocoa in Frameworks */,
 				88556FF52918EF31003CD336 /* SnapKit in Frameworks */,
 				880559BF291E8A2600F4D4A2 /* RxKeyboard in Frameworks */,
+				889927852922728A00294B6B /* RxDataSources in Frameworks */,
 				88055989291CFC5300F4D4A2 /* Alamofire in Frameworks */,
 				88921612291AD5C200DE147C /* Toast in Frameworks */,
 			);
@@ -210,10 +232,8 @@
 		880559A6291DED5D00F4D4A2 /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
-				880559AD291DEE4800F4D4A2 /* MyInfoView.swift */,
-				880559AF291DEE7F00F4D4A2 /* MyInfoViewController.swift */,
-				880559B1291DEE9200F4D4A2 /* MyInfoViewModel.swift */,
-				880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */,
+				88992775292237A000294B6B /* MyInfo */,
+				88992778292237B400294B6B /* SetInfo */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -341,10 +361,12 @@
 		88556FE82918E74E003CD336 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				8899278B2923A83A00294B6B /* BaseButton.swift */,
 				88556FE62918E74B003CD336 /* BaseView.swift */,
 				88556FE92918E757003CD336 /* BaseViewController.swift */,
 				8855700A29195D04003CD336 /* BaseCollectionViewCell.swift */,
 				880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */,
+				8899278D2923A91300294B6B /* BaseTextField.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -378,6 +400,7 @@
 				889215F72919884F00DE147C /* Login */,
 				8826E2B3291AF9D800AF8023 /* Signup */,
 				8826E2B4291AF9F500AF8023 /* Main */,
+				88992788292377FF00294B6B /* Popup */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -448,6 +471,39 @@
 			path = 0_2_Login;
 			sourceTree = "<group>";
 		};
+		88992775292237A000294B6B /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				880559AD291DEE4800F4D4A2 /* MyInfoView.swift */,
+				880559AF291DEE7F00F4D4A2 /* MyInfoViewController.swift */,
+				880559B1291DEE9200F4D4A2 /* MyInfoViewModel.swift */,
+				880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */,
+			);
+			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		88992778292237B400294B6B /* SetInfo */ = {
+			isa = PBXGroup;
+			children = (
+				88992776292237B000294B6B /* SetInfoView.swift */,
+				88992779292239DB00294B6B /* SetInfoViewController.swift */,
+				8899277B29223B2000294B6B /* SetInfoViewModel.swift */,
+				8899277F29224A3700294B6B /* InfoView.swift */,
+				8899277D292248D900294B6B /* CardTabeViewCell.swift */,
+				8899278129224C4900294B6B /* SetInfoCollectionViewCell.swift */,
+			);
+			path = SetInfo;
+			sourceTree = "<group>";
+		};
+		88992788292377FF00294B6B /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				88992786292377FB00294B6B /* PopupView.swift */,
+				8899278929237B0C00294B6B /* PopupViewController.swift */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,6 +529,7 @@
 				88055994291D22B400F4D4A2 /* FirebaseAuth */,
 				88055996291D22B400F4D4A2 /* FirebaseMessaging */,
 				880559BE291E8A2600F4D4A2 /* RxKeyboard */,
+				889927842922728A00294B6B /* RxDataSources */,
 			);
 			productName = SeSacStudy;
 			productReference = 88556FCA2918E248003CD336 /* SeSacStudy.app */;
@@ -509,6 +566,7 @@
 				88055987291CFC5300F4D4A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				88055993291D22B400F4D4A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				880559BD291E8A2600F4D4A2 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
+				889927832922728A00294B6B /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 88556FCB2918E248003CD336 /* Products */;
 			projectDirPath = "";
@@ -540,10 +598,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8899278E2923A91300294B6B /* BaseTextField.swift in Sources */,
 				880559A8291DED7F00F4D4A2 /* FriendView.swift in Sources */,
 				880559C1291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift in Sources */,
 				88556FF72918F12A003CD336 /* OnboardingView.swift in Sources */,
 				88055992291D1D4100F4D4A2 /* Profile.swift in Sources */,
+				8899278029224A3700294B6B /* InfoView.swift in Sources */,
 				880559B7291E487200F4D4A2 /* SplashViewController.swift in Sources */,
 				880559A2291DEAFA00F4D4A2 /* ShopViewController.swift in Sources */,
 				885570092919591A003CD336 /* OnboardingCollectionViewCell.swift in Sources */,
@@ -553,14 +613,20 @@
 				88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */,
 				880559AC291DEE2F00F4D4A2 /* FriendViewModel.swift in Sources */,
 				8826E2D8291C5A1700AF8023 /* GenderViewController.swift in Sources */,
+				8899277C29223B2000294B6B /* SetInfoViewModel.swift in Sources */,
 				8826E2C6291B818200AF8023 /* BirthView.swift in Sources */,
+				8899278C2923A83A00294B6B /* BaseButton.swift in Sources */,
 				889215F62919884C00DE147C /* LoginView.swift in Sources */,
 				880559AA291DEE0600F4D4A2 /* FriendViewController.swift in Sources */,
 				880559B9291E488300F4D4A2 /* SplashViewModel.swift in Sources */,
 				8826E2BC291AFC5100AF8023 /* NicknameViewController.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
+				8899278229224C4900294B6B /* SetInfoCollectionViewCell.swift in Sources */,
+				8899277A292239DB00294B6B /* SetInfoViewController.swift in Sources */,
 				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
 				88055990291D11D300F4D4A2 /* HomeViewController.swift in Sources */,
+				8899278A29237B0C00294B6B /* PopupViewController.swift in Sources */,
+				88992787292377FB00294B6B /* PopupView.swift in Sources */,
 				8826E2CE291BF10600AF8023 /* DateView.swift in Sources */,
 				880559C3291F2BB800F4D4A2 /* BaseTableViewCell.swift in Sources */,
 				889215FD291A1EDD00DE147C /* Extension+UILabel.swift in Sources */,
@@ -584,10 +650,12 @@
 				8826E2C8291B829900AF8023 /* BirthViewController.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
 				880559B0291DEE7F00F4D4A2 /* MyInfoViewController.swift in Sources */,
+				88992777292237B000294B6B /* SetInfoView.swift in Sources */,
 				8826E2BE291AFCAD00AF8023 /* NicknameViewModel.swift in Sources */,
 				880559A4291DEB2800F4D4A2 /* ShopViewModel.swift in Sources */,
 				88055999291DE90800F4D4A2 /* MainTabBarController.swift in Sources */,
 				8826E2D2291BF91A00AF8023 /* EmailViewController.swift in Sources */,
+				8899277E292248D900294B6B /* CardTabeViewCell.swift in Sources */,
 				8826E2DA291C5A1E00AF8023 /* GenderViewModel.swift in Sources */,
 				8826E2D6291C5A1100AF8023 /* GenderView.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
@@ -868,6 +936,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		889927832922728A00294B6B /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -910,6 +986,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88921610291AD5C200DE147C /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		889927842922728A00294B6B /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 889927832922728A00294B6B /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -43,15 +43,15 @@ final class LoginViewController: BaseViewController {
     }
     
     private func setTextField() {
-        mainView.numberTextField.becomeFirstResponder()
+        mainView.numberTextField.textField.becomeFirstResponder()
         
-        mainView.numberTextField.rx.text
+        mainView.numberTextField.textField.rx.text
             .orEmpty
             .withUnretained(self)
             .bind { (vc, value) in
-                vc.mainView.lineView.backgroundColor = value != "" ? .black : .gray3
+                vc.mainView.numberTextField.lineView.backgroundColor = value != "" ? .black : .gray3
                 vc.viewModel.withHypen(number: value)
-                vc.mainView.numberTextField.text = vc.viewModel.phoneNumber
+                vc.mainView.numberTextField.textField.text = vc.viewModel.phoneNumber
             }
             .disposed(by: disposeBag)
     }
@@ -66,9 +66,9 @@ final class LoginViewController: BaseViewController {
         
         mainView.checkButton.rx.tap
             .withUnretained(self)
-            .bind { (vc, _) in
+            .bind { (vc, _ ) in
                 if vc.viewModel.isValid {
-                    let phoneNumber = vc.mainView.numberTextField.text ?? ""
+                    let phoneNumber = vc.mainView.numberTextField.textField.text ?? ""
                     vc.viewModel.firebaseAuthManager.sendSMS(phoneNumber: phoneNumber) { error, code  in
                         if error != nil {
                             if code == FBAError.manyTry.rawValue {
@@ -88,14 +88,5 @@ final class LoginViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
-        
-        RxKeyboard.instance.visibleHeight
-                 .drive(onNext: { [unowned self] keyboardHeight in
-                     mainView.updateConstraintsForKeyboard(mainView.checkButton, height: -54 - keyboardHeight)
-                     UserDefaults.standard.set(-54 - keyboardHeight, forKey: "bottom")
-                     print(UserDefaults.standard.float(forKey: "bottom"))
-                     mainView.layoutIfNeeded()
-                 })
-                 .disposed(by: disposeBag)
     }
 }

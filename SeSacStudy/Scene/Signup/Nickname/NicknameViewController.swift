@@ -32,15 +32,15 @@ final class NicknameViewController: BaseViewController {
     }
     
     private func setTextField() {
-        mainView.nicknameTextField.becomeFirstResponder()
+        mainView.nicknameTextField.textField.becomeFirstResponder()
         
-        mainView.nicknameTextField.text = viewModel.profile?.nickname
+        mainView.nicknameTextField.textField.text = viewModel.profile?.nickname
         
-        mainView.nicknameTextField.rx.text
+        mainView.nicknameTextField.textField.rx.text
             .orEmpty
             .withUnretained(self)
             .bind { vc, value in
-                vc.mainView.lineView.backgroundColor = value != "" ? .black : .gray3
+                vc.mainView.nicknameTextField.lineView.backgroundColor = value != "" ? .black : .gray3
                 vc.viewModel.isVaildNickname(nickname: value)
                 vc.viewModel.profile?.nickname = value
             }

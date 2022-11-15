@@ -11,11 +11,19 @@ import SnapKit
 
 final class BirthView: BaseView {
     
+    let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .equalSpacing
+        view.alignment = .top
+        return view
+    }()
+    
     let textLabel: UILabel = {
         let view = UILabel()
         view.text = "생년월일을 알려주세요"
         view.textColor = .black
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 20)
+        view.font = .display1_R20
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
         view.numberOfLines = 0
@@ -41,13 +49,9 @@ final class BirthView: BaseView {
         return view
     }()
     
-    let nextButton: UIButton = {
-        let view = UIButton()
+    let nextButton: BaseButton = {
+        let view = BaseButton()
         view.setTitle("다음", for: .normal)
-        view.titleLabel?.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.backgroundColor = .gray6
-        view.tintColor = .white
-        view.layer.cornerRadius = 8
         return view
     }()
     
@@ -61,49 +65,56 @@ final class BirthView: BaseView {
     
     override func configureUI() {
         self.backgroundColor = .systemBackground
-        [textLabel, yearView, mounthView, dayView, nextButton, datePicker].forEach {
+        [textLabel, yearView, nextButton].forEach {
+            stackView.addArrangedSubview($0)
+        }
+        
+        [stackView, mounthView, dayView, datePicker].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstraints() {
         
+        stackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
+            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.42)
+        }
+        
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(97)
-            make.leading.trailing.equalTo(self).inset(90)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(22)
         }
         
         yearView.snp.makeConstraints { make in
-            make.top.equalTo(textLabel.snp.bottom).offset(80)
-            make.leading.equalTo(self).offset(16)
+            make.leading.equalToSuperview().inset(16)
             make.width.equalTo(99)
             make.height.equalTo(48)
         }
         
         mounthView.snp.makeConstraints { make in
-            make.top.equalTo(textLabel.snp.bottom).offset(80)
-            make.centerX.equalTo(self)
+            make.centerY.equalTo(yearView.snp.centerY)
+            make.centerX.equalTo(self.snp.centerX)
             make.width.equalTo(99)
             make.height.equalTo(48)
         }
         
         dayView.snp.makeConstraints { make in
-            make.top.equalTo(textLabel.snp.bottom).offset(80)
-            make.trailing.equalTo(self).offset(-16)
+            make.centerY.equalTo(yearView.snp.centerY)
+            make.trailing.equalToSuperview().inset(16)
             make.width.equalTo(99)
             make.height.equalTo(48)
         }
         
         nextButton.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self).inset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(48)
-            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(UserDefaults.standard.float(forKey: "bottom"))
         }
         
         datePicker.snp.makeConstraints { make in
             make.bottom.equalTo(self.safeAreaLayoutGuide)
-            make.leading.trailing.equalTo(self)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(216)
         }
     }

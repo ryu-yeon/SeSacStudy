@@ -11,78 +11,68 @@ import SnapKit
 
 final class LoginView: BaseView {
     
+    let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .equalSpacing
+        view.alignment = .top
+        return view
+    }()
+    
     let textLabel: UILabel = {
         let view = UILabel()
         view.text = "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요"
         view.textColor = .black
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 20)
+        view.font = .display1_R20
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
         view.numberOfLines = 0
         return view
     }()
     
-    let numberTextField: UITextField = {
-        let view = UITextField()
-        view.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.borderStyle = .none
-        view.keyboardType = .phonePad
-        return view
-    }()
-    
-    let lineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray6
+    let numberTextField: BaseTextField = {
+        let view = BaseTextField()
+        view.textField.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
+        view.textField.keyboardType = .phonePad
         return view
     }()
 
-    let checkButton: UIButton = {
-        let view = UIButton()
+    let checkButton: BaseButton = {
+        let view = BaseButton()
         view.setTitle("인증 문자 받기", for: .normal)
-        view.titleLabel?.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.backgroundColor = .gray6
-        view.tintColor = .white
-        view.layer.cornerRadius = 8
         return view
     }()
     
     override func configureUI() {
         self.backgroundColor = .systemBackground
-        [textLabel, numberTextField, lineView, checkButton].forEach {
-            self.addSubview($0)
+        [textLabel, numberTextField, checkButton].forEach {
+            stackView.addArrangedSubview($0)
         }
+        
+        self.addSubview(stackView)
     }
     
     override func setConstraints() {
+        
+        stackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
+            make.bottom.equalToSuperview().inset(UIScreen.main.bounds.height * 0.42)
+        }
+        
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(125)
-            make.leading.trailing.equalTo(self).inset(74)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(64)
         }
         
         numberTextField.snp.makeConstraints { make in
-            make.top.equalTo(textLabel.snp.bottom).offset(77)
-            make.leading.trailing.equalTo(self).inset(28)
-            make.height.equalTo(22)
-        }
-        
-        lineView.snp.makeConstraints { make in
-            make.top.equalTo(numberTextField.snp.bottom).offset(12)
-            make.leading.trailing.equalTo(self).inset(16)
-            make.height.equalTo(1)
+            make.horizontalEdges.equalTo(self).inset(16)
+            make.height.equalTo(48)
         }
         
         checkButton.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self).inset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(48)
-            make.bottom.equalTo(-347)
-        }
-    }
-    
-    func updateConstraintsForKeyboard(_ view: UIView, height: CGFloat) {
-        view.snp.updateConstraints { make in
-            make.bottom.equalTo(height)
         }
     }
 }

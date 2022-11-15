@@ -11,73 +11,67 @@ import SnapKit
 
 final class NicknameView: BaseView {
     
+    let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .equalSpacing
+        view.alignment = .top
+        return view
+    }()
+    
     let textLabel: UILabel = {
         let view = UILabel()
         view.text = "닉네임을 입력해 주세요"
         view.textColor = .black
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 20)
+        view.font = .display1_R20
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
         view.numberOfLines = 0
         return view
     }()
     
-    let nicknameTextField: UITextField = {
-        let view = UITextField()
-        view.placeholder = "10자 이내로 입력"
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.borderStyle = .none
-        view.keyboardType = .default
+    let nicknameTextField: BaseTextField = {
+        let view = BaseTextField()
+        view.textField.placeholder = "10자 이내로 입력"
         return view
     }()
     
-    let lineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray3
-        return view
-    }()
-    
-    let nextButton: UIButton = {
-        let view = UIButton()
+    let nextButton: BaseButton = {
+        let view = BaseButton()
         view.setTitle("다음", for: .normal)
-        view.titleLabel?.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.backgroundColor = .gray6
-        view.tintColor = .white
-        view.layer.cornerRadius = 8
         return view
     }()
     
     override func configureUI() {
         self.backgroundColor = .systemBackground
-        [textLabel, nicknameTextField, lineView, nextButton].forEach {
-            self.addSubview($0)
+        [textLabel, nicknameTextField, nextButton].forEach {
+            stackView.addArrangedSubview($0)
         }
+        
+        self.addSubview(stackView)
     }
     
     override func setConstraints() {
         
+        stackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
+            make.bottom.equalToSuperview().inset(UIScreen.main.bounds.height * 0.42)
+        }
+        
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(97)
-            make.leading.trailing.equalTo(self).inset(90)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(32)
         }
         
         nicknameTextField.snp.makeConstraints { make in
-            make.top.equalTo(textLabel.snp.bottom).offset(93)
-            make.leading.trailing.equalTo(self).inset(28)
-            make.height.equalTo(22)
-        }
-        
-        lineView.snp.makeConstraints { make in
-            make.top.equalTo(nicknameTextField.snp.bottom).offset(12)
-            make.leading.trailing.equalTo(self).inset(16)
-            make.height.equalTo(1)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(48)
         }
         
         nextButton.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self).inset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(48)
-            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(UserDefaults.standard.float(forKey: "bottom"))
         }
     }
 }

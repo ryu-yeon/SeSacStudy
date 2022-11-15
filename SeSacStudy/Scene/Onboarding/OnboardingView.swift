@@ -34,13 +34,9 @@ final class OnboardingView: BaseView {
         return view
     }()
     
-    let startButton: UIButton = {
-        let view = UIButton()
+    let startButton: BaseButton = {
+        let view = BaseButton()
         view.setTitle("시작하기", for: .normal)
-        view.titleLabel?.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.tintColor = .white
-        view.layer.cornerRadius = 8
-        view.backgroundColor = .brandGreen
         return view
     }()
     

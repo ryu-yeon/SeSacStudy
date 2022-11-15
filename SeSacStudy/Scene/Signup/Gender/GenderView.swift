@@ -11,11 +11,21 @@ import SnapKit
 
 final class GenderView: BaseView {
     
+    let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .equalSpacing
+        view.alignment = .top
+        return view
+    }()
+    
+    let labelView = UIView()
+    
     let textLabel: UILabel = {
         let view = UILabel()
         view.text = "성별을 선택해 주세요"
         view.textColor = .black
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 20)
+        view.font = .display1_R20
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
         view.numberOfLines = 0
@@ -26,7 +36,7 @@ final class GenderView: BaseView {
         let view = UILabel()
         view.text = "새싹 찾기 기능을 이용하기 위해서 필요해요!"
         view.textColor = .gray7
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 16)
+        view.font = .title2_R16
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
         view.numberOfLines = 0
@@ -53,7 +63,7 @@ final class GenderView: BaseView {
         let view = UILabel()
         view.text = "남자"
         view.textColor = .black
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 16)
+        view.font = .title2_R16
         return view
     }()
     
@@ -77,52 +87,67 @@ final class GenderView: BaseView {
         let view = UILabel()
         view.text = "여자"
         view.textColor = .black
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 16)
+        view.font = .title2_R16
         return view
     }()
     
-    let nextButton: UIButton = {
-        let view = UIButton()
+    let nextButton: BaseButton = {
+        let view = BaseButton()
         view.setTitle("다음", for: .normal)
-        view.titleLabel?.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.backgroundColor = .gray6
-        view.tintColor = .white
-        view.layer.cornerRadius = 8
         return view
     }()
     
     override func configureUI() {
         self.backgroundColor = .systemBackground
-        [textLabel, subTextLabel, manButton, womanButton, manImageView, manLabel, womanImageView, womanLabel, nextButton].forEach {
+        
+        [textLabel, subTextLabel].forEach {
+            labelView.addSubview($0)
+        }
+        
+        [labelView, manButton, nextButton].forEach {
+            stackView.addArrangedSubview($0)
+        }
+        
+        [stackView, womanButton, manImageView, manLabel, womanImageView, womanLabel].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstraints() {
         
+        stackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
+            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.42)
+        }
+        
+        labelView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(66)
+        }
+        
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(80)
-            make.leading.trailing.equalTo(self).inset(90)
+            make.top.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(32)
         }
         
         subTextLabel.snp.makeConstraints { make in
             make.top.equalTo(textLabel.snp.bottom).offset(8)
-            make.leading.trailing.equalTo(self).inset(50)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(26)
         }
         
         manButton.snp.makeConstraints { make in
-            make.top.equalTo(subTextLabel.snp.bottom).offset(24)
-            make.leading.equalTo(self).offset(16)
+            make.leading.equalToSuperview().inset(16)
             make.trailing.equalTo(self.snp.centerX).offset(-6)
-            make.height.equalTo(110)
+            make.height.equalTo(120)
         }
         
         manImageView.snp.makeConstraints { make in
             make.top.equalTo(manButton).inset(14)
             make.centerX.equalTo(manButton)
-            make.width.height.equalTo(64)
+            make.size.equalTo(64)
         }
 
         manLabel.snp.makeConstraints { make in
@@ -133,16 +158,16 @@ final class GenderView: BaseView {
         }
         
         womanButton.snp.makeConstraints { make in
-            make.top.equalTo(subTextLabel.snp.bottom).offset(24)
+            make.centerY.equalTo(manButton.snp.centerY)
             make.leading.equalTo(self.snp.centerX).offset(6)
-            make.trailing.equalTo(self).offset(-16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(110)
         }
         
         womanImageView.snp.makeConstraints { make in
             make.top.equalTo(womanButton).inset(14)
             make.centerX.equalTo(womanButton)
-            make.width.height.equalTo(64)
+            make.size.equalTo(64)
         }
         
         womanLabel.snp.makeConstraints { make in
@@ -153,9 +178,8 @@ final class GenderView: BaseView {
         }
         
         nextButton.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self).inset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(48)
-            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(UserDefaults.standard.float(forKey: "bottom"))
         }
     }
 }

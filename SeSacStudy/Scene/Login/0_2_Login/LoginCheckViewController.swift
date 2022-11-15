@@ -31,13 +31,13 @@ final class LoginCheckViewController: BaseViewController {
     }
     
     private func setTextField() {
-        mainView.numberTextField.becomeFirstResponder()
+        mainView.numberTextField.textField.becomeFirstResponder()
         
-        mainView.numberTextField.rx.text
+        mainView.numberTextField.textField.rx.text
             .orEmpty
             .withUnretained(self)
             .bind { (vc, value) in
-                vc.mainView.lineView.backgroundColor = value != "" ? .black : .gray3
+                vc.mainView.numberTextField.lineView.backgroundColor = value != "" ? .black : .gray3
                 vc.viewModel.code = value
                 vc.viewModel.isValidNumber()
                 if vc.viewModel.isValid {
@@ -109,7 +109,7 @@ final class LoginCheckViewController: BaseViewController {
             .bind { (vc, _) in
                 vc.viewModel.timer?.dispose()
                 vc.setTimer()
-                vc.mainView.numberTextField.text = ""
+                vc.mainView.numberTextField.textField.text = ""
                 vc.viewModel.vaild.onNext(false)
                 vc.viewModel.firebaseAuthManager.sendSMS(phoneNumber: vc.viewModel.phoneNumber) { error, code  in
                     if error != nil {

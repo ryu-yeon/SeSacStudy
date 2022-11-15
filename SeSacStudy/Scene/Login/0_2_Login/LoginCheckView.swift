@@ -10,106 +10,104 @@ import UIKit
 import SnapKit
 
 final class LoginCheckView: BaseView {
+    
+    let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .equalSpacing
+        view.alignment = .top
+//        view.spacing = UIScreen.main.bounds.height / 13
+        return view
+    }()
+    
     let textLabel: UILabel = {
         let view = UILabel()
         view.text = "인증문자가 문자로 전송되었어요"
         view.textColor = .black
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 20)
+        view.font = .display1_R20
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
         view.numberOfLines = 0
         return view
     }()
     
-    let numberTextField: UITextField = {
-        let view = UITextField()
-        view.placeholder = "인증번호 입력"
-        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.borderStyle = .none
-        view.keyboardType = .phonePad
-        return view
-    }()
-    
-    let lineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGray3
+    let numberTextField: BaseTextField = {
+        let view = BaseTextField()
+        view.textField.placeholder = "인증번호 입력"
+        view.textField.keyboardType = .phonePad
         return view
     }()
     
     let timerLabel: UILabel = {
         let view = UILabel()
         view.text = "60"
-        view.font = UIFont(name: Font.NotoSansMedium.rawValue, size: 14)
+        view.font = .title3_M14
         view.textAlignment = .right
         view.textColor = .brandGreen
         return view
     }()
     
-    let resendButton: UIButton = {
-        let view = UIButton()
+    let resendButton: BaseButton = {
+        let view = BaseButton()
         view.setTitle("재전송", for: .normal)
-        view.titleLabel?.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
         view.backgroundColor = .brandGreen
-        view.layer.cornerRadius = 8
         return view
     }()
     
-    let checkButton: UIButton = {
-        let view = UIButton()
+    let checkButton: BaseButton = {
+        let view = BaseButton()
         view.setTitle("인증하고 시작하기", for: .normal)
-        view.titleLabel?.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 14)
-        view.backgroundColor = .gray6
-        view.tintColor = .white
-        view.layer.cornerRadius = 8
         return view
     }()
     
     override func configureUI() {
         self.backgroundColor = .systemBackground
-        [textLabel, numberTextField, lineView, timerLabel, resendButton, checkButton].forEach {
+        [textLabel, numberTextField, checkButton].forEach {
+            stackView.addArrangedSubview($0)
+        }
+        
+        [stackView, timerLabel, resendButton].forEach {
             self.addSubview($0)
         }
+//        self.addSubview(stackView)
     }
     
     override func setConstraints() {
+        
+        stackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
+            make.bottom.equalToSuperview().inset(UIScreen.main.bounds.height * 0.42)
+        }
+        
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide).offset(81)
-            make.leading.trailing.equalTo(self).inset(74)
-            make.height.equalTo(64)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(32)
         }
         
         numberTextField.snp.makeConstraints { make in
-            make.top.equalTo(textLabel.snp.bottom).offset(77)
-            make.leading.equalTo(self).inset(28)
-            make.trailing.equalTo(timerLabel.snp.leading).offset(-8)
-            make.height.equalTo(22)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(96)
+            make.height.equalTo(48)
         }
         
         timerLabel.snp.makeConstraints { make in
             make.centerY.equalTo(numberTextField.snp.centerY)
-            make.trailing.equalTo(resendButton.snp.leading).offset(-20)
+            make.trailing.equalTo(numberTextField).inset(12)
             make.width.equalTo(37)
             make.height.equalTo(22)
         }
         
         resendButton.snp.makeConstraints { make in
             make.centerY.equalTo(numberTextField.snp.centerY)
-            make.trailing.equalTo(self).offset(-16)
+            make.trailing.equalToSuperview().offset(-16)
             make.width.equalTo(72)
             make.height.equalTo(40)
         }
         
-        lineView.snp.makeConstraints { make in
-            make.top.equalTo(numberTextField.snp.bottom).offset(12)
-            make.leading.equalTo(self).inset(16)
-            make.trailing.equalTo(resendButton.snp.leading).offset(-8)
-            make.height.equalTo(1)
-        }
-        
         checkButton.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self).inset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(48)
-            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(UserDefaults.standard.float(forKey: "bottom"))
         }
     }
 }
