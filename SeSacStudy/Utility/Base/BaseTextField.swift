@@ -38,6 +38,7 @@ class BaseTextField: BaseView {
         textField.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview().inset(13)
             make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(16)
         }
         
         lineView.snp.makeConstraints { make in
