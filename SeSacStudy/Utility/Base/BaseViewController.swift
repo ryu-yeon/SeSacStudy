@@ -16,17 +16,22 @@ class BaseViewController: UIViewController {
     func setNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.setBackIndicatorImage(UIImage(named: "left"), transitionMaskImage: UIImage(named: "left"))
         appearance.backgroundColor = .white
-        appearance.shadowColor = .gray6
         appearance.shadowImage = UIImage()
+        appearance.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.04)
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-
-        navigationItem.backButtonTitle = ""
         navigationController?.navigationBar.tintColor = .black
-        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "left")
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "left")
+    }
+    
+    func setBackButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "left"), style: .plain, target: self, action: #selector(backButtonClicked))
+        navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.tintColor = .black
+    }
+    
+    @objc func backButtonClicked() {
+        navigationController?.popViewController(animated: true)
     }
     
     func goToVC(vc: UIViewController) {

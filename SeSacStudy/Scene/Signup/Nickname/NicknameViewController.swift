@@ -25,6 +25,7 @@ final class NicknameViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setBackButton()
         setTextField()
         setNextButton()
         

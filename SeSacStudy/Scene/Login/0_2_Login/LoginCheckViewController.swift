@@ -24,6 +24,8 @@ final class LoginCheckViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBar()
+        setBackButton()
         setTimer()
         setTextField()
         setCheckButton()

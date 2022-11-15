@@ -25,6 +25,7 @@ final class GenderViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setBackButton()
         setGenderButton()
         setNextButton()
         

@@ -25,6 +25,7 @@ final class BirthViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setBackButton()
         setDatePicker()
         setDateLabels()
         setNextButton()

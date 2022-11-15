@@ -25,6 +25,7 @@ final class EmailViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setBackButton()
         setTextField()
         setNextButton()
         
