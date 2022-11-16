@@ -33,13 +33,13 @@ final class FirebaseAuthManager {
                 return
               }
               Auth.auth().languageCode = "kr"
-              UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+              UserDefaultsHelper.standard.authVerificationID = verificationID ?? ""
               handler(error, 0)
           }
     }
     
     func checkCode(code: String, handler: @escaping (Error?) -> ()) {
-        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") ?? ""
+        let verificationID = UserDefaultsHelper.standard.authVerificationID
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
         
         Auth.auth().signIn(with: credential) { authResult, error in
@@ -60,8 +60,8 @@ final class FirebaseAuthManager {
             return
           }
             complitionHandler(idToken)
-            UserDefaults.standard.set(idToken, forKey: "token")
-            print("ID TOKEN: ", UserDefaults.standard.string(forKey: "token")!)
+            UserDefaultsHelper.standard.idToken = idToken ?? ""
+            print("ID TOKEN: ", UserDefaultsHelper.standard.idToken)
         }
     }
 }

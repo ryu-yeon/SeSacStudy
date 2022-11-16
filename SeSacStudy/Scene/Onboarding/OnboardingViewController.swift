@@ -63,7 +63,7 @@ final class OnboardingViewController: BaseViewController {
         mainView.startButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                UserDefaults.standard.set(true, forKey: "start")
+                UserDefaultsHelper.standard.start = true
                 self.goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
             }
             .disposed(by: disposeBag)

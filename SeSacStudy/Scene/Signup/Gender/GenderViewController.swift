@@ -71,8 +71,8 @@ final class GenderViewController: BaseViewController {
                 guard let profile = vc.viewModel.profile else { return }
                 print(profile)
                 if profile.gender >= 0 {
-                    let token = UserDefaults.standard.string(forKey: "token") ?? ""
-                    vc.viewModel.apiService.signup(idToken: token, profile: profile) { statusCode in
+                    let idToken = UserDefaultsHelper.standard.idToken
+                    vc.viewModel.apiService.signup(idToken: idToken, profile: profile) { statusCode in
                         vc.checkStatusCode(statusCode)
                     }
                 } else {
@@ -86,7 +86,12 @@ final class GenderViewController: BaseViewController {
         switch statusCode {
         case 200:
             print("회원가입 성공🟢")
-            print(self.viewModel.profile)
+            let idToken = UserDefaultsHelper.standard.idToken
+            viewModel.apiService.login(idToken: idToken) { data, statusCode in
+                if data != nil {
+                    UserDefaultsHelper.standard.saveUser(user: data)
+                }
+            }
             goToVC(vc: MainTabBarController())
         case 201:
             print("이미 가입한 유저")
