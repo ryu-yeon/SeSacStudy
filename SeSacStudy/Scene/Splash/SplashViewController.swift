@@ -19,8 +19,9 @@ final class SplashViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.bool(forKey: "start") {
+        if UserDefaultsHelper.standard.start {
             checkUser()
+//            goToVC(vc: UINavigationController(rootViewController: EmailViewController()))
         } else {
             goToVC(vc: OnboardingViewController())
         }
@@ -42,11 +43,13 @@ final class SplashViewController: BaseViewController {
         switch statusCode {
         case 200:
             print("로그인 성공🟢")
-            goToVC(vc: MainTabBarController())
+            UserDefaultsHelper.standard.saveUser(user: data)
             print(data)
+            goToVC(vc: MainTabBarController())
         case 401:
             print("Firebase Token Error🔴")
         case 406:
+            goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
             print("미가입 유저😀")
         case 500:
             print("Server Error🔴")
