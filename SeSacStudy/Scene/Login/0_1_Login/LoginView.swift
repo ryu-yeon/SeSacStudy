@@ -62,7 +62,7 @@ final class LoginView: BaseView {
         
         textLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(64)
+            make.height.equalTo(72)
         }
         
         numberTextField.snp.makeConstraints { make in
