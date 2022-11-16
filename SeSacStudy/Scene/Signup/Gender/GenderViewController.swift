@@ -90,9 +90,9 @@ final class GenderViewController: BaseViewController {
             viewModel.apiService.login(idToken: idToken) { data, statusCode in
                 if data != nil {
                     UserDefaultsHelper.standard.saveUser(user: data)
+                    self.goToVC(vc: MainTabBarController())
                 }
             }
-            goToVC(vc: MainTabBarController())
         case 201:
             print("이미 가입한 유저")
         case 202:
