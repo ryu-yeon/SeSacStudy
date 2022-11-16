@@ -37,6 +37,7 @@ final class OnboardingView: BaseView {
     let startButton: BaseButton = {
         let view = BaseButton()
         view.setTitle("시작하기", for: .normal)
+        view.backgroundColor = .brandGreen
         return view
     }()
     

@@ -69,7 +69,6 @@ final class LoginCheckView: BaseView {
         [stackView, timerLabel, resendButton].forEach {
             self.addSubview($0)
         }
-//        self.addSubview(stackView)
     }
     
     override func setConstraints() {
@@ -77,7 +76,7 @@ final class LoginCheckView: BaseView {
         stackView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
             make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
-            make.bottom.equalToSuperview().inset(UIScreen.main.bounds.height * 0.42)
+            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.48)
         }
         
         textLabel.snp.makeConstraints { make in

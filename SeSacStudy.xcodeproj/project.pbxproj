@@ -31,7 +31,6 @@
 		880559B4291E485600F4D4A2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559B3291E485600F4D4A2 /* SplashView.swift */; };
 		880559B7291E487200F4D4A2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559B6291E487200F4D4A2 /* SplashViewController.swift */; };
 		880559B9291E488300F4D4A2 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559B8291E488300F4D4A2 /* SplashViewModel.swift */; };
-		880559BF291E8A2600F4D4A2 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 880559BE291E8A2600F4D4A2 /* RxKeyboard */; };
 		880559C1291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */; };
 		880559C3291F2BB800F4D4A2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */; };
 		8826E2BA291AFAA600AF8023 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826E2B9291AFAA600AF8023 /* NicknameView.swift */; };
@@ -83,12 +82,15 @@
 		8899277C29223B2000294B6B /* SetInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899277B29223B2000294B6B /* SetInfoViewModel.swift */; };
 		8899277E292248D900294B6B /* CardTabeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899277D292248D900294B6B /* CardTabeViewCell.swift */; };
 		8899278029224A3700294B6B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899277F29224A3700294B6B /* InfoView.swift */; };
-		8899278229224C4900294B6B /* SetInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278129224C4900294B6B /* SetInfoCollectionViewCell.swift */; };
-		889927852922728A00294B6B /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 889927842922728A00294B6B /* RxDataSources */; };
+		8899278229224C4900294B6B /* SetInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278129224C4900294B6B /* SetInfoTableViewCell.swift */; };
 		88992787292377FB00294B6B /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88992786292377FB00294B6B /* PopupView.swift */; };
 		8899278A29237B0C00294B6B /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278929237B0C00294B6B /* PopupViewController.swift */; };
 		8899278C2923A83A00294B6B /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278B2923A83A00294B6B /* BaseButton.swift */; };
 		8899278E2923A91300294B6B /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278D2923A91300294B6B /* BaseTextField.swift */; };
+		889927972924988D00294B6B /* TitleColleciontViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889927962924988D00294B6B /* TitleColleciontViewCell.swift */; };
+		8899279A2924CA4B00294B6B /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 889927992924CA4B00294B6B /* MultiSlider */; };
+		8899279D2924CE5E00294B6B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8899279C2924CE5E00294B6B /* IQKeyboardManagerSwift */; };
+		8899279F292505EC00294B6B /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899279E292505EC00294B6B /* UserDefaultsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,11 +165,13 @@
 		8899277B29223B2000294B6B /* SetInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoViewModel.swift; sourceTree = "<group>"; };
 		8899277D292248D900294B6B /* CardTabeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTabeViewCell.swift; sourceTree = "<group>"; };
 		8899277F29224A3700294B6B /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		8899278129224C4900294B6B /* SetInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		8899278129224C4900294B6B /* SetInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoTableViewCell.swift; sourceTree = "<group>"; };
 		88992786292377FB00294B6B /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		8899278929237B0C00294B6B /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		8899278B2923A83A00294B6B /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		8899278D2923A91300294B6B /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		889927962924988D00294B6B /* TitleColleciontViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleColleciontViewCell.swift; sourceTree = "<group>"; };
+		8899279E292505EC00294B6B /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,12 +180,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				885570052919585A003CD336 /* RxSwift in Frameworks */,
+				8899279A2924CA4B00294B6B /* MultiSlider in Frameworks */,
 				88055995291D22B400F4D4A2 /* FirebaseAuth in Frameworks */,
 				88055997291D22B400F4D4A2 /* FirebaseMessaging in Frameworks */,
 				885570032919585A003CD336 /* RxCocoa in Frameworks */,
+				8899279D2924CE5E00294B6B /* IQKeyboardManagerSwift in Frameworks */,
 				88556FF52918EF31003CD336 /* SnapKit in Frameworks */,
-				880559BF291E8A2600F4D4A2 /* RxKeyboard in Frameworks */,
-				889927852922728A00294B6B /* RxDataSources in Frameworks */,
 				88055989291CFC5300F4D4A2 /* Alamofire in Frameworks */,
 				88921612291AD5C200DE147C /* Toast in Frameworks */,
 			);
@@ -345,6 +349,7 @@
 				88556FD12918E248003CD336 /* ViewController.swift */,
 				88556FD32918E248003CD336 /* Main.storyboard */,
 				88556FD82918E249003CD336 /* LaunchScreen.storyboard */,
+				8899279E292505EC00294B6B /* UserDefaultsHelper.swift */,
 				88055984291CFBF000F4D4A2 /* Network */,
 				8826E2C4291B718E00AF8023 /* Firebase */,
 				8855700E29196011003CD336 /* Model */,
@@ -488,9 +493,10 @@
 				88992776292237B000294B6B /* SetInfoView.swift */,
 				88992779292239DB00294B6B /* SetInfoViewController.swift */,
 				8899277B29223B2000294B6B /* SetInfoViewModel.swift */,
-				8899277F29224A3700294B6B /* InfoView.swift */,
 				8899277D292248D900294B6B /* CardTabeViewCell.swift */,
-				8899278129224C4900294B6B /* SetInfoCollectionViewCell.swift */,
+				8899277F29224A3700294B6B /* InfoView.swift */,
+				8899278129224C4900294B6B /* SetInfoTableViewCell.swift */,
+				889927962924988D00294B6B /* TitleColleciontViewCell.swift */,
 			);
 			path = SetInfo;
 			sourceTree = "<group>";
@@ -528,8 +534,8 @@
 				88055988291CFC5300F4D4A2 /* Alamofire */,
 				88055994291D22B400F4D4A2 /* FirebaseAuth */,
 				88055996291D22B400F4D4A2 /* FirebaseMessaging */,
-				880559BE291E8A2600F4D4A2 /* RxKeyboard */,
-				889927842922728A00294B6B /* RxDataSources */,
+				889927992924CA4B00294B6B /* MultiSlider */,
+				8899279C2924CE5E00294B6B /* IQKeyboardManagerSwift */,
 			);
 			productName = SeSacStudy;
 			productReference = 88556FCA2918E248003CD336 /* SeSacStudy.app */;
@@ -565,8 +571,8 @@
 				88921610291AD5C200DE147C /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				88055987291CFC5300F4D4A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				88055993291D22B400F4D4A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				880559BD291E8A2600F4D4A2 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
-				889927832922728A00294B6B /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				889927982924CA4B00294B6B /* XCRemoteSwiftPackageReference "MultiSlider" */,
+				8899279B2924CE5E00294B6B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 88556FCB2918E248003CD336 /* Products */;
 			projectDirPath = "";
@@ -621,7 +627,7 @@
 				880559B9291E488300F4D4A2 /* SplashViewModel.swift in Sources */,
 				8826E2BC291AFC5100AF8023 /* NicknameViewController.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
-				8899278229224C4900294B6B /* SetInfoCollectionViewCell.swift in Sources */,
+				8899278229224C4900294B6B /* SetInfoTableViewCell.swift in Sources */,
 				8899277A292239DB00294B6B /* SetInfoViewController.swift in Sources */,
 				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
 				88055990291D11D300F4D4A2 /* HomeViewController.swift in Sources */,
@@ -646,11 +652,13 @@
 				88556FEA2918E757003CD336 /* BaseViewController.swift in Sources */,
 				889215F92919885900DE147C /* LoginViewController.swift in Sources */,
 				889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */,
+				8899279F292505EC00294B6B /* UserDefaultsHelper.swift in Sources */,
 				88055986291CFC1200F4D4A2 /* EndPoint.swift in Sources */,
 				8826E2C8291B829900AF8023 /* BirthViewController.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
 				880559B0291DEE7F00F4D4A2 /* MyInfoViewController.swift in Sources */,
 				88992777292237B000294B6B /* SetInfoView.swift in Sources */,
+				889927972924988D00294B6B /* TitleColleciontViewCell.swift in Sources */,
 				8826E2BE291AFCAD00AF8023 /* NicknameViewModel.swift in Sources */,
 				880559A4291DEB2800F4D4A2 /* ShopViewModel.swift in Sources */,
 				88055999291DE90800F4D4A2 /* MainTabBarController.swift in Sources */,
@@ -904,14 +912,6 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		880559BD291E8A2600F4D4A2 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		88556FF32918EF31003CD336 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -936,12 +936,20 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		889927832922728A00294B6B /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+		889927982924CA4B00294B6B /* XCRemoteSwiftPackageReference "MultiSlider" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			repositoryURL = "https://github.com/yonat/MultiSlider.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 1.0.0;
+			};
+		};
+		8899279B2924CE5E00294B6B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -961,11 +969,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88055993291D22B400F4D4A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
-		};
-		880559BE291E8A2600F4D4A2 /* RxKeyboard */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 880559BD291E8A2600F4D4A2 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
-			productName = RxKeyboard;
 		};
 		88556FF42918EF31003CD336 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -987,10 +990,15 @@
 			package = 88921610291AD5C200DE147C /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
 		};
-		889927842922728A00294B6B /* RxDataSources */ = {
+		889927992924CA4B00294B6B /* MultiSlider */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 889927832922728A00294B6B /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = RxDataSources;
+			package = 889927982924CA4B00294B6B /* XCRemoteSwiftPackageReference "MultiSlider" */;
+			productName = MultiSlider;
+		};
+		8899279C2924CE5E00294B6B /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8899279B2924CE5E00294B6B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

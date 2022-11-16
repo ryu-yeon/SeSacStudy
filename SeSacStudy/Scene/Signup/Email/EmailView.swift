@@ -25,7 +25,7 @@ final class EmailView: BaseView {
         let view = UILabel()
         view.text = "이메일을 입력해 주세요"
         view.textColor = .black
-//        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 20)
+        view.font = .display1_R20
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
         view.numberOfLines = 0
@@ -36,7 +36,7 @@ final class EmailView: BaseView {
         let view = UILabel()
         view.text = "휴대폰 번호 변경 시 인증을 위해 사용해요"
         view.textColor = .gray7
-//        view.font = UIFont(name: Font.NotoSansRegular.rawValue, size: 16)
+        view.font = .title2_R16
         view.setLineHeight(lineHeight: 1.08)
         view.textAlignment = .center
         view.numberOfLines = 0
@@ -75,7 +75,7 @@ final class EmailView: BaseView {
         stackView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
             make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
-            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.42)
+            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.48)
         }
         
         labelView.snp.makeConstraints { make in
@@ -96,8 +96,8 @@ final class EmailView: BaseView {
         }
         
         emailTextField.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(28)
-            make.height.equalTo(22)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(48)
         }
         
         nextButton.snp.makeConstraints { make in
