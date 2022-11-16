@@ -54,7 +54,7 @@ extension AppDelegate: MessagingDelegate {
             } else if let token = token {
                 print("FCM registration token: \(token)")
 //                self.fcmRegTokenMessage.text  = "Remote FCM registration token: \(token)"
-                UserDefaults.standard.set(token, forKey: "FCMToken")
+                UserDefaultsHelper.standard.fcmToken = token
             }
         }
     }
