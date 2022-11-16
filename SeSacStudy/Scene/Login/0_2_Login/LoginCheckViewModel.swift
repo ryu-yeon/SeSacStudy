@@ -35,8 +35,4 @@ class LoginCheckViewModel {
         phoneData.remove(at: phoneData.index(phoneData.startIndex, offsetBy: 0))
         profile.phoneNumber = "+82\(phoneData)"
     }
-    
-    func setTimer() {
-        
-    }
 }

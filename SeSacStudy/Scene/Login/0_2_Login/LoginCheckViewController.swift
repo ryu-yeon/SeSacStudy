@@ -142,6 +142,7 @@ final class LoginCheckViewController: BaseViewController {
             vc.mainView.timerLabel.text = "\(60 - Int(elapseSeconds))"
         }, onCompleted: {
             self.viewModel.vaild.onNext(false)
+            self.viewModel.isValid = false
             self.viewModel.timer?.dispose()
         })
     }
