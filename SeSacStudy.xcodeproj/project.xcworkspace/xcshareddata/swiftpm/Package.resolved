@@ -100,6 +100,15 @@
       }
     },
     {
+      "identity" : "jjfloatingactionbutton",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jjochen/JJFloatingActionButton.git",
+      "state" : {
+        "revision" : "60fcde6d01aa33598753214b9438c192f2074900",
+        "version" : "2.5.0"
+      }
+    },
+    {
       "identity" : "leveldb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/leveldb.git",
