@@ -37,7 +37,7 @@ final class APIService {
         let url = EndPoint.baseURL + "/v1/user"
         let parameters: [String: Any] = [
             "phoneNumber": profile.phoneNumber,
-            "FCMtoken": UserDefaults.standard.string(forKey: "FCMToken") ?? "",
+            "FCMtoken": UserDefaultsHelper.standard.fcmToken,
             "nick": profile.nickname,
             "birth": profile.birth,
             "email": profile.email,
@@ -50,6 +50,41 @@ final class APIService {
         ]
         
         AF.request(url, method: .post, parameters: parameters, headers: headers).responseString { response in
+            
+            let statusCode = response.response?.statusCode
+                
+            complitionHandler(statusCode ?? 0)
+        }
+    }
+    
+    func updateMyPage(user: User, idToken: String, complitionHandler: @escaping (Int) -> Void) {
+        let url = EndPoint.baseURL + "/v1/user/mypage"
+        let parameters: [String: Any] = [
+            "searchable": user.searchable,
+            "ageMin": user.ageMin,
+            "ageMax": user.ageMax,
+            "gender": user.gender,
+            "study": user.study
+        ]
+        let headers: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+        
+        AF.request(url, method: .put, parameters: parameters, headers: headers).responseString { response in
+            
+            let statusCode = response.response?.statusCode
+                
+            complitionHandler(statusCode ?? 0)
+        }
+    }
+    
+    func withDraw(idToken: String, complitionHandler: @escaping (Int) -> Void) {
+        let url = EndPoint.baseURL + "/v1/user/withdraw"
+        let headers: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+        
+        AF.request(url, method: .post, headers: headers).responseString { response in
             
             let statusCode = response.response?.statusCode
                 
