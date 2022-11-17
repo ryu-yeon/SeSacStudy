@@ -17,8 +17,6 @@ final class SetInfoViewController: BaseViewController {
     let viewModel = SetInfoViewModel()
     private let disposeBag = DisposeBag()
     
-    var isClicked = false
-    
     override func loadView() {
         self.view = mainView
     }
@@ -45,6 +43,7 @@ final class SetInfoViewController: BaseViewController {
         mainView.tableView.register(CardTableViewCell.self, forCellReuseIdentifier: CardTableViewCell.reusableIdentifier)
         mainView.tableView.register(SetInfoTableViewCell.self, forCellReuseIdentifier: SetInfoTableViewCell.reusableIdentifier)
         
+        setComment()
     }
     
     private func checkStatusCode(_ statusCode: Int) {
@@ -78,8 +77,17 @@ final class SetInfoViewController: BaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: nil, action: nil)
     }
     
+    private func setComment() {
+        viewModel.user.comment.forEach({
+            viewModel.comment += $0
+            if $0 != viewModel.user.comment.last {
+                viewModel.comment += "\n"
+            }
+        })
+    }
+    
     @objc func moreButtonClicked() {
-        isClicked = !isClicked
+        viewModel.isClicked = !viewModel.isClicked
         mainView.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
     
@@ -122,12 +130,21 @@ extension SetInfoViewController: UITableViewDelegate, UITableViewDataSource {
             cell.backgroundImageView.image = UIImage(named: "sesac_background_\(viewModel.user.background)")
             cell.profileImageView.image = UIImage(named: "sesac_face_\(viewModel.user.sesac)")
             cell.infoView.nicknameLabel.text = viewModel.user.nick
-            cell.infoView.titleLabel.isHidden = !isClicked
-            cell.infoView.collectionView.isHidden = !isClicked
-            cell.infoView.reviewLabel.isHidden = !isClicked
-            cell.infoView.reviewTextView.isHidden = !isClicked
+            cell.infoView.titleLabel.isHidden = !viewModel.isClicked
+            cell.infoView.collectionView.isHidden = !viewModel.isClicked
+            cell.infoView.reviewLabel.isHidden = !viewModel.isClicked
+            cell.infoView.reviewTextLabel.isHidden = !viewModel.isClicked
+            cell.infoView.list = viewModel.user.reputation
+            if !viewModel.user.comment.isEmpty {
+                cell.infoView.reviewTextLabel.textColor = .black
+                
+                DispatchQueue.main.async {
+                    cell.infoView.reviewTextLabel.text = self.viewModel.comment
+                    self.viewModel.count = cell.infoView.reviewTextLabel.calculateMaxLines()
+                }
+            }
             
-            let buttonImage = isClicked ? UIImage(named: "less") : UIImage(named: "more")
+            let buttonImage = viewModel.isClicked ? UIImage(named: "less") : UIImage(named: "more")
             cell.infoView.moreButton.setImage(buttonImage, for: .normal)
             
             cell.infoView.list = viewModel.user.reputation
@@ -159,7 +176,8 @@ extension SetInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.manButton.addTarget(self, action: #selector(manButtonClicked), for: .touchUpInside)
                 cell.womanButton.addTarget(self, action: #selector(womanButtonClicked), for: .touchUpInside)
             case 1:
-                cell.titleTextField.isHidden = false
+                cell.studyTextField.isHidden = false
+                cell.studyTextField.textField.text = viewModel.user.study
             case 2:
                 cell.numberSwitch.isHidden = false
                 cell.numberSwitch.isOn = viewModel.user.searchable == 1
@@ -186,8 +204,8 @@ extension SetInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath {
         case IndexPath(row: 0, section: 0):
-            if isClicked {
-                return 504
+            if viewModel.isClicked {
+                return 488 + (24 * viewModel.count)
             } else {
                 return 252
             }
@@ -233,6 +251,10 @@ extension SetInfoViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SetInfoViewController: SITVCDelegate {
+    func sendStudy(study: String?) {
+        viewModel.user.study = study ?? ""
+    }
+    
     func sendRange(ageMin: Int, ageMax: Int) {
         viewModel.user.ageMin = ageMin
         viewModel.user.ageMax = ageMax
@@ -241,6 +263,4 @@ extension SetInfoViewController: SITVCDelegate {
     func sendSearchable(searchable: Int) {
         viewModel.user.searchable = searchable
     }
-    
-    
 }

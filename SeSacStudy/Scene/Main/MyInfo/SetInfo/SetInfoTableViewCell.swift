@@ -13,6 +13,7 @@ import MultiSlider
 protocol SITVCDelegate: AnyObject {
     func sendRange(ageMin: Int, ageMax: Int)
     func sendSearchable(searchable: Int)
+    func sendStudy(study: String?)
 }
 
 final class SetInfoTableViewCell: BaseTableViewCell {
@@ -50,9 +51,10 @@ final class SetInfoTableViewCell: BaseTableViewCell {
         return view
     }()
     
-    let titleTextField: BaseTextField = {
+    let studyTextField: BaseTextField = {
         let view = BaseTextField()
         view.textField.placeholder = "스터디를 입력해 주세요"
+        view.textField.textAlignment = .left
         view.isHidden = true
         return view
     }()
@@ -84,15 +86,23 @@ final class SetInfoTableViewCell: BaseTableViewCell {
         return view
     }()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        [manButton, womanButton, studyTextField, numberSwitch, rangeLabel, ageSlider].forEach {
+            $0.isHidden = true
+        }
+    }
+    
     override func configureUI() {
         contentView.backgroundColor = .clear
-        [titleLabel, manButton, womanButton, titleTextField, numberSwitch, rangeLabel, ageSlider].forEach {
+        [titleLabel, manButton, womanButton, studyTextField, numberSwitch, rangeLabel, ageSlider].forEach {
             contentView.addSubview($0)
             self.selectionStyle = .none
         }
         
         numberSwitch.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         ageSlider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
+        studyTextField.textField.addTarget(self, action: #selector(studyTextFieldEdit), for: .editingChanged)
     }
     
     @objc func switchValueChanged() {
@@ -104,6 +114,10 @@ final class SetInfoTableViewCell: BaseTableViewCell {
         let ageMax = Int(ageSlider.value[1])
         rangeLabel.text = "\(ageMin) - \(ageMax)"
         delegate?.sendRange(ageMin: ageMin, ageMax: ageMax)
+    }
+    
+    @objc func studyTextFieldEdit() {
+        delegate?.sendStudy(study: studyTextField.textField.text ?? "")
     }
     
     override func layoutSubviews() {
@@ -131,9 +145,9 @@ final class SetInfoTableViewCell: BaseTableViewCell {
             make.width.equalTo(56)
         }
         
-        titleTextField.snp.makeConstraints { make in
+        studyTextField.snp.makeConstraints { make in
             make.top.trailing.equalToSuperview()
-            make.width.equalTo(184)
+            make.width.equalTo(164)
             make.height.equalTo(48)
         }
         

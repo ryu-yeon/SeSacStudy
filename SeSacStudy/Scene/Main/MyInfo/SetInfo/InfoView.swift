@@ -60,25 +60,32 @@ class InfoView: BaseView {
         return view
     }()
     
-    let reviewTextView: UITextField = {
-        let view = UITextField()
-        view.placeholder = "첫 리뷰를 기다리는 중이에요!"
+    let reviewTextLabel: UILabel = {
+        let view = UILabel()
+        view.text = "첫 리뷰를 기다리는 중이에요!"
+        view.numberOfLines = 0
+        view.textColor = .gray6
         view.font = .body3_R14
+        view.setLineHeight(lineHeight: 1.15)
         view.isHidden = true
         return view
     }()
     
-    var list = [Int](repeating: 6, count: 0)
+    var list = [Int](repeating: 8, count: 0)
     
     override func configureUI() {
         self.backgroundColor = .clear
-        [nicknameLabel, moreButton, titleLabel, collectionView, reviewLabel, reviewTextView].forEach {
+        [nicknameLabel, moreButton, titleLabel, collectionView, reviewLabel, reviewTextLabel].forEach {
             self.addSubview($0)
         }
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.reusableIdentifier)
+    }
+    
+    func getData() {
+        collectionView.reloadData()
     }
     
     override func setConstraints() {
@@ -113,9 +120,9 @@ class InfoView: BaseView {
             make.height.equalTo(26)
         }
         
-        reviewTextView.snp.makeConstraints { make in
+        reviewTextLabel.snp.makeConstraints { make in
             make.top.equalTo(reviewLabel.snp.bottom).offset(16)
-            make.bottom.horizontalEdges.equalToSuperview().inset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
         }
     }
 }
@@ -132,15 +139,14 @@ extension InfoView: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.reusableIdentifier, for: indexPath) as! TitleCollectionViewCell
         cell.titleLabel.text = title[indexPath.row]
         
-        for i in 0..<list.count {
-            if list[i] != 0 {
-                cell.contentView.backgroundColor = .brandGreen
-                cell.contentView.layer.borderWidth = 0
-            } else {
-                cell.contentView.backgroundColor = .white
-                cell.contentView.layer.borderWidth = 1
-                cell.contentView.layer.borderColor = UIColor.gray4.cgColor
-            }
+        if list[indexPath.row] != 0 {
+            cell.contentView.backgroundColor = .brandGreen
+            cell.contentView.layer.borderWidth = 0
+            cell.titleLabel.textColor = .white
+        } else {
+            cell.contentView.backgroundColor = .white
+            cell.contentView.layer.borderWidth = 1
+            cell.contentView.layer.borderColor = UIColor.gray4.cgColor
         }
         
         return cell
