@@ -17,6 +17,12 @@ final class HomeView: BaseView {
         return view
     }()
     
+    let mapMarkerImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "map_marker")
+        return view
+    }()
+    
     let containerView: UIView = {
         let view = UIView()
         view.layer.shadowColor = UIColor.black.cgColor
@@ -117,7 +123,7 @@ final class HomeView: BaseView {
         
         containerView.addSubview(buttonView)
         
-        [mapView, containerView, placeButton, flotingButton, flotingButton2, flotingButton3].forEach {
+        [mapView, mapMarkerImageView, containerView, placeButton, flotingButton, flotingButton2, flotingButton3].forEach {
             self.addSubview($0)
         }
     }
@@ -126,6 +132,10 @@ final class HomeView: BaseView {
         
         mapView.snp.makeConstraints { make in
             make.horizontalEdges.verticalEdges.equalToSuperview()
+        }
+        
+        mapMarkerImageView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
         
         containerView.snp.makeConstraints { make in
