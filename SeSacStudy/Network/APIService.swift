@@ -91,4 +91,24 @@ final class APIService {
             complitionHandler(statusCode ?? 0)
         }
     }
+    
+    func getMyState(idToken: String, complitionHandler: @escaping (MatchStatus?, Int) -> Void) {
+        let url = EndPoint.baseURL + "/v1/queue/myQueueState"
+        let headers: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: MatchStatus.self) { response in
+            
+            let statusCode = response.response?.statusCode ?? 0
+            
+            switch response.result {
+                
+            case .success(let data):
+                complitionHandler(data, statusCode)
+            case .failure(_):
+                complitionHandler(nil, statusCode)
+            }
+        }
+    }
 }
