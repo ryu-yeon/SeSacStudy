@@ -8,7 +8,6 @@
 import UIKit
 import MapKit
 
-import JJFloatingActionButton
 import SnapKit
 
 final class HomeView: BaseView {
@@ -23,7 +22,7 @@ final class HomeView: BaseView {
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.masksToBounds = false
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
-        view.layer.shadowRadius = 5
+        view.layer.shadowRadius = 8
         view.layer.shadowOpacity = 0.3
         return view
     }()
@@ -71,35 +70,41 @@ final class HomeView: BaseView {
         return view
     }()
     
-    let placeButton: UIButton = {
-        let view = UIButton()
+    let placeButton: ButtonWithShadow = {
+        let view = ButtonWithShadow()
         view.setImage(UIImage(named: "place"), for: .normal)
-        view.backgroundColor = .white
         view.tintColor = .black
-        view.layer.cornerRadius = 8
+        view.backgroundLayerColor = .white
+        view.conerRadius = 8
         return view
     }()
     
-    let floatingButton: JJFloatingActionButton = {
-        let view = JJFloatingActionButton()
-        view.buttonColor = .black
-//        view.buttonImageSize = CGSize(width: 64, height: 64)
-        view.itemSizeRatio = CGFloat(1)
-        view.addItem(image: UIImage(named: "default")?.withRenderingMode(.alwaysTemplate)) { item in
-            // do something
-        }
-        
-        view.addItem(image: UIImage(named: "matching")?.withRenderingMode(.alwaysTemplate)) { item in
-            item.buttonColor = .black
-        }
-        
-        view.addItem(image: UIImage(named: "matched")) { item in
-            // do something
-        }
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+    let flotingButton: ButtonWithShadow = {
+        let view = ButtonWithShadow()
+        view.setImage(UIImage(named: "default"), for: .normal)
+        view.tintColor = .black
+        view.backgroundLayerColor = .clear
+        view.conerRadius = 32
+        return view
+    }()
+    
+    let flotingButton2: ButtonWithShadow = {
+        let view = ButtonWithShadow()
+        view.setImage(UIImage(named: "matching"), for: .normal)
+        view.tintColor = .black
+        view.backgroundLayerColor = .clear
+        view.conerRadius = 32
+        view.isHidden = true
+        return view
+    }()
+    
+    let flotingButton3: ButtonWithShadow = {
+        let view = ButtonWithShadow()
+        view.setImage(UIImage(named: "matched"), for: .normal)
+        view.tintColor = .black
+        view.backgroundLayerColor = .clear
+        view.conerRadius = 32
+        view.isHidden = true
         return view
     }()
     
@@ -111,9 +116,8 @@ final class HomeView: BaseView {
         }
         
         containerView.addSubview(buttonView)
-        containerView2.addSubview(placeButton)
         
-        [mapView, containerView, containerView2, floatingButton].forEach {
+        [mapView, containerView, placeButton, flotingButton, flotingButton2, flotingButton3].forEach {
             self.addSubview($0)
         }
     }
@@ -153,18 +157,26 @@ final class HomeView: BaseView {
             make.height.equalTo(48)
         }
         
-        containerView2.snp.makeConstraints { make in
+        placeButton.snp.makeConstraints { make in
             make.top.equalTo(buttonView.snp.bottom).offset(16)
             make.leading.equalToSuperview().inset(16)
             make.size.equalTo(48)
         }
         
-        placeButton.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        flotingButton.snp.makeConstraints { make in
+            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.size.equalTo(64)
         }
         
-        floatingButton.snp.makeConstraints { make in
-            make.bottom.equalTo(self.safeAreaLayoutGuide).inset(16)
+        flotingButton2.snp.makeConstraints { make in
+            make.bottom.equalTo(flotingButton.snp.top).offset(-4)
+            make.trailing.equalToSuperview().inset(16)
+            make.size.equalTo(64)
+        }
+        
+        flotingButton3.snp.makeConstraints { make in
+            make.bottom.equalTo(flotingButton2.snp.top).offset(-4)
             make.trailing.equalToSuperview().inset(16)
             make.size.equalTo(64)
         }
