@@ -111,4 +111,29 @@ final class APIService {
             }
         }
     }
+    
+    func searchSesac(idToken: String, coordinate: Coordinate, complitionHandler: @escaping (MatchSesac?, Int) -> Void) {
+        let url = EndPoint.baseURL + "/v1/queue/search"
+        let headers: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+        
+        let parameters: [String: Double] = [
+            "lat": coordinate.lat,
+            "long": coordinate.long
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseDecodable(of: MatchSesac.self) { response in
+            
+            let statusCode = response.response?.statusCode ?? 0
+            
+            switch response.result {
+                
+            case .success(let data):
+                complitionHandler(data, statusCode)
+            case .failure(_):
+                complitionHandler(nil, statusCode)
+            }
+        }
+    }
 }
