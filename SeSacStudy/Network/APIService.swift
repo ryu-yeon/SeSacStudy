@@ -112,15 +112,15 @@ final class APIService {
         }
     }
     
-    func searchSesac(idToken: String, coordinate: Coordinate, complitionHandler: @escaping (MatchSesac?, Int) -> Void) {
+    func searchSesac(idToken: String, lat: Double, long: Double, complitionHandler: @escaping (MatchSesac?, Int) -> Void) {
         let url = EndPoint.baseURL + "/v1/queue/search"
         let headers: HTTPHeaders = [
             "idtoken": idToken
         ]
         
         let parameters: [String: Double] = [
-            "lat": coordinate.lat,
-            "long": coordinate.long
+            "lat": lat,
+            "long": long
         ]
         
         AF.request(url, method: .post, parameters: parameters, headers: headers).responseDecodable(of: MatchSesac.self) { response in
