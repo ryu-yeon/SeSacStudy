@@ -32,4 +32,13 @@ extension UILabel {
         attributedString.addAttributes(attrbutes, range: NSRange(location: 0, length: length))
         self.attributedText = attributedString
     }
+    
+    func calculateMaxLines() -> CGFloat {
+        let maxSize = CGSize(width: frame.size.width, height: CGFloat(Float.infinity))
+        let charSize = font.lineHeight
+        let text = (self.text ?? "") as NSString
+        let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [.font: font as Any], context: nil)
+        let linesRoundedUp = CGFloat(ceil(textSize.height/charSize))
+        return linesRoundedUp
+    }
 }
