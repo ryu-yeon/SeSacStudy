@@ -11,6 +11,11 @@ final class SetInfoViewModel {
     
     var user = UserDefaultsHelper.standard.loadUser()!
     
+    var isClicked = false
+    
+    var count: CGFloat = 1
+    var comment = ""
+    
     let apiService = APIService()
     let firebaseAuthManager = FirebaseAuthManager()
     

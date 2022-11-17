@@ -78,6 +78,8 @@
 		88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88921604291A2A0500DE147C /* LoginCheckViewModel.swift */; };
 		88921612291AD5C200DE147C /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 88921611291AD5C200DE147C /* Toast */; };
 		88954682292544AC00F88C3F /* JJFloatingActionButton in Frameworks */ = {isa = PBXBuildFile; productRef = 88954681292544AC00F88C3F /* JJFloatingActionButton */; };
+		8895468529254CA000F88C3F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895468429254CA000F88C3F /* SearchView.swift */; };
+		8895468929254CE200F88C3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895468829254CE200F88C3F /* SearchViewController.swift */; };
 		88992777292237B000294B6B /* SetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88992776292237B000294B6B /* SetInfoView.swift */; };
 		8899277A292239DB00294B6B /* SetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88992779292239DB00294B6B /* SetInfoViewController.swift */; };
 		8899277C29223B2000294B6B /* SetInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899277B29223B2000294B6B /* SetInfoViewModel.swift */; };
@@ -161,6 +163,8 @@
 		88921602291A29FC00DE147C /* LoginCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckViewController.swift; sourceTree = "<group>"; };
 		88921604291A2A0500DE147C /* LoginCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheckViewModel.swift; sourceTree = "<group>"; };
 		8892160D291ABE1300DE147C /* SeSacStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSacStudy.entitlements; sourceTree = "<group>"; };
+		8895468429254CA000F88C3F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		8895468829254CE200F88C3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		88992776292237B000294B6B /* SetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoView.swift; sourceTree = "<group>"; };
 		88992779292239DB00294B6B /* SetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoViewController.swift; sourceTree = "<group>"; };
 		8899277B29223B2000294B6B /* SetInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoViewModel.swift; sourceTree = "<group>"; };
@@ -208,9 +212,9 @@
 		8805598E291D11C700F4D4A2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8805599A291DE9FD00F4D4A2 /* HomeView.swift */,
-				8805598F291D11D300F4D4A2 /* HomeViewController.swift */,
-				8805599C291DEA0A00F4D4A2 /* HomeViewModel.swift */,
+				8895468329254C5100F88C3F /* Map */,
+				8895468629254CA400F88C3F /* Search */,
+				8895468729254CB600F88C3F /* Chat */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -478,6 +482,32 @@
 			path = 0_2_Login;
 			sourceTree = "<group>";
 		};
+		8895468329254C5100F88C3F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8805599A291DE9FD00F4D4A2 /* HomeView.swift */,
+				8805598F291D11D300F4D4A2 /* HomeViewController.swift */,
+				8805599C291DEA0A00F4D4A2 /* HomeViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		8895468629254CA400F88C3F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8895468429254CA000F88C3F /* SearchView.swift */,
+				8895468829254CE200F88C3F /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		8895468729254CB600F88C3F /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		88992775292237A000294B6B /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,6 +665,7 @@
 				8899277A292239DB00294B6B /* SetInfoViewController.swift in Sources */,
 				8855700D2919600F003CD336 /* OnboardingData.swift in Sources */,
 				88055990291D11D300F4D4A2 /* HomeViewController.swift in Sources */,
+				8895468529254CA000F88C3F /* SearchView.swift in Sources */,
 				8899278A29237B0C00294B6B /* PopupViewController.swift in Sources */,
 				88992787292377FB00294B6B /* PopupView.swift in Sources */,
 				8826E2CE291BF10600AF8023 /* DateView.swift in Sources */,
@@ -668,6 +699,7 @@
 				88055999291DE90800F4D4A2 /* MainTabBarController.swift in Sources */,
 				8826E2D2291BF91A00AF8023 /* EmailViewController.swift in Sources */,
 				8899277E292248D900294B6B /* CardTabeViewCell.swift in Sources */,
+				8895468929254CE200F88C3F /* SearchViewController.swift in Sources */,
 				8826E2DA291C5A1E00AF8023 /* GenderViewModel.swift in Sources */,
 				8826E2D6291C5A1100AF8023 /* GenderView.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
