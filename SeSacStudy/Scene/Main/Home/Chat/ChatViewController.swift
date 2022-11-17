@@ -11,6 +11,8 @@ final class ChatViewController: BaseViewController {
     
     private let mainView = ChatView()
     
+    var nickname: String?
+    
     override func loadView() {
         self.view = mainView
     }
@@ -23,6 +25,6 @@ final class ChatViewController: BaseViewController {
     }
     
     override func setNavigationBar() {
-        navigationItem.title = "채팅"
+        navigationItem.title = "\(nickname ?? "")"
     }
 }

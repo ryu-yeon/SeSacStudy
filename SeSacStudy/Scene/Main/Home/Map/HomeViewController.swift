@@ -84,6 +84,7 @@ final class HomeViewController: BaseViewController {
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else {
             let nextVC = ChatViewController()
+            nextVC.nickname = matchStatus.matchedNick
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
