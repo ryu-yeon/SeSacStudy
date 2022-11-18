@@ -85,6 +85,8 @@
 		8895469329266AA700F88C3F /* SetSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895469229266AA700F88C3F /* SetSearchViewController.swift */; };
 		8895469529266BC400F88C3F /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895469429266BC400F88C3F /* ChatView.swift */; };
 		8895469729266BCD00F88C3F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895469629266BCD00F88C3F /* ChatViewController.swift */; };
+		8895469B292689F100F88C3F /* Sesac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895469A292689F100F88C3F /* Sesac.swift */; };
+		8895469D29268A9300F88C3F /* MatchSesac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895469C29268A9300F88C3F /* MatchSesac.swift */; };
 		88992777292237B000294B6B /* SetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88992776292237B000294B6B /* SetInfoView.swift */; };
 		8899277A292239DB00294B6B /* SetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88992779292239DB00294B6B /* SetInfoViewController.swift */; };
 		8899277C29223B2000294B6B /* SetInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899277B29223B2000294B6B /* SetInfoViewModel.swift */; };
@@ -176,6 +178,8 @@
 		8895469229266AA700F88C3F /* SetSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSearchViewController.swift; sourceTree = "<group>"; };
 		8895469429266BC400F88C3F /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		8895469629266BCD00F88C3F /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		8895469A292689F100F88C3F /* Sesac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sesac.swift; sourceTree = "<group>"; };
+		8895469C29268A9300F88C3F /* MatchSesac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSesac.swift; sourceTree = "<group>"; };
 		88992776292237B000294B6B /* SetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoView.swift; sourceTree = "<group>"; };
 		88992779292239DB00294B6B /* SetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoViewController.swift; sourceTree = "<group>"; };
 		8899277B29223B2000294B6B /* SetInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInfoViewModel.swift; sourceTree = "<group>"; };
@@ -445,6 +449,8 @@
 				8805598A291CFDFD00F4D4A2 /* User.swift */,
 				88055991291D1D4100F4D4A2 /* Profile.swift */,
 				8895468D292664F600F88C3F /* MatchStatus.swift */,
+				8895469A292689F100F88C3F /* Sesac.swift */,
+				8895469C29268A9300F88C3F /* MatchSesac.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -670,6 +676,7 @@
 				880559B7291E487200F4D4A2 /* SplashViewController.swift in Sources */,
 				880559A2291DEAFA00F4D4A2 /* ShopViewController.swift in Sources */,
 				885570092919591A003CD336 /* OnboardingCollectionViewCell.swift in Sources */,
+				8895469B292689F100F88C3F /* Sesac.swift in Sources */,
 				8895468E292664F600F88C3F /* MatchStatus.swift in Sources */,
 				8805599D291DEA0A00F4D4A2 /* HomeViewModel.swift in Sources */,
 				88556FD22918E248003CD336 /* ViewController.swift in Sources */,
@@ -729,6 +736,7 @@
 				8899277E292248D900294B6B /* CardTabeViewCell.swift in Sources */,
 				8895468929254CE200F88C3F /* SearchViewController.swift in Sources */,
 				8826E2DA291C5A1E00AF8023 /* GenderViewModel.swift in Sources */,
+				8895469D29268A9300F88C3F /* MatchSesac.swift in Sources */,
 				8826E2D6291C5A1100AF8023 /* GenderView.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
 				88921601291A29EF00DE147C /* LoginCheckView.swift in Sources */,
