@@ -11,6 +11,18 @@ import SnapKit
 
 final class SetSearchView: BaseView {
     
+    let collectionView: UICollectionView = {
+        var layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+//        layout.sectionInset = .zero
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.showsHorizontalScrollIndicator = false
+        view.showsVerticalScrollIndicator = false
+        view.backgroundColor = .brown
+        return view
+    }()
+        
     
     let searchButton: BaseButton = {
         let view = BaseButton()
@@ -22,12 +34,18 @@ final class SetSearchView: BaseView {
     override func configureUI() {
         
         self.backgroundColor = .systemBackground
-        [searchButton].forEach {
+        [collectionView, searchButton].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstraints() {
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.bottom.equalTo(self.safeAreaLayoutGuide)
+        }
         
         searchButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(16)
