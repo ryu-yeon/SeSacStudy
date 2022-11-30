@@ -127,14 +127,21 @@ extension SetInfoViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.reusableIdentifier, for: indexPath) as? CardTableViewCell else { return UITableViewCell() }
             
             cell.infoView.moreButton.addTarget(self, action: #selector(moreButtonClicked), for: .touchUpInside)
-            cell.backgroundImageView.image = UIImage(named: "sesac_background_\(viewModel.user.background)")
-            cell.profileImageView.image = UIImage(named: "sesac_face_\(viewModel.user.sesac)")
+            cell.backgroundImageView.image = UIImage(named: "sesac_background_\(viewModel.user.background + 1)")
+            cell.profileImageView.image = UIImage(named: "sesac_face_\(viewModel.user.sesac + 1)")
             cell.infoView.nicknameLabel.text = viewModel.user.nick
             cell.infoView.titleLabel.isHidden = !viewModel.isClicked
-            cell.infoView.collectionView.isHidden = !viewModel.isClicked
+            cell.infoView.titleCollectionView.isHidden = !viewModel.isClicked
             cell.infoView.reviewLabel.isHidden = !viewModel.isClicked
             cell.infoView.reviewTextLabel.isHidden = !viewModel.isClicked
             cell.infoView.list = viewModel.user.reputation
+            
+            cell.infoView.reviewLabel.snp.remakeConstraints { make in
+                make.top.equalTo(cell.infoView.titleCollectionView.snp.bottom).offset(16)
+                make.horizontalEdges.equalToSuperview().inset(16)
+                make.height.equalTo(26)
+            }
+            
             if !viewModel.user.comment.isEmpty {
                 cell.infoView.reviewTextLabel.textColor = .black
                 

@@ -41,7 +41,7 @@ final class MyInfoViewController: BaseViewController {
                     cell.arrowImagView.isHidden = false
                     cell.titleLabel.textColor = .black
                     cell.titleLabel.font = .title1_M16
-                    cell.profileImageView.image = UIImage(named: "sesac_face_\(self.viewModel.user?.sesac ?? 0)")
+                    cell.profileImageView.image = UIImage(named: "sesac_face_\((self.viewModel.user?.sesac ?? 0) + 1)")
                     cell.iconImageView.snp.updateConstraints { make in
                         make.width.height.equalTo(50)
                     }

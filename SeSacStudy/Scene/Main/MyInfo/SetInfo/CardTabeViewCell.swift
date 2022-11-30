@@ -33,9 +33,18 @@ final class CardTableViewCell: BaseTableViewCell {
         return view
     }()
     
+    let requestButton: UIButton = {
+        let view = UIButton()
+        view.setTitleColor(.white, for: .normal)
+        view.titleLabel?.font = .title3_M14
+        view.layer.cornerRadius = 8
+        view.isHidden = true
+        return view
+    }()
+    
     override func configureUI() {
         contentView.backgroundColor = .clear
-        [backgroundImageView, profileImageView, infoView].forEach {
+        [backgroundImageView, profileImageView, requestButton, infoView].forEach {
             contentView.addSubview($0)
             self.selectionStyle = .none
         }
@@ -57,6 +66,12 @@ final class CardTableViewCell: BaseTableViewCell {
             make.top.equalTo(backgroundImageView.snp.bottom)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
+        }
+        
+        requestButton.snp.makeConstraints { make in
+            make.top.trailing.equalTo(backgroundImageView).inset(12)
+            make.width.equalTo(80)
+            make.height.equalTo(40)
         }
     }
 }

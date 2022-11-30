@@ -33,7 +33,7 @@ class InfoView: BaseView {
         return view
     }()
     
-    let collectionView: UICollectionView = {
+    let titleCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 8
         let width = Int(UIScreen.main.bounds.width) - 56 - Int(spacing) * 3
@@ -73,19 +73,37 @@ class InfoView: BaseView {
     
     var list = [Int](repeating: 8, count: 0)
     
+    let studyLabel: UILabel = {
+        let view = UILabel()
+        view.text = "하고싶은 스터디"
+        view.textColor = .black
+        view.font = .title6_R12
+        view.isHidden = true
+        return view
+    }()
+    
+    lazy var studyCollectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: self.configureLayout())
+        view.showsHorizontalScrollIndicator = false
+        view.showsVerticalScrollIndicator = false
+        view.backgroundColor = .clear
+        view.isHidden = true
+        return view
+    }()
+    
     override func configureUI() {
         self.backgroundColor = .clear
-        [nicknameLabel, moreButton, titleLabel, collectionView, reviewLabel, reviewTextLabel].forEach {
+        [nicknameLabel, moreButton, titleLabel, titleCollectionView, studyLabel, studyCollectionView, reviewLabel, reviewTextLabel].forEach {
             self.addSubview($0)
         }
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.reusableIdentifier)
+        titleCollectionView.delegate = self
+        titleCollectionView.dataSource = self
+        titleCollectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.reusableIdentifier)
     }
     
     func getData() {
-        collectionView.reloadData()
+        titleCollectionView.reloadData()
     }
     
     override func setConstraints() {
@@ -108,14 +126,25 @@ class InfoView: BaseView {
             make.height.equalTo(18)
         }
         
-        collectionView.snp.makeConstraints { make in
+        titleCollectionView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview().inset(8)
             make.height.equalTo(128)
         }
         
+        studyLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleCollectionView.snp.bottom).offset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(26)
+        }
+        
+        studyCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(studyLabel.snp.bottom).offset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
         reviewLabel.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(16)
+            make.top.equalTo(studyCollectionView.snp.bottom).offset(16)
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(26)
         }
@@ -150,5 +179,32 @@ extension InfoView: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension InfoView {
+    fileprivate func configureLayout() -> UICollectionViewCompositionalLayout {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(100),
+            heightDimension: .absolute(32)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        item.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: .fixed(8), bottom: .fixed(8))
+        
+        // Group
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(100)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: .fixed(8), bottom: .fixed(8))
+        
+        // Section
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 24, trailing: 0)
+        
+        return UICollectionViewCompositionalLayout(section: section)
     }
 }
