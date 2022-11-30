@@ -11,7 +11,7 @@ import SnapKit
 
 
 protocol SCVDelegate {
-    func goToVC(index: Int, request: Bool, uid: String)
+    func goToVC(index: Int, request: Bool, uid: String, nickname: String)
 }
 
 final class SearchCollectionViewCell: BaseCollectionViewCell {
@@ -168,7 +168,7 @@ extension SearchCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func requestButtonClicked(sender: UIButton) {
-        delegate?.goToVC(index: sender.tag, request: request ?? false, uid: sesacList[sender.tag].uid)
+        delegate?.goToVC(index: sender.tag, request: request ?? false, uid: sesacList[sender.tag].uid, nickname: sesacList[sender.tag].nick)
     }
 }
 

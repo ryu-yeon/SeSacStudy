@@ -246,7 +246,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 }
 
 extension SearchViewController: SCVDelegate {
-    func goToVC(index: Int, request: Bool, uid: String) {
+    func goToVC(index: Int, request: Bool, uid: String, nickname: String) {
         let nextVC = PopupViewController()
         if request {
             nextVC.setTitle(title: "스터디를 요청할게요!")
@@ -258,6 +258,7 @@ extension SearchViewController: SCVDelegate {
             nextVC.studyAccept()
         }
         nextVC.uid = uid
+        nextVC.nickname = nickname
         nextVC.modalPresentationStyle = .overFullScreen
         present(nextVC, animated: true)
     }
