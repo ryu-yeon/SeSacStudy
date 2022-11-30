@@ -34,6 +34,20 @@ class BaseViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func setRootButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "left"), style: .plain, target: self, action: #selector(rootButtonClicked))
+        navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.tintColor = .black
+    }
+    
+    @objc func rootButtonClicked() {
+        guard let viewControllerStack = self.navigationController?.viewControllers else { return }
+        for viewController in viewControllerStack {
+            self.navigationController?.popToViewController(viewController, animated: true)
+        }
+    }
+
+    
     func goToVC(vc: UIViewController) {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
