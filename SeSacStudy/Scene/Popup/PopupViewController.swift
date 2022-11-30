@@ -9,6 +9,8 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import Toast
+import SnapKit
 
 final class PopupViewController: BaseViewController {
     
@@ -17,6 +19,8 @@ final class PopupViewController: BaseViewController {
     
     let apiService = APIService()
     let firebaseAuthManager = FirebaseAuthManager()
+    
+    var uid = ""
     
     override func loadView() {
         self.view = mainView
@@ -44,10 +48,10 @@ final class PopupViewController: BaseViewController {
     }
     
     func withDraw() {
-        mainView.okButton.addTarget(self, action: #selector(okButtonClicked), for: .touchUpInside)
+        mainView.okButton.addTarget(self, action: #selector(withDrawButtonClicked), for: .touchUpInside)
     }
     
-    @objc func okButtonClicked() {
+    @objc func withDrawButtonClicked() {
         let idToken = UserDefaultsHelper.standard.idToken
         apiService.withDraw(idToken: idToken) { [weak self] statusCode in
             self?.checkStatusCode(statusCode)
@@ -70,6 +74,114 @@ final class PopupViewController: BaseViewController {
             print("Firebase Token Error🔴")
         case 406:
             goToVC(vc: OnboardingViewController())
+            print("미가입 유저😀")
+        case 500:
+            print("Server Error🔴")
+        case 501:
+            print("Client Error🔴")
+        default:
+            break
+        }
+    }
+    
+    func studyRequest() {
+        mainView.subtitleLabel.textColor = .gray7
+        mainView.okButton.addTarget(self, action: #selector(requestButtonClicked), for: .touchUpInside)
+        mainView.popupContainer.snp.updateConstraints { make in
+            make.height.equalTo(178)
+        }
+        mainView.subtitleLabel.snp.updateConstraints { make in
+            make.height.equalTo(44)
+        }
+    }
+    
+    @objc func requestButtonClicked() {
+        let idToken = UserDefaultsHelper.standard.idToken
+        apiService.requestStudy(idToken: idToken, uid: uid) { [weak self] statusCode in
+            self?.checkStatusCode2(statusCode)
+        }
+    }
+    
+    private func checkStatusCode2(_ statusCode: Int) {
+        guard let pvc = self.presentingViewController else { return }
+        switch statusCode {
+        case 200:
+            dismiss(animated: true) {
+                pvc.view.makeToast("스터디 요청을 보냈습니다", duration: 1.0, position: .top)
+            }
+            print("스터디 요청 성공🟢")
+        case 201:
+            // accept 호출
+            print("상대방이 이미 나에게 스터디 요청한 상태🟠")
+        case 202:
+            dismiss(animated: true) {
+                pvc.view.makeToast("상대방이 스터디 찾기를 그만두었습니다", duration: 1.0, position: .top)
+            }
+            print("상대방이 새싹 찾기를 중단한 상태🟠")
+        case 401:
+            firebaseAuthManager.getIdToken { idToken in
+                if let idToken {
+                    self.apiService.requestStudy(idToken: idToken, uid: self.uid) { statusCode in
+                        self.checkStatusCode2(statusCode)
+                    }
+                }
+            }
+            print("Firebase Token Error🔴")
+        case 406:
+            print("미가입 유저😀")
+        case 500:
+            print("Server Error🔴")
+        case 501:
+            print("Client Error🔴")
+        default:
+            break
+        }
+    }
+    
+    func studyAccept() {
+        mainView.subtitleLabel.textColor = .gray7
+        mainView.okButton.addTarget(self, action: #selector(acceptButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func acceptButtonClicked() {
+        let idToken = UserDefaultsHelper.standard.idToken
+        apiService.acceptStudy(idToken: idToken, uid: uid) { [weak self] statusCode in
+            self?.checkStatusCode3(statusCode)
+        }
+    }
+    
+    private func checkStatusCode3(_ statusCode: Int) {
+        guard let pvc = self.presentingViewController else { return }
+        switch statusCode {
+        case 200:
+            let nextVC = ChatViewController()
+            navigationController?.pushViewController(nextVC, animated: true)
+            print("스터디 수락 성공🟢")
+        case 201:
+            dismiss(animated: true) {
+                pvc.view.makeToast("상대방이 이미 다른 새싹과 스터디를 함께 하는 중입니다", duration: 1.0, position: .top)
+            }
+            print("상대방이 이미 다른 사용자와 매칭된 상태🟠")
+        case 202:
+            dismiss(animated: true) {
+                pvc.view.makeToast("상대방이 스터디 찾기를 그만두었습니다", duration: 1.0, position: .top)
+            }
+            print("상대방이 새싹 찾기를 중단한 상태🟠")
+        case 203:
+            dismiss(animated: true) {
+                pvc.view.makeToast("앗! 누군가가 나의 스터디를 수락하였어요!", duration: 1.0, position: .top)
+            }
+            print("내가 이미 다른 사용자와 매칭된 상태🟠")
+        case 401:
+            firebaseAuthManager.getIdToken { idToken in
+                if let idToken {
+                    self.apiService.acceptStudy(idToken: idToken, uid: self.uid) { statusCode in
+                        self.checkStatusCode3(statusCode)
+                    }
+                }
+            }
+            print("Firebase Token Error🔴")
+        case 406:
             print("미가입 유저😀")
         case 500:
             print("Server Error🔴")

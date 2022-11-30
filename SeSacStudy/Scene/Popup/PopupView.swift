@@ -30,6 +30,7 @@ final class PopupView: BaseView {
         let view = UILabel()
         view.textAlignment = .center
         view.textColor = .black
+        view.numberOfLines = 0
         view.font = .title4_R14
         return view
     }()
