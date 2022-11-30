@@ -22,6 +22,8 @@ final class PopupViewController: BaseViewController {
     
     var uid = ""
     
+    var nickname = ""
+    
     override func loadView() {
         self.view = mainView
     }
@@ -155,6 +157,8 @@ final class PopupViewController: BaseViewController {
         switch statusCode {
         case 200:
             let nextVC = ChatViewController()
+            nextVC.viewModel.yourID = uid
+            nextVC.viewModel.yourNickname = nickname
             navigationController?.pushViewController(nextVC, animated: true)
             print("스터디 수락 성공🟢")
         case 201:
