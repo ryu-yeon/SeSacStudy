@@ -289,6 +289,23 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		881D4F262937CE4B009C7090 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				8899279E292505EC00294B6B /* UserDefaultsHelper.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		881D4F272937CE75009C7090 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */,
+				889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		8826E2B3291AF9D800AF8023 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,13 +403,11 @@
 				88556FD12918E248003CD336 /* ViewController.swift */,
 				88556FD32918E248003CD336 /* Main.storyboard */,
 				88556FD82918E249003CD336 /* LaunchScreen.storyboard */,
-				8899279E292505EC00294B6B /* UserDefaultsHelper.swift */,
 				88055984291CFBF000F4D4A2 /* Network */,
 				8826E2C4291B718E00AF8023 /* Firebase */,
 				8855700E29196011003CD336 /* Model */,
 				88556FF92918F140003CD336 /* Scene */,
 				88556FF22918EE62003CD336 /* Utility */,
-				88556FD62918E249003CD336 /* Assets.xcassets */,
 				889215ED2919783500DE147C /* Source */,
 				88556FDB2918E249003CD336 /* Info.plist */,
 				8805598C291D0D7100F4D4A2 /* GoogleService-Info.plist */,
@@ -418,6 +433,7 @@
 		88556FF22918EE62003CD336 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				881D4F262937CE4B009C7090 /* UserDefaults */,
 				88556FE82918E74E003CD336 /* Base */,
 				88556FFE2918F28F003CD336 /* Extension */,
 				889215F4291983C700DE147C /* Protocol */,
@@ -476,8 +492,8 @@
 		889215ED2919783500DE147C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */,
-				889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */,
+				88556FD62918E249003CD336 /* Assets.xcassets */,
+				881D4F272937CE75009C7090 /* Fonts */,
 			);
 			path = Source;
 			sourceTree = "<group>";
