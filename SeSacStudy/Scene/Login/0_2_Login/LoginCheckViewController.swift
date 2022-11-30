@@ -88,6 +88,7 @@ final class LoginCheckViewController: BaseViewController {
         case 200:
             print("로그인 성공🟢")
             print(data)
+            UserDefaultsHelper.standard.saveUser(user: data)
             goToVC(vc: MainTabBarController())
         case 401:
             print("Firebase Token Error🔴")
