@@ -15,13 +15,13 @@ final class ButtonWithShadow: UIButton {
     var backgroundLayerColor: UIColor?
     var conerRadius: CGFloat?
 
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setConfiguration()
 
     }
 
-    public override func draw(_ rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         configureLayers(rect)
     }
 
