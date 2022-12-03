@@ -1,5 +1,5 @@
 //
-//  MyChatCollectionViewCell.swift
+//  YourChatTableViewCell.swift
 //  SeSacStudy
 //
 //  Created by 유연탁 on 2022/12/01.
@@ -9,12 +9,14 @@ import UIKit
 
 import SnapKit
 
-final class MyChatCollectionViewCell: BaseCollectionViewCell {
+final class YourChatTableViewCell: BaseTableViewCell {
     
     let bubbleView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
-        view.backgroundColor = .whiteGreen
+        view.layer.borderColor = UIColor.gray4.cgColor
+        view.layer.borderWidth = 1
+        view.backgroundColor = .white
         return view
     }()
     
@@ -40,15 +42,14 @@ final class MyChatCollectionViewCell: BaseCollectionViewCell {
             contentView.addSubview($0)
         }
         contentView.backgroundColor = .clear
-        self.isSelected = false
     }
     
     override func setConstraints() {
         
         bubbleView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(12)
-            make.trailing.equalToSuperview().inset(16)
-            make.leading.greaterThanOrEqualToSuperview().inset(95)
+            make.verticalEdges.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().inset(16)
+            make.trailing.lessThanOrEqualToSuperview().inset(95)
         }
         
         chatLabel.snp.makeConstraints { make in
@@ -58,7 +59,7 @@ final class MyChatCollectionViewCell: BaseCollectionViewCell {
         
         dateLabel.snp.makeConstraints { make in
             make.bottom.equalTo(bubbleView.snp.bottom)
-            make.trailing.equalTo(bubbleView.snp.leading).offset(-8)
+            make.leading.equalTo(bubbleView.snp.trailing).offset(8)
             make.width.equalTo(30)
             make.height.equalTo(18)
         }

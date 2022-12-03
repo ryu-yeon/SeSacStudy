@@ -10,14 +10,49 @@ import UIKit
 import SnapKit
 
 final class ChatView: BaseView {
-
-    let collectionView: UICollectionView = {
-        var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
-        configuration.showsSeparators = false
-        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
-        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.showsHorizontalScrollIndicator = false
-        view.showsVerticalScrollIndicator = false
+    
+    let dateLabel: UILabel = {
+        let view = UILabel()
+        view.font = .title5_M12
+        view.textColor = .white
+        view.backgroundColor = .gray7
+        view.layer.cornerRadius = 12
+        view.clipsToBounds = true
+        view.textAlignment = .center
+        return view
+    }()
+    
+    let iconImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "bell")
+        view.tintColor = .gray7
+        return view
+    }()
+    
+    let titleLabel: UILabel = {
+        let view = UILabel()
+        view.font = .title3_M14
+        view.textColor = .gray7
+        view.textAlignment = .center
+        return view
+    }()
+    
+    let subTitleLabel: UILabel = {
+        let view = UILabel()
+        view.font = .title4_R14
+        view.text = "채팅을 통해 약속을 정해보세요 :)"
+        view.textColor = .gray6
+        view.textAlignment = .center
+        return view
+    }()
+    
+    lazy var tableView: UITableView = {
+        let view = UITableView(frame: .zero, style: .plain)
+        view.allowsSelection = false
+        view.separatorStyle = .none
+        view.rowHeight = UITableView.automaticDimension
+        view.register(MyChatTableViewCell.self, forCellReuseIdentifier: MyChatTableViewCell.reusableIdentifier)
+        view.register(YourChatTableViewCell.self, forCellReuseIdentifier: YourChatTableViewCell.reusableIdentifier)
         view.backgroundColor = .clear
         return view
     }()
@@ -86,17 +121,43 @@ final class ChatView: BaseView {
             stackView.addArrangedSubview($0)
         }
         
-        [collectionView, textContainer, textView, sendButton, view, stackView].forEach {
+        [dateLabel, iconImageView, titleLabel, subTitleLabel, tableView, textContainer, textView, sendButton, view, stackView].forEach {
             self.addSubview($0)
         }
     }
     
     override func setConstraints() {
         
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaInsets).offset(126)
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide).offset(16)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(114)
+            make.height.equalTo(28)
+        }
+        
+        iconImageView.snp.makeConstraints { make in
+            make.centerY.equalTo(titleLabel.snp.centerY)
+            make.trailing.equalTo(titleLabel.snp.leading).offset(-4)
+            make.size.equalTo(16)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel.snp.bottom).offset(12)
+            make.centerX.equalToSuperview().offset(20)
+            make.height.equalTo(22)
+        }
+        
+        subTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(2)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(22)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(12)
+            make.centerX.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview()
+            make.bottom.equalTo(textContainer.snp.top).offset(-8)
         }
         
         stackView.snp.makeConstraints { make in
@@ -113,7 +174,7 @@ final class ChatView: BaseView {
         
         textContainer.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(50)
+            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(52)
         }
         
