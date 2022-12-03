@@ -32,19 +32,50 @@ final class ChatViewController: BaseViewController {
         viewModel.list
             .withUnretained(self)
             .bind { (vc, value) in
-                vc.snapshot.appendItems(value.payload)
-                vc.dataSource.apply(vc.snapshot)
+                vc.mainView.tableView.reloadData()
+                vc.mainView.tableView.scrollToRow(at: IndexPath(row: (vc.viewModel.chatList?.payload.count ?? 1) - 1, section: 0), at: .bottom, animated: false)
+
+                vc.viewModel.socketManager.establishConnection()
             }
             .disposed(by: disposeBag)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification:)), name: NSNotification.Name("getMessage"), object: nil)
         
         setRootButton()
         setNavigationBar()
         setChatView()
         setMenuButton()
-        setCollectionView()
+        setTableView()
+        setSendButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.socketManager.closeConnection()
+    }
+    
+    @objc func getMessage(notification: NSNotification) {
+            
+        let id = notification.userInfo!["id"] as! String
+        let chat = notification.userInfo!["chat"] as! String
+        let createdAt = notification.userInfo!["createdAt"] as! String
+        let from = notification.userInfo!["from"] as! String
+        let to = notification.userInfo!["to"] as! String
+        
+        let data = Chat(_id: id, to: to, from: from, chat: chat, createdAt: createdAt)
+        
+        viewModel.chatList?.payload.append(data)
+        mainView.tableView.reloadData()
+        mainView.tableView.scrollToRow(at: IndexPath(row: (viewModel.chatList?.payload.count ?? 1) - 1, section: 0), at: .bottom, animated: false)
     }
     
     private func setChatView() {
+        
         mainView.textView.rx.text
             .orEmpty
             .withUnretained(self)
@@ -59,10 +90,40 @@ final class ChatViewController: BaseViewController {
         mainView.sendButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-//                let input = vc.mainView.textView.text
-                
+                let chat = vc.mainView.textView.text ?? ""
+                let idToken = UserDefaultsHelper.standard.idToken
+                vc.viewModel.chatService.sendChat(idToken: idToken, to: vc.viewModel.yourID, chat: chat) { data, statusCode in
+                    vc.checkStatusCode(statusCode, chat: chat, data: data)
+                }
+                vc.mainView.textView.text = ""
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func checkStatusCode(_ statusCode: Int, chat: String, data: Chat?) {
+        switch statusCode {
+        case 200:
+            if let data {
+                viewModel.chatList?.payload.append(data)
+                viewModel.list.onNext(viewModel.chatList!)
+            }
+            print("채팅 전송 성공🟢")
+        case 401:
+            FireBaseTokenManager.shared.getIdToken { idToken in
+                self.viewModel.chatService.sendChat(idToken: idToken, to: self.viewModel.yourID, chat: chat) { data, statusCode in
+                    self.checkStatusCode(statusCode, chat: chat, data: data)
+                }
+            }
+            print("Firebase Token Error🔴")
+        case 406:
+            print("미가입 유저😀")
+        case 500:
+            print("Server Error🔴")
+        case 501:
+            print("Client Error🔴")
+        default:
+            break
+        }
     }
     
     override func setNavigationBar() {
@@ -77,45 +138,50 @@ final class ChatViewController: BaseViewController {
     }
     
     private func setMenuButton() {
-        
+        let nextVC = PopupViewController()
+        mainView.cancleButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                nextVC.modalPresentationStyle = .overFullScreen
+                nextVC.setTitle(title: "스터디를 취소하겠습니까?")
+                nextVC.setSubtitle(subtitle: "스터디를 취소하시면 패널티가 부과됩니다")
+                nextVC.uid = vc.viewModel.yourID
+                nextVC.cancleStudy()
+                vc.present(nextVC, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
-    private func setCollectionView() {
+    private func setTableView() {
         
-        mainView.collectionView.register(MyChatCollectionViewCell.self, forCellWithReuseIdentifier: MyChatCollectionViewCell.reusableIdentifier)
-        mainView.collectionView.register(YourChatCollectionViewCell.self.self, forCellWithReuseIdentifier: YourChatCollectionViewCell.reusableIdentifier)
-        
-        mainView.collectionView.dataSource = dataSource
-        
-        dataSource = UICollectionViewDiffableDataSource(collectionView: mainView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            
-            if itemIdentifier.from != self.viewModel.myID {
-                
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YourChatCollectionViewCell.reusableIdentifier, for: indexPath) as? YourChatCollectionViewCell else { return UICollectionViewCell() }
-                cell.chatLabel.text = itemIdentifier.chat
-                
-                return cell
-            
-            } else {
-                
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyChatCollectionViewCell.reusableIdentifier, for: indexPath) as? MyChatCollectionViewCell else { return UICollectionViewCell() }
-                cell.chatLabel.text = itemIdentifier.chat
-                return cell
-            }
-        })
-        
-        snapshot.appendSections([0])
-        snapshot.appendItems([Chat(_id: "61e3c18b9411a6190a19428b",
-                                   to: "xGpE8KeXgMTnQtpR90fhdR4IVsO2",
-                                   from: "NuK12cdVaDVcc9e4ctxsLMNCrHQ2",
-                                   chat: "반갑습니다 :)",
-                                   createdAt: "2022-11-16T06:55:54.784Z"),
-                              Chat(_id: "61e3c128b9411a6190a19428b",
-                                                         to: "xGpE8KeXgMTnQtpR90fhdR4IVsO2",
-                                                         from: "Y4AuG3VuEPUa21S4I8vNLrLqwY63",
-                                                         chat: "반갑습니다 :)",
-                                                         createdAt: "2022-11-16T06:55:54.784Z")])
-        dataSource.apply(snapshot)
+        mainView.tableView.delegate = self
+        mainView.tableView.dataSource = self
         
     }
+}
+
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.chatList?.payload.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let chatList = viewModel.chatList?.payload else { return UITableViewCell() }
+        if chatList[indexPath.row].from == viewModel.myID {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.reusableIdentifier, for: indexPath) as? MyChatTableViewCell else { return UITableViewCell()}
+            
+            cell.chatLabel.text = chatList[indexPath.row].chat
+            return cell
+            
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: YourChatTableViewCell.reusableIdentifier, for: indexPath) as? YourChatTableViewCell else { return UITableViewCell()}
+            cell.chatLabel.text = chatList[indexPath.row].chat
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
 }
