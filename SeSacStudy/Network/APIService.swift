@@ -212,4 +212,23 @@ final class APIService {
             complitionHandler(statusCode)
         }
     }
+    
+    func cancleStudy(idToken: String, uid: String, complitionHandler: @escaping (Int) -> Void) {
+        let url = EndPoint.baseURL + "/v1/queue/dodge"
+        let headers: HTTPHeaders = [
+            "accept" : "application/json",
+            "idtoken": idToken
+        ]
+        
+        let parameters: [String: String] = [
+            "otheruid": uid
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseString { response in
+            
+            let statusCode = response.response?.statusCode ?? 0
+
+            complitionHandler(statusCode)
+        }
+    }
 }
