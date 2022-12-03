@@ -37,8 +37,8 @@
 		880559C1291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */; };
 		880559C3291F2BB800F4D4A2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */; };
 		881D4F292937CF92009C7090 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F282937CF92009C7090 /* ChatViewModel.swift */; };
-		881D4F2B2937F13C009C7090 /* YourChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2A2937F13C009C7090 /* YourChatCollectionViewCell.swift */; };
-		881D4F2D2937F432009C7090 /* MyChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2C2937F432009C7090 /* MyChatCollectionViewCell.swift */; };
+		881D4F2B2937F13C009C7090 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */; };
+		881D4F2D2937F432009C7090 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */; };
 		881D4F2F2937F8CC009C7090 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2E2937F8CC009C7090 /* Chat.swift */; };
 		881D4F312937FD4B009C7090 /* ChatAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F302937FD4B009C7090 /* ChatAPIService.swift */; };
 		881D4F3329380158009C7090 /* ChatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F3229380158009C7090 /* ChatList.swift */; };
@@ -113,8 +113,10 @@
 		8899278E2923A91300294B6B /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899278D2923A91300294B6B /* BaseTextField.swift */; };
 		889927972924988D00294B6B /* TitleColleciontViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889927962924988D00294B6B /* TitleColleciontViewCell.swift */; };
 		8899279A2924CA4B00294B6B /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 889927992924CA4B00294B6B /* MultiSlider */; };
-		8899279D2924CE5E00294B6B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8899279C2924CE5E00294B6B /* IQKeyboardManagerSwift */; };
 		8899279F292505EC00294B6B /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899279E292505EC00294B6B /* UserDefaultsHelper.swift */; };
+		88B8B8BE2938C48100329CD2 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 88B8B8BD2938C48100329CD2 /* SocketIO */; };
+		88B8B8C02938EEA400329CD2 /* SocketIOMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8B8BF2938EEA400329CD2 /* SocketIOMananger.swift */; };
+		88B8B8C22938EFF000329CD2 /* FireBaseTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8B8C12938EFF000329CD2 /* FireBaseTokenManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,8 +147,8 @@
 		880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		881D4F282937CF92009C7090 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
-		881D4F2A2937F13C009C7090 /* YourChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatCollectionViewCell.swift; sourceTree = "<group>"; };
-		881D4F2C2937F432009C7090 /* MyChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
+		881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		881D4F2E2937F8CC009C7090 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		881D4F302937FD4B009C7090 /* ChatAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPIService.swift; sourceTree = "<group>"; };
 		881D4F3229380158009C7090 /* ChatList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatList.swift; sourceTree = "<group>"; };
@@ -219,6 +221,8 @@
 		8899278D2923A91300294B6B /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		889927962924988D00294B6B /* TitleColleciontViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleColleciontViewCell.swift; sourceTree = "<group>"; };
 		8899279E292505EC00294B6B /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		88B8B8BF2938EEA400329CD2 /* SocketIOMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOMananger.swift; sourceTree = "<group>"; };
+		88B8B8C12938EFF000329CD2 /* FireBaseTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseTokenManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +235,7 @@
 				88055995291D22B400F4D4A2 /* FirebaseAuth in Frameworks */,
 				88055997291D22B400F4D4A2 /* FirebaseMessaging in Frameworks */,
 				885570032919585A003CD336 /* RxCocoa in Frameworks */,
-				8899279D2924CE5E00294B6B /* IQKeyboardManagerSwift in Frameworks */,
+				88B8B8BE2938C48100329CD2 /* SocketIO in Frameworks */,
 				88556FF52918EF31003CD336 /* SnapKit in Frameworks */,
 				88055989291CFC5300F4D4A2 /* Alamofire in Frameworks */,
 				88921612291AD5C200DE147C /* Toast in Frameworks */,
@@ -247,6 +251,7 @@
 			children = (
 				88055982291CFBEC00F4D4A2 /* APIService.swift */,
 				881D4F302937FD4B009C7090 /* ChatAPIService.swift */,
+				88B8B8BF2938EEA400329CD2 /* SocketIOMananger.swift */,
 				88055985291CFC1200F4D4A2 /* EndPoint.swift */,
 			);
 			path = Network;
@@ -387,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				8826E2C2291B718900AF8023 /* FirebaseAuthManager.swift */,
+				88B8B8C12938EFF000329CD2 /* FireBaseTokenManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -524,30 +530,30 @@
 		889215F72919884F00DE147C /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				889215FE291A29CA00DE147C /* 0_1_Login */,
-				889215FF291A29DC00DE147C /* 0_2_Login */,
+				889215FE291A29CA00DE147C /* Login */,
+				889215FF291A29DC00DE147C /* LoginCheck */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		889215FE291A29CA00DE147C /* 0_1_Login */ = {
+		889215FE291A29CA00DE147C /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				889215F52919884C00DE147C /* LoginView.swift */,
 				889215F82919885900DE147C /* LoginViewController.swift */,
 				889215FA2919887100DE147C /* LoginViewModel.swift */,
 			);
-			path = 0_1_Login;
+			path = Login;
 			sourceTree = "<group>";
 		};
-		889215FF291A29DC00DE147C /* 0_2_Login */ = {
+		889215FF291A29DC00DE147C /* LoginCheck */ = {
 			isa = PBXGroup;
 			children = (
 				88921600291A29EF00DE147C /* LoginCheckView.swift */,
 				88921602291A29FC00DE147C /* LoginCheckViewController.swift */,
 				88921604291A2A0500DE147C /* LoginCheckViewModel.swift */,
 			);
-			path = 0_2_Login;
+			path = LoginCheck;
 			sourceTree = "<group>";
 		};
 		8895468329254C5100F88C3F /* Map */ = {
@@ -578,8 +584,8 @@
 				8895469429266BC400F88C3F /* ChatView.swift */,
 				8895469629266BCD00F88C3F /* ChatViewController.swift */,
 				881D4F282937CF92009C7090 /* ChatViewModel.swift */,
-				881D4F2A2937F13C009C7090 /* YourChatCollectionViewCell.swift */,
-				881D4F2C2937F432009C7090 /* MyChatCollectionViewCell.swift */,
+				881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */,
+				881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -654,8 +660,8 @@
 				88055994291D22B400F4D4A2 /* FirebaseAuth */,
 				88055996291D22B400F4D4A2 /* FirebaseMessaging */,
 				889927992924CA4B00294B6B /* MultiSlider */,
-				8899279C2924CE5E00294B6B /* IQKeyboardManagerSwift */,
 				887F6B172928B338007B043E /* RxKeyboard */,
+				88B8B8BD2938C48100329CD2 /* SocketIO */,
 			);
 			productName = SeSacStudy;
 			productReference = 88556FCA2918E248003CD336 /* SeSacStudy.app */;
@@ -692,8 +698,8 @@
 				88055987291CFC5300F4D4A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				88055993291D22B400F4D4A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				889927982924CA4B00294B6B /* XCRemoteSwiftPackageReference "MultiSlider" */,
-				8899279B2924CE5E00294B6B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				887F6B162928B338007B043E /* XCRemoteSwiftPackageReference "RxKeyboard" */,
+				88B8B8BC2938C48100329CD2 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = 88556FCB2918E248003CD336 /* Products */;
 			projectDirPath = "";
@@ -761,7 +767,7 @@
 				8895468C2926323000F88C3F /* ButtonWithShadow.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
 				8899278229224C4900294B6B /* SetInfoTableViewCell.swift in Sources */,
-				881D4F2D2937F432009C7090 /* MyChatCollectionViewCell.swift in Sources */,
+				881D4F2D2937F432009C7090 /* MyChatTableViewCell.swift in Sources */,
 				887F6B152928B1AF007B043E /* SetSearchViewModel.swift in Sources */,
 				8899277A292239DB00294B6B /* SetInfoViewController.swift in Sources */,
 				887F6B572932882B007B043E /* SearchCollectionViewCell.swift in Sources */,
@@ -792,6 +798,7 @@
 				889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */,
 				8899279F292505EC00294B6B /* UserDefaultsHelper.swift in Sources */,
 				88055986291CFC1200F4D4A2 /* EndPoint.swift in Sources */,
+				88B8B8C02938EEA400329CD2 /* SocketIOMananger.swift in Sources */,
 				8826E2C8291B829900AF8023 /* BirthViewController.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
 				880559B0291DEE7F00F4D4A2 /* MyInfoViewController.swift in Sources */,
@@ -804,9 +811,10 @@
 				88055999291DE90800F4D4A2 /* MainTabBarController.swift in Sources */,
 				8826E2D2291BF91A00AF8023 /* EmailViewController.swift in Sources */,
 				8899277E292248D900294B6B /* CardTabeViewCell.swift in Sources */,
+				88B8B8C22938EFF000329CD2 /* FireBaseTokenManager.swift in Sources */,
 				42DD49D7293462CC00730F48 /* SearchViewModel.swift in Sources */,
 				8895468929254CE200F88C3F /* SearchViewController.swift in Sources */,
-				881D4F2B2937F13C009C7090 /* YourChatCollectionViewCell.swift in Sources */,
+				881D4F2B2937F13C009C7090 /* YourChatTableViewCell.swift in Sources */,
 				8826E2DA291C5A1E00AF8023 /* GenderViewModel.swift in Sources */,
 				8895469D29268A9300F88C3F /* MatchSesac.swift in Sources */,
 				8826E2D6291C5A1100AF8023 /* GenderView.swift in Sources */,
@@ -1102,12 +1110,12 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		8899279B2924CE5E00294B6B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		88B8B8BC2938C48100329CD2 /* XCRemoteSwiftPackageReference "socket" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
 			requirement = {
 				kind = exactVersion;
-				version = 6.5.0;
+				version = 16.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1158,10 +1166,10 @@
 			package = 889927982924CA4B00294B6B /* XCRemoteSwiftPackageReference "MultiSlider" */;
 			productName = MultiSlider;
 		};
-		8899279C2924CE5E00294B6B /* IQKeyboardManagerSwift */ = {
+		88B8B8BD2938C48100329CD2 /* SocketIO */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8899279B2924CE5E00294B6B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
+			package = 88B8B8BC2938C48100329CD2 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

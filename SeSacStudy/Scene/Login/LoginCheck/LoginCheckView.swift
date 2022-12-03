@@ -16,7 +16,6 @@ final class LoginCheckView: BaseView {
         view.axis = .vertical
         view.distribution = .equalSpacing
         view.alignment = .top
-//        view.spacing = UIScreen.main.bounds.height / 13
         return view
     }()
     
@@ -75,8 +74,8 @@ final class LoginCheckView: BaseView {
         
         stackView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
-            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.48)
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.07)
+            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.45)
         }
         
         textLabel.snp.makeConstraints { make in

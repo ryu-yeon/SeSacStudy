@@ -74,8 +74,8 @@ final class EmailView: BaseView {
         
         stackView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.1)
-            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.48)
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(UIScreen.main.bounds.height * 0.07)
+            make.bottom.equalTo(self).inset(UIScreen.main.bounds.height * 0.45)
         }
         
         labelView.snp.makeConstraints { make in
