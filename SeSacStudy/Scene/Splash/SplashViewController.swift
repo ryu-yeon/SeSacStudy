@@ -7,10 +7,14 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 final class SplashViewController: BaseViewController {
 
     private let mainView = SplashView()
     private let viewModel = SplashViewModel()
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = mainView
@@ -19,44 +23,36 @@ final class SplashViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaultsHelper.standard.start {
-            checkUser()
-//            goToVC(vc: UINavigationController(rootViewController: EmailViewController()))
-        } else {
-            goToVC(vc: OnboardingViewController())
+        bindStatusCode()
+        
+        viewModel.checkUser {
+            self.goToVC(vc: OnboardingViewController())
         }
     }
     
-    private func checkUser() {
-        viewModel.firebaseAuthManager.getIdToken { [weak self] idToken in
-            if let idToken {
-                self?.viewModel.apiService.login(idToken: idToken) { data, statusCode in
-                    self?.checkStatusCode(statusCode, data: data)
+    private func bindStatusCode() {
+        viewModel.statusCode
+            .withUnretained(self)
+            .bind { (vc, userStatusCode) in
+                switch userStatusCode {
+                case .Success:
+                    UserDefaultsHelper.standard.saveUser(user: vc.viewModel.user)
+                    vc.goToVC(vc: MainTabBarController())
+                    print("로그인 성공🟢")
+                case .FirebaseTokenError:
+                    vc.goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
+                    print("Firebase Token Error🔴")
+                case .NotSignupUser:
+                    vc.goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
+                    print("미가입 유저😀")
+                case .ServerError:
+                    print("Server Error🔴")
+                case .ClientError:
+                    print("Client Error🔴")
+                default:
+                    break
                 }
-            } else {
-                self?.goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
             }
-        }
-    }
-    
-    private func checkStatusCode(_ statusCode: Int, data: User?) {
-        switch statusCode {
-        case 200:
-            print("로그인 성공🟢")
-            UserDefaultsHelper.standard.saveUser(user: data)
-            print(data)
-            goToVC(vc: MainTabBarController())
-        case 401:
-            print("Firebase Token Error🔴")
-        case 406:
-            goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
-            print("미가입 유저😀")
-        case 500:
-            print("Server Error🔴")
-        case 501:
-            print("Client Error🔴")
-        default:
-            break
-        }
+            .disposed(by: disposeBag)
     }
 }
