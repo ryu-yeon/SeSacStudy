@@ -156,10 +156,12 @@ final class PopupViewController: BaseViewController {
         guard let pvc = self.presentingViewController else { return }
         switch statusCode {
         case 200:
-            let nextVC = ChatViewController()
-            nextVC.viewModel.yourID = uid
-            nextVC.viewModel.yourNickname = nickname
-            navigationController?.pushViewController(nextVC, animated: true)
+            dismiss(animated: true) {
+                let nextVC = ChatViewController()
+                nextVC.viewModel.yourID = self.uid
+                nextVC.viewModel.yourNickname = self.nickname
+                pvc.navigationController?.pushViewController(nextVC, animated: true)
+            }
             print("스터디 수락 성공🟢")
         case 201:
             dismiss(animated: true) {
@@ -181,6 +183,51 @@ final class PopupViewController: BaseViewController {
                 if let idToken {
                     self.apiService.acceptStudy(idToken: idToken, uid: self.uid) { statusCode in
                         self.checkStatusCode3(statusCode)
+                    }
+                }
+            }
+            print("Firebase Token Error🔴")
+        case 406:
+            print("미가입 유저😀")
+        case 500:
+            print("Server Error🔴")
+        case 501:
+            print("Client Error🔴")
+        default:
+            break
+        }
+    }
+    
+    func cancleStudy() {
+        mainView.okButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                let idToken = UserDefaultsHelper.standard.idToken
+                vc.apiService.cancleStudy(idToken: idToken, uid: vc.uid) { statusCode in
+                    vc.checkStatusCode4(statusCode)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func checkStatusCode4(_ statusCode: Int) {
+        switch statusCode {
+        case 200:
+            guard let pvc = self.presentingViewController else { return }
+            dismiss(animated: true) {
+                guard let viewControllerStack = pvc.navigationController?.viewControllers else { return }
+                for viewController in viewControllerStack {
+                    pvc.navigationController?.popToViewController(viewController, animated: true)
+                }
+            }
+            print("스터디 취소 성공🟢")
+        case 201:
+            print("잘못된 otheruid🟠")
+        case 401:
+            firebaseAuthManager.getIdToken { idToken in
+                if let idToken {
+                    self.apiService.cancleStudy(idToken: idToken, uid: self.uid) { statusCode in
+                        self.checkStatusCode4(statusCode)
                     }
                 }
             }
