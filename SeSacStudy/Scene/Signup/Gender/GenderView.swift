@@ -161,7 +161,7 @@ final class GenderView: BaseView {
             make.centerY.equalTo(manButton.snp.centerY)
             make.leading.equalTo(self.snp.centerX).offset(6)
             make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(110)
+            make.size.equalTo(manButton)
         }
         
         womanImageView.snp.makeConstraints { make in
