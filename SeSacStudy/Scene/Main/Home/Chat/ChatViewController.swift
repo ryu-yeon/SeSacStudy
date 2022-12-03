@@ -109,7 +109,7 @@ final class ChatViewController: BaseViewController {
             }
             print("채팅 전송 성공🟢")
         case 401:
-            FireBaseTokenManager.shared.getIdToken { idToken in
+            FirebaseTokenManager.shared.getIdToken { idToken in
                 self.viewModel.chatService.sendChat(idToken: idToken, to: self.viewModel.yourID, chat: chat) { data, statusCode in
                     self.checkStatusCode(statusCode, chat: chat, data: data)
                 }

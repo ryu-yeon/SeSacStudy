@@ -43,7 +43,7 @@ final class ChatViewModel {
             list.onNext(chatList!)
             print("매칭 상태 확인 성공🟢")
         case 401:
-            FireBaseTokenManager.shared.getIdToken { [weak self] idToken in
+            FirebaseTokenManager.shared.getIdToken { [weak self] idToken in
                 self?.chatService.loadChatList(idToken: idToken, from: self?.yourID ?? "", lastchatDate: "2022-11-16T06:55:54.784Z") { data, statusCode in
                     self?.checkStatusCode(statusCode, data: data)
                 }
