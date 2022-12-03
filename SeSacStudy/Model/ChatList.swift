@@ -8,5 +8,5 @@
 import Foundation
 
 struct ChatList: Codable {
-    let payload: [Chat]
+    var payload: [Chat]
 }
