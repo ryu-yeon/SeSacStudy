@@ -82,6 +82,9 @@
 		887F6B572932882B007B043E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F6B562932882B007B043E /* SearchCollectionViewCell.swift */; };
 		888BCFC1293BA7860060322A /* UserAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BCFC0293BA7860060322A /* UserAPIService.swift */; };
 		888BCFC4293BAB090060322A /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BCFC3293BAB090060322A /* StatusCode.swift */; };
+		888BCFDB293CD8780060322A /* QueueAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BCFDA293CD8780060322A /* QueueAPIService.swift */; };
+		888BCFDD293CDCBB0060322A /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BCFDC293CDCBB0060322A /* Coordinate.swift */; };
+		888BCFDF293CEEFF0060322A /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BCFDE293CEEFF0060322A /* LocationHelper.swift */; };
 		889215F0291979A300DE147C /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */; };
 		889215F1291979A300DE147C /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */; };
 		889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889215F2291983AF00DE147C /* ReusableViewProtocol.swift */; };
@@ -192,6 +195,9 @@
 		887F6B562932882B007B043E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		888BCFC0293BA7860060322A /* UserAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIService.swift; sourceTree = "<group>"; };
 		888BCFC3293BAB090060322A /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		888BCFDA293CD8780060322A /* QueueAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueAPIService.swift; sourceTree = "<group>"; };
+		888BCFDC293CDCBB0060322A /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		888BCFDE293CEEFF0060322A /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		889215EE291979A300DE147C /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		889215EF291979A300DE147C /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		889215F2291983AF00DE147C /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
@@ -448,6 +454,7 @@
 		88556FF22918EE62003CD336 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				888BCFE0293CF6DF0060322A /* Location */,
 				881D4F262937CE4B009C7090 /* UserDefaults */,
 				88556FE82918E74E003CD336 /* Base */,
 				88556FFE2918F28F003CD336 /* Extension */,
@@ -501,6 +508,7 @@
 				881D4F2E2937F8CC009C7090 /* Chat.swift */,
 				881D4F3229380158009C7090 /* ChatList.swift */,
 				888BCFC3293BAB090060322A /* StatusCode.swift */,
+				888BCFDC293CDCBB0060322A /* Coordinate.swift */,
 				88055985291CFC1200F4D4A2 /* EndPoint.swift */,
 			);
 			path = Model;
@@ -510,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				88055982291CFBEC00F4D4A2 /* APIService.swift */,
+				888BCFDA293CD8780060322A /* QueueAPIService.swift */,
 				888BCFC0293BA7860060322A /* UserAPIService.swift */,
 				881D4F302937FD4B009C7090 /* ChatAPIService.swift */,
 			);
@@ -662,6 +671,71 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		888BCFD6293C71DE0060322A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				880559AD291DEE4800F4D4A2 /* MyInfoView.swift */,
+				880559AF291DEE7F00F4D4A2 /* MyInfoViewController.swift */,
+				880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		888BCFD7293C71E80060322A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				880559B1291DEE9200F4D4A2 /* MyInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		888BCFD8293C73010060322A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8899277B29223B2000294B6B /* SetInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		888BCFD9293C730B0060322A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88992776292237B000294B6B /* SetInfoView.swift */,
+				88992779292239DB00294B6B /* SetInfoViewController.swift */,
+				8899277D292248D900294B6B /* CardTabeViewCell.swift */,
+				8899277F29224A3700294B6B /* InfoView.swift */,
+				8899278129224C4900294B6B /* SetInfoTableViewCell.swift */,
+				889927962924988D00294B6B /* TitleColleciontViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		888BCFE0293CF6DF0060322A /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				888BCFDE293CEEFF0060322A /* LocationHelper.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		888BCFE1293CFA2B0060322A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8805599C291DEA0A00F4D4A2 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		888BCFE2293CFA3C0060322A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8805599A291DE9FD00F4D4A2 /* HomeView.swift */,
+				8805598F291D11D300F4D4A2 /* HomeViewController.swift */,
+				887F6B1929290909007B043E /* CustomAnnotationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		889215ED2919783500DE147C /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,10 +783,8 @@
 		8895468329254C5100F88C3F /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				8805599A291DE9FD00F4D4A2 /* HomeView.swift */,
-				8805598F291D11D300F4D4A2 /* HomeViewController.swift */,
-				8805599C291DEA0A00F4D4A2 /* HomeViewModel.swift */,
-				887F6B1929290909007B043E /* CustomAnnotationView.swift */,
+				888BCFE2293CFA3C0060322A /* View */,
+				888BCFE1293CFA2B0060322A /* ViewModel */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -754,10 +826,8 @@
 		88992775292237A000294B6B /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
-				880559AD291DEE4800F4D4A2 /* MyInfoView.swift */,
-				880559AF291DEE7F00F4D4A2 /* MyInfoViewController.swift */,
-				880559B1291DEE9200F4D4A2 /* MyInfoViewModel.swift */,
-				880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */,
+				888BCFD6293C71DE0060322A /* View */,
+				888BCFD7293C71E80060322A /* ViewModel */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -765,13 +835,8 @@
 		88992778292237B400294B6B /* SetInfo */ = {
 			isa = PBXGroup;
 			children = (
-				88992776292237B000294B6B /* SetInfoView.swift */,
-				88992779292239DB00294B6B /* SetInfoViewController.swift */,
-				8899277B29223B2000294B6B /* SetInfoViewModel.swift */,
-				8899277D292248D900294B6B /* CardTabeViewCell.swift */,
-				8899277F29224A3700294B6B /* InfoView.swift */,
-				8899278129224C4900294B6B /* SetInfoTableViewCell.swift */,
-				889927962924988D00294B6B /* TitleColleciontViewCell.swift */,
+				888BCFD9293C730B0060322A /* View */,
+				888BCFD8293C73010060322A /* ViewModel */,
 			);
 			path = SetInfo;
 			sourceTree = "<group>";
@@ -885,6 +950,7 @@
 				8899278E2923A91300294B6B /* BaseTextField.swift in Sources */,
 				4254E42A292B4FC600563062 /* StudyCollectionViewCell.swift in Sources */,
 				881D4F312937FD4B009C7090 /* ChatAPIService.swift in Sources */,
+				888BCFDB293CD8780060322A /* QueueAPIService.swift in Sources */,
 				880559A8291DED7F00F4D4A2 /* FriendView.swift in Sources */,
 				880559C1291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift in Sources */,
 				88556FF72918F12A003CD336 /* OnboardingView.swift in Sources */,
@@ -957,8 +1023,10 @@
 				88992777292237B000294B6B /* SetInfoView.swift in Sources */,
 				888BCFC4293BAB090060322A /* StatusCode.swift in Sources */,
 				889927972924988D00294B6B /* TitleColleciontViewCell.swift in Sources */,
+				888BCFDD293CDCBB0060322A /* Coordinate.swift in Sources */,
 				881D4F3329380158009C7090 /* ChatList.swift in Sources */,
 				8826E2BE291AFCAD00AF8023 /* NicknameViewModel.swift in Sources */,
+				888BCFDF293CEEFF0060322A /* LocationHelper.swift in Sources */,
 				880559A4291DEB2800F4D4A2 /* ShopViewModel.swift in Sources */,
 				88055999291DE90800F4D4A2 /* MainTabBarController.swift in Sources */,
 				8826E2D2291BF91A00AF8023 /* EmailViewController.swift in Sources */,
