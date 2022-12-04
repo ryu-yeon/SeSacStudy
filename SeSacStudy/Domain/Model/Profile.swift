@@ -12,5 +12,11 @@ struct Profile {
     var nickname: String
     var birth: Date
     var email: String
-    var gender: Int
+    var gender: Gender
+}
+
+enum Gender: Int {
+    case Man = 0
+    case Woman = 1
+    case Nothing = -1
 }

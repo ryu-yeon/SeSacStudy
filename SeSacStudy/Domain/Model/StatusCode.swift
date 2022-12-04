@@ -15,4 +15,11 @@ enum UserStatusCode: Int {
     case NotSignupUser = 406
     case ServerError = 500
     case ClientError = 501
+    case UnknownError = -1
+}
+
+enum FirebaseAuthStatusCode: Int {
+    case Success = 0
+    case ManyTry = 17010
+    case UnknownError = -1
 }

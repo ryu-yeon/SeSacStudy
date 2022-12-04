@@ -23,7 +23,7 @@ enum FBAMessage: String {
 
 final class FirebaseAuthManager {
     
-    func sendSMS(phoneNumber: String, handler: @escaping (Error?, Int?) -> Void) {
+    func sendSMS(phoneNumber: String, handler: @escaping (Error?, Int) -> Void) {
         PhoneAuthProvider.provider()
           .verifyPhoneNumber("+82 \(phoneNumber)", uiDelegate: nil) { verificationID, error in
               if let error = error as NSError? {
