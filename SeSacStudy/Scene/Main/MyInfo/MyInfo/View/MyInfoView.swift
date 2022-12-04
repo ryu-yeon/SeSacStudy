@@ -15,9 +15,9 @@ final class MyInfoView: BaseView {
         let view = UITableView(frame: .zero, style: .plain)
         view.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         view.separatorColor = .gray2
-        
         view.rowHeight = 74
         view.isScrollEnabled = false
+        view.register(MyInfoTableViewCell.self, forCellReuseIdentifier: MyInfoTableViewCell.reusableIdentifier)
         return view
     }()
 

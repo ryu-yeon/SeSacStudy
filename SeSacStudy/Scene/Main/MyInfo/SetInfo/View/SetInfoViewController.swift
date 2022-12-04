@@ -31,45 +31,43 @@ final class SetInfoViewController: BaseViewController {
         navigationItem.rightBarButtonItem?.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                let idToken = UserDefaultsHelper.standard.idToken
-                vc.viewModel.apiService.updateMyPage(user: vc.viewModel.user, idToken: idToken) { statusCode in
-                    vc.checkStatusCode(statusCode)
-                }
+                vc.viewModel.updateMyData()
+                vc.bindUserStatusCode()
             }
             .disposed(by: disposeBag)
         
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
-        mainView.tableView.register(CardTableViewCell.self, forCellReuseIdentifier: CardTableViewCell.reusableIdentifier)
-        mainView.tableView.register(SetInfoTableViewCell.self, forCellReuseIdentifier: SetInfoTableViewCell.reusableIdentifier)
         
         setComment()
     }
     
-    private func checkStatusCode(_ statusCode: Int) {
-        switch statusCode {
-        case 200:
-            UserDefaultsHelper.standard.saveUser(user: self.viewModel.user)
-            self.navigationController?.popViewController(animated: true)
-            print("저장 성공🟢")
-        case 401:
-            viewModel.firebaseAuthManager.getIdToken { [weak self] idToken in
-                if let idToken {
-                    self?.viewModel.apiService.updateMyPage(user: (self?.viewModel.user)!, idToken: idToken) { statusCode in
-                        self?.checkStatusCode(statusCode)
+    private func bindUserStatusCode() {
+        viewModel.userStatusCode
+            .asDriver(onErrorJustReturn: .UnknownError)
+            .drive { userStatusCode in
+                switch userStatusCode {
+                case .Success:
+                    UserDefaultsHelper.standard.saveUser(user: self.viewModel.user)
+                    self.navigationController?.popViewController(animated: true)
+                    print("저장 성공🟢")
+                case .FirebaseTokenError:
+                    FirebaseTokenManager.shared.getIdToken { [self] idToken in
+                        viewModel.updateMyData()
+                        bindUserStatusCode()
                     }
+                    print("Firebase Token Error🔴")
+                case .NotSignupUser:
+                    print("미가입 유저😀")
+                case .ServerError:
+                    print("Server Error🔴")
+                case .ClientError:
+                    print("Client Error🔴")
+                default:
+                    break
                 }
             }
-            print("Firebase Token Error🔴")
-        case 406:
-            print("미가입 유저😀")
-        case 500:
-            print("Server Error🔴")
-        case 501:
-            print("Client Error🔴")
-        default:
-            break
-        }
+            .disposed(by: disposeBag)
     }
     
     override func setNavigationBar() {

@@ -17,6 +17,8 @@ final class SetInfoView: BaseView {
         view.showsVerticalScrollIndicator = false
         view.sectionHeaderTopPadding = 0
         view.backgroundColor = .clear
+        view.register(CardTableViewCell.self, forCellReuseIdentifier: CardTableViewCell.reusableIdentifier)
+        view.register(SetInfoTableViewCell.self, forCellReuseIdentifier: SetInfoTableViewCell.reusableIdentifier)
         return view
     }()
     

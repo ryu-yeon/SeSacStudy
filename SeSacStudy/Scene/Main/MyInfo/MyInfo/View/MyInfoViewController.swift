@@ -31,12 +31,10 @@ final class MyInfoViewController: BaseViewController {
     
     private func setTableView() {
         
-        mainView.tableView.register(MyInfoTableViewCell.self, forCellReuseIdentifier: MyInfoTableViewCell.reusableIdentifier)
-        
         viewModel.list
             .bind(to: mainView.tableView.rx.items(cellIdentifier: MyInfoTableViewCell.reusableIdentifier, cellType: MyInfoTableViewCell.self)) {
-                (item, element, cell) in
-                if item == 0 {
+                (index, item, cell) in
+                if index == 0 {
                     cell.profileImageView.isHidden = false
                     cell.arrowImagView.isHidden = false
                     cell.titleLabel.textColor = .black
@@ -46,9 +44,8 @@ final class MyInfoViewController: BaseViewController {
                         make.width.height.equalTo(50)
                     }
                 }
-
-                cell.iconImageView.image = UIImage(named: element.icon)
-                cell.titleLabel.text = element.title
+                cell.iconImageView.image = UIImage(named: item.icon)
+                cell.titleLabel.text = item.title
             }
             .disposed(by: disposeBag)
         
