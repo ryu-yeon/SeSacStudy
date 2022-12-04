@@ -34,9 +34,9 @@ final class OnboardingViewController: BaseViewController {
         mainView.collectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.reusableIdentifier)
         
         viewModel.list
-            .bind(to: mainView.collectionView.rx.items(cellIdentifier: OnboardingCollectionViewCell.reusableIdentifier, cellType: OnboardingCollectionViewCell.self)) { (item, element, cell) in
-                cell.textLabel.setRangeTextColor(text: element.text, length: element.range, color: .brandGreen)
-                cell.onboardingImage.image = UIImage(named: element.image)
+            .bind(to: mainView.collectionView.rx.items(cellIdentifier: OnboardingCollectionViewCell.reusableIdentifier, cellType: OnboardingCollectionViewCell.self)) { (index, item, cell) in
+                cell.textLabel.setRangeTextColor(text: item.text, length: item.range, color: .brandGreen)
+                cell.onboardingImage.image = UIImage(named: item.image)
             }
             .disposed(by: disposeBag)
         
