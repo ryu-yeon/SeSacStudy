@@ -41,7 +41,7 @@ final class UserAPIService {
             "nick": profile.nickname,
             "birth": profile.birth,
             "email": profile.email,
-            "gender": profile.gender
+            "gender": profile.gender.rawValue
         ]
         let headers: HTTPHeaders = [
             "accept" : "application/json",
