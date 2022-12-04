@@ -7,24 +7,19 @@
 
 import Foundation
 
-import RxCocoa
 import RxSwift
+import RxRelay
 
 final class EmailViewModel {
     
-    var vaild = PublishSubject<Bool>()
-    var isVaild = false
+    var vaild = BehaviorRelay(value: false)
     var profile: Profile?
     
     func isVaildEmail(email: String) {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         
-        isVaild = predicate.evaluate(with: email)
-        fetch()
-    }
-    
-    func fetch() {
-        vaild.onNext(isVaild)
+        vaild.accept(predicate.evaluate(with: email))
+        profile?.email = email
     }
 }

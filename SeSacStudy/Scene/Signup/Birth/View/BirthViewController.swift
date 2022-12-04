@@ -29,8 +29,6 @@ final class BirthViewController: BaseViewController {
         setDatePicker()
         setDateLabels()
         setNextButton()
-        
-        viewModel.fetch()
     }
     
     private func setDatePicker() {
@@ -59,16 +57,15 @@ final class BirthViewController: BaseViewController {
     
     private func setNextButton() {
         viewModel.vaild
-            .withUnretained(self)
-            .bind { (vc, value) in
-                vc.mainView.nextButton.backgroundColor = value ? .brandGreen : .gray6
-            }
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 ? .brandGreen : .gray6}
+            .drive(mainView.nextButton.rx.backgroundColor)
             .disposed(by: disposeBag)
         
         mainView.nextButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                if vc.viewModel.isVaild {
+                if vc.viewModel.vaild.value {
                     let nextVC = EmailViewController()
                     nextVC.viewModel.profile = vc.viewModel.profile
                     vc.navigationController?.pushViewController(nextVC, animated: true)

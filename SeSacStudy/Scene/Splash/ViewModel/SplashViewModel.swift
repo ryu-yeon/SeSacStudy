@@ -7,14 +7,14 @@
 
 import Foundation
 
-import RxCocoa
 import RxSwift
+import RxRelay
 
 final class SplashViewModel {
     
     let userService = UserAPIService()
     
-    let statusCode = PublishSubject<UserStatusCode>()
+    let statusCode = PublishRelay<UserStatusCode>()
     
     var user: User?
     
@@ -25,7 +25,7 @@ final class SplashViewModel {
                 self?.userService.login(idToken: idToken) { user, statusCode in
                     guard let userStatusCode = UserStatusCode(rawValue: statusCode) else { return }
                     self?.user = user
-                    self?.statusCode.onNext(userStatusCode)
+                    self?.statusCode.accept(userStatusCode)
                 }
             }
         } else {

@@ -9,7 +9,6 @@ import UIKit
 
 import RxCocoa
 import RxSwift
-import RxKeyboard
 import Toast
 
 final class LoginViewController: BaseViewController {
@@ -38,8 +37,6 @@ final class LoginViewController: BaseViewController {
         setNavigationBar()
         setTextField()
         setCheckButton()
-        
-        viewModel.fetch()
     }
     
     private func setTextField() {
@@ -49,42 +46,52 @@ final class LoginViewController: BaseViewController {
             .orEmpty
             .withUnretained(self)
             .bind { (vc, value) in
-                vc.mainView.numberTextField.lineView.backgroundColor = value != "" ? .black : .gray3
+                vc.mainView.numberTextField.setLine()
                 vc.viewModel.withHypen(number: value)
-                vc.mainView.numberTextField.textField.text = vc.viewModel.phoneNumber
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.text
+            .asDriver(onErrorJustReturn: "")
+            .drive(mainView.numberTextField.textField.rx.text)
             .disposed(by: disposeBag)
     }
     
     private func setCheckButton() {
         viewModel.valid
-            .withUnretained(self)
-            .bind { (vc, value) in
-                vc.mainView.checkButton.backgroundColor = value ? .brandGreen : .gray6
-            }
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 ? .brandGreen : .gray6 }
+            .drive(mainView.checkButton.rx.backgroundColor)
             .disposed(by: disposeBag)
         
         mainView.checkButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _ ) in
-                if vc.viewModel.isValid {
-                    let phoneNumber = vc.mainView.numberTextField.textField.text ?? ""
-                    vc.viewModel.firebaseAuthManager.sendSMS(phoneNumber: phoneNumber) { error, code  in
-                        if error != nil {
-                            if code == FBAError.manyTry.rawValue {
-                                vc.mainView.makeToast(FBAMessage.manyTry.rawValue, duration: 1.0, position: .top)
-                            } else {
-                                vc.mainView.makeToast(FBAMessage.error.rawValue, duration: 1.0, position: .top)
-                            }
-                        } else {
-                            vc.mainView.makeToast(FBAMessage.start.rawValue, duration: 1.0, position: .top)
-                            let nextVC = LoginCheckViewController()
-                            vc.navigationController?.pushViewController(nextVC, animated: true)
-                            nextVC.viewModel.phoneNumber = phoneNumber
-                        }
-                    }
+                if vc.viewModel.valid.value {
+                    vc.viewModel.requestAuth()
+                    vc.bindFirebaseCode()
                 } else {
                     vc.mainView.makeToast(FBAMessage.invaild.rawValue, duration: 1.0, position: .top)
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindFirebaseCode() {
+        viewModel.firebaseCode
+            .take(1)
+            .asDriver(onErrorJustReturn: .UnknownError)
+            .drive { [self] statusCode in
+                switch statusCode {
+                case .Success:
+                    mainView.makeToast(FBAMessage.start.rawValue, duration: 1.0, position: .top)
+                    let nextVC = LoginCheckViewController()
+                    navigationController?.pushViewController(nextVC, animated: true)
+                    nextVC.viewModel.phoneNumber = viewModel.phoneNumber
+                case .ManyTry:
+                    mainView.makeToast(FBAMessage.manyTry.rawValue, duration: 1.0, position: .top)
+                default:
+                    mainView.makeToast(FBAMessage.error.rawValue, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)

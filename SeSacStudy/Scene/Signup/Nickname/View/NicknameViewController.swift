@@ -28,8 +28,6 @@ final class NicknameViewController: BaseViewController {
         setBackButton()
         setTextField()
         setNextButton()
-        
-        viewModel.fetch()
     }
     
     private func setTextField() {
@@ -41,25 +39,23 @@ final class NicknameViewController: BaseViewController {
             .orEmpty
             .withUnretained(self)
             .bind { vc, value in
-                vc.mainView.nicknameTextField.lineView.backgroundColor = value != "" ? .black : .gray3
+                vc.mainView.nicknameTextField.setLine()
                 vc.viewModel.isVaildNickname(nickname: value)
-                vc.viewModel.profile?.nickname = value
             }
             .disposed(by: disposeBag)
     }
     
     private func setNextButton() {
         viewModel.vaild
-            .bind { value in
-                self.mainView.nextButton.backgroundColor = value ? .brandGreen : .gray6
-            }
+            .asDriver(onErrorJustReturn: false)
+            .map { $0 ? .brandGreen : .gray6 }
+            .drive(mainView.nextButton.rx.backgroundColor)
             .disposed(by: disposeBag)
         
         mainView.nextButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                
-                if vc.viewModel.isVaild {
+                if vc.viewModel.vaild.value {
                     let nextVC = BirthViewController()
                     nextVC.viewModel.profile = vc.viewModel.profile
                     vc.navigationController?.pushViewController(nextVC, animated: true)

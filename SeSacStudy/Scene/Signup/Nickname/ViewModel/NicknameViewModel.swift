@@ -7,24 +7,19 @@
 
 import Foundation
 
-import RxCocoa
 import RxSwift
+import RxRelay
 
 final class NicknameViewModel {
 
     var profile: Profile?
-    var vaild = PublishSubject<Bool>()
-    var isVaild = false
+    var vaild = BehaviorRelay(value: false)
     
     func isVaildNickname(nickname: String) {
         let nicknameRegEx = "^[가-힣a-zA-Z0-9]{1,10}$"
         let predicate = NSPredicate(format:"SELF MATCHES %@", nicknameRegEx)
         
-        isVaild = predicate.evaluate(with: nickname)
-        fetch()
-    }
-    
-    func fetch() {
-        vaild.onNext(isVaild)
+        vaild.accept(predicate.evaluate(with: nickname))
+        profile?.nickname = nickname
     }
 }

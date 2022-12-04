@@ -7,33 +7,27 @@
 
 import Foundation
 
-import RxCocoa
 import RxSwift
+import RxRelay
 
 final class BirthViewModel {
     
     let dateFormatter = DateFormatter()
     var date = BehaviorSubject(value: Date())
-    var vaild = PublishSubject<Bool>()
+    var vaild = BehaviorRelay(value: false)
     var year = ""
     var mouth = ""
     var day = ""
-    var isVaild = false
     var profile: Profile?
     
     func isVaildDate(date: Date) {
         let age = Calendar.current.dateComponents([.year], from: date, to: Date()).year ?? 0
         if age >= 17 {
-            isVaild = true
+            vaild.accept(true)
         } else {
-            isVaild = false
+            vaild.accept(false)
         }
         self.date.onNext(date)
-        fetch()
-    }
-    
-    func fetch() {
-        vaild.onNext(isVaild)
     }
     
     func dateformat(date: Date) {

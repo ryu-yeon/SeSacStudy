@@ -22,9 +22,9 @@ final class SplashViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         bindStatusCode()
-        
+
         viewModel.checkUser {
             self.goToVC(vc: OnboardingViewController())
         }
@@ -32,18 +32,18 @@ final class SplashViewController: BaseViewController {
     
     private func bindStatusCode() {
         viewModel.statusCode
-            .withUnretained(self)
-            .bind { (vc, userStatusCode) in
+            .asDriver(onErrorJustReturn: .UnknownError)
+            .drive { [self] userStatusCode in
                 switch userStatusCode {
                 case .Success:
-                    UserDefaultsHelper.standard.saveUser(user: vc.viewModel.user)
-                    vc.goToVC(vc: MainTabBarController())
+                    UserDefaultsHelper.standard.saveUser(user: viewModel.user)
+                    goToVC(vc: MainTabBarController())
                     print("로그인 성공🟢")
                 case .FirebaseTokenError:
-                    vc.goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
+                    goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
                     print("Firebase Token Error🔴")
                 case .NotSignupUser:
-                    vc.goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
+                    goToVC(vc: UINavigationController(rootViewController: LoginViewController()))
                     print("미가입 유저😀")
                 case .ServerError:
                     print("Server Error🔴")
