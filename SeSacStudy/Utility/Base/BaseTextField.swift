@@ -31,6 +31,7 @@ class BaseTextField: BaseView {
         [textField, lineView].forEach {
             self.addSubview($0)
         }
+        setLine()
     }
     
     override func setConstraints() {
@@ -45,6 +46,14 @@ class BaseTextField: BaseView {
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
             make.height.equalTo(1)
+        }
+    }
+    
+    func setLine() {
+        if textField.text == "" {
+            lineView.backgroundColor = .gray3
+        } else {
+            lineView.backgroundColor = .black
         }
     }
 }
