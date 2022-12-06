@@ -210,7 +210,7 @@ extension HomeViewController {
     
     func setAnnotitaion(lat: Double, long: Double, image: Int) {
         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        let annotation = CustomAnnotation(sesac_image: image, coordinate: coordinate)
+        let annotation = CustomAnnotation(sesacImage: image, coordinate: coordinate)
         mainView.mapView.addAnnotation(annotation)
     }
 }
@@ -249,21 +249,9 @@ extension HomeViewController: MKMapViewDelegate {
         let size = CGSize(width: 85, height: 85)
         UIGraphicsBeginImageContext(size)
         
-        switch annotation.sesac_image {
-        case 0:
-            sesacImage = UIImage(named: "sesac_face_1")
-        case 1:
-            sesacImage = UIImage(named: "sesac_face_2")
-        case 2:
-            sesacImage = UIImage(named: "sesac_face_3")
-        case 3:
-            sesacImage = UIImage(named: "sesac_face_4")
-        case 4:
-            sesacImage = UIImage(named: "sesac_face_5")
-        default:
-            sesacImage = UIImage(named: "sesac_face_1")
-        }
+        let sesac: SesacImage = SesacImage(rawValue: annotation.sesacImage) ?? .sesac_face_1
         
+        sesacImage = UIImage(named: sesac.image)
         sesacImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         annotationView?.image = resizedImage

@@ -28,17 +28,13 @@ class CustomAnnotationView: MKAnnotationView {
 
 
 class CustomAnnotation: NSObject, MKAnnotation {
-  let sesac_image: Int?
+  let sesacImage: Int
   let coordinate: CLLocationCoordinate2D
 
-  init(
-    sesac_image: Int?,
-    coordinate: CLLocationCoordinate2D
-  ) {
-    self.sesac_image = sesac_image
+  init(sesacImage: Int, coordinate: CLLocationCoordinate2D) {
+    self.sesacImage = sesacImage
     self.coordinate = coordinate
 
     super.init()
   }
-
 }
