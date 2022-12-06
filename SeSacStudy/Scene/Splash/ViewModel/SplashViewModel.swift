@@ -12,7 +12,7 @@ import RxRelay
 
 final class SplashViewModel {
     
-    let userService = UserAPIService()
+    private let userService = UserAPIService()
     
     let statusCode = PublishRelay<UserStatusCode>()
     
@@ -23,9 +23,8 @@ final class SplashViewModel {
         if UserDefaultsHelper.standard.start {
             FirebaseTokenManager.shared.getIdToken { [weak self] idToken in
                 self?.userService.login(idToken: idToken) { user, statusCode in
-                    guard let userStatusCode = UserStatusCode(rawValue: statusCode) else { return }
                     self?.user = user
-                    self?.statusCode.accept(userStatusCode)
+                    self?.statusCode.accept(UserStatusCode(rawValue: statusCode) ?? .UnknownError)
                 }
             }
         } else {

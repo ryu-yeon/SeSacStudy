@@ -22,9 +22,7 @@ final class GenderViewModel {
     func signup() {
         FirebaseTokenManager.shared.getIdToken { [self] idToken in
             userService.signup(idToken: idToken, profile: profile!) { [self] statusCode in
-                guard let userStatusCode = UserStatusCode(rawValue: statusCode)
-                else { return }
-                signupCode.accept(userStatusCode)
+                signupCode.accept(UserStatusCode(rawValue: statusCode) ?? .UnknownError)
             }
         }
     }

@@ -21,13 +21,11 @@ final class HomeViewModel {
     var statusData = PublishRelay<MatchStatus?>()
     var sesacData = PublishRelay<MatchSesac>()
     
-    let queueService = QueueAPIService()
+    private let queueService = QueueAPIService()
     let locationHelper = LocationHelper()
-    let user = UserDefaultsHelper.standard.loadUser()!
     
     var matchSesac: MatchSesac?
     var runTimeInterval: TimeInterval?
-    
     let baseCenter = Coordinate(lat: 37.517819364682694, long: 126.88647317074734)
     
     private let disposeBag = DisposeBag()
@@ -35,8 +33,7 @@ final class HomeViewModel {
     func checkMyStatus() {
         let idToken = UserDefaultsHelper.standard.idToken
         queueService.getMyState(idToken: idToken) { (data, statusCode) in
-            guard let myQueueStatusCode = MyQueueStatusCode(rawValue: statusCode) else { return }
-            self.checkMyQueueStatusCode(myQueueStatusCode, data: data)
+            self.checkMyQueueStatusCode(MyQueueStatusCode(rawValue: statusCode) ?? .UnknownError, data: data)
         }
     }
     
@@ -71,8 +68,7 @@ final class HomeViewModel {
         coordinate
             .subscribe { [self] coordinate in
                 queueService.searchSesac(idToken: idToken, lat: coordinate.lat, long: coordinate.long) { [self] data, statusCode in
-                    guard let statusCode = StatusCode(rawValue: statusCode) else { return }
-                    checkStatusCode(statusCode, data: data) {
+                    checkStatusCode(StatusCode(rawValue: statusCode) ?? .UnknownError, data: data) {
                         self.coordinate.onNext(coordinate)
                     }
                 }
@@ -80,7 +76,7 @@ final class HomeViewModel {
             .disposed(by: disposeBag)
     }
     
-    func checkStatusCode(_ statusCode: StatusCode, data: MatchSesac?, complitionHandler: @escaping () -> Void) {
+    private func checkStatusCode(_ statusCode: StatusCode, data: MatchSesac?, complitionHandler: @escaping () -> Void) {
         switch statusCode {
         case .Success:
             if let data {

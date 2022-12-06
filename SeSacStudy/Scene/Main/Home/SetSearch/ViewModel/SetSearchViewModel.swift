@@ -30,7 +30,7 @@ final class SetSearchViewModel {
     var coordinate: Coordinate?
     
     var searchQueueCode = PublishRelay<SearchQueueStatusCode>()
-    let queueService = QueueAPIService()
+    private let queueService = QueueAPIService()
     
     var list: Set<String> = []
     var nearList: [Study] = []
@@ -67,8 +67,7 @@ final class SetSearchViewModel {
         let idToken = UserDefaultsHelper.standard.idToken
         guard let coordinate else { return }
         queueService.searchStudy(idToken: idToken, lat: coordinate.lat, long: coordinate.long, studyList: studyList) { [self] statusCode in
-            guard let searchQueueStatusCode = SearchQueueStatusCode(rawValue: statusCode) else { return }
-            searchQueueCode.accept(searchQueueStatusCode)
+            searchQueueCode.accept(SearchQueueStatusCode(rawValue: statusCode) ?? .UnknownError)
         }
         
     }
