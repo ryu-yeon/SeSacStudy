@@ -69,14 +69,5 @@ final class SetSearchViewModel {
         queueService.searchStudy(idToken: idToken, lat: coordinate.lat, long: coordinate.long, studyList: studyList) { [self] statusCode in
             searchQueueCode.accept(SearchQueueStatusCode(rawValue: statusCode) ?? .UnknownError)
         }
-        
-    }
-    
-    func searchSasac(complitionHandler: @escaping (MatchSesac?) -> ()) {
-        let idToken = UserDefaultsHelper.standard.idToken
-        guard let coordinate else { return }
-        queueService.searchSesac(idToken: idToken, lat: coordinate.lat, long: coordinate.long) { data, statusCode in
-            complitionHandler(data)
-        }
     }
 }

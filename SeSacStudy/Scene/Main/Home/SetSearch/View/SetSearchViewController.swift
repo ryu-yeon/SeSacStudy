@@ -92,15 +92,8 @@ final class SetSearchViewController: BaseViewController {
                 switch searchQueueStatusCode {
                 case .Success:
                     let nextVC = SearchViewController()
-                    nextVC.viewModel.coordinate = viewModel.coordinate
-                    viewModel.searchSasac { data in
-                        if let data {
-                            DispatchQueue.main.async {
-                                nextVC.viewModel.searchData = data
-                                self.navigationController?.pushViewController(nextVC, animated: true)
-                            }
-                        }
-                    }
+                    UserDefaultsHelper.standard.saveCoordinate(coordinate: viewModel.coordinate)
+                    self.navigationController?.pushViewController(nextVC, animated: true)
                     print("찾기 요청 성공🟢")
                 case .BlackList:
                     self.mainView.makeToast("신고가 누적되어 이용하실 수 없습니다", duration: 1.0, position: .top)
