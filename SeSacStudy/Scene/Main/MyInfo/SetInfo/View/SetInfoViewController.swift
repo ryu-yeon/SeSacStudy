@@ -125,8 +125,10 @@ extension SetInfoViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.reusableIdentifier, for: indexPath) as? CardTableViewCell else { return UITableViewCell() }
             
             cell.infoView.moreButton.addTarget(self, action: #selector(moreButtonClicked), for: .touchUpInside)
-            cell.backgroundImageView.image = UIImage(named: "sesac_background_\(viewModel.user.background + 1)")
-            cell.profileImageView.image = UIImage(named: "sesac_face_\(viewModel.user.sesac + 1)")
+            let background = BackgroundImage(rawValue: viewModel.user.background) ?? .sesac_background_1
+            cell.backgroundImageView.image = UIImage(named: background.image)
+            let sesac = SesacImage(rawValue: viewModel.user.sesac) ?? .sesac_face_1
+            cell.profileImageView.image = UIImage(named: sesac.image)
             cell.infoView.nicknameLabel.text = viewModel.user.nick
             cell.infoView.titleLabel.isHidden = !viewModel.isClicked
             cell.infoView.titleCollectionView.isHidden = !viewModel.isClicked
