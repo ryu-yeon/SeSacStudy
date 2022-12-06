@@ -76,8 +76,6 @@ final class HomeViewController: BaseViewController {
                         .take(1)
                         .bind { [self] _ in
                             let nextVC = SearchViewController()
-                            nextVC.viewModel.searchData = viewModel.matchSesac
-                            nextVC.viewModel.coordinate = Coordinate(lat: mainView.mapView.centerCoordinate.latitude, long: mainView.mapView.centerCoordinate.longitude)
                             self.navigationController?.pushViewController(nextVC, animated: true)
                         }
                         .disposed(by: disposeBag)
@@ -114,16 +112,8 @@ final class HomeViewController: BaseViewController {
             .asDriver(onErrorJustReturn: [])
             .drive { [self] value in
                 mainView.mapView.removeAnnotations(mainView.mapView.annotations)
-                var list: [Sesac] = []
-                switch viewModel.gender.value {
-                case .Man:
-                    list = value.filter{$0.gender == Gender.Man.rawValue}
-                case .Woman:
-                    list = value.filter{$0.gender == Gender.Woman.rawValue}
-                default:
-                    list = value
-                }
-                list.forEach {
+
+                value.forEach {
                     print($0.nick)
                     setAnnotitaion(lat: $0.lat, long: $0.long, image: $0.sesac)
                 }
@@ -171,6 +161,7 @@ final class HomeViewController: BaseViewController {
         viewModel.gender
             .asDriver(onErrorJustReturn: .Nothing)
             .drive { [self] gender in
+                UserDefaultsHelper.standard.gender = gender.rawValue
                 switch gender {
                 case .Nothing:
                     mainView.totalButton.setTitleColor(.white, for: .normal)

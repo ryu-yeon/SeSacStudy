@@ -17,7 +17,7 @@ final class HomeViewModel {
     }
     
     var coordinate = PublishSubject<Coordinate>()
-    var gender = BehaviorRelay(value: Gender.Nothing)
+    lazy var gender = BehaviorRelay<Gender>(value: Gender(rawValue: UserDefaultsHelper.standard.gender) ?? .Nothing)
     var statusData = PublishRelay<MatchStatus?>()
     var sesacData = PublishRelay<MatchSesac>()
     
@@ -80,8 +80,9 @@ final class HomeViewModel {
         switch statusCode {
         case .Success:
             if let data {
-                matchSesac = data
-                sesacData.accept(data)
+                let newData = filterGender(data)
+                matchSesac = newData
+                sesacData.accept(newData)
             }
             print("검색 성공🟢")
         case .FirebaseTokenError:
@@ -98,5 +99,22 @@ final class HomeViewModel {
         default:
             break
         }
+    }
+    
+    private func filterGender(_ data: MatchSesac) -> MatchSesac {
+        var list: [Sesac] = []
+        
+        switch gender.value {
+        case .Man:
+            list = data.fromQueueDB.filter{$0.gender == Gender.Man.rawValue}
+        case .Woman:
+            list = data.fromQueueDB.filter{$0.gender == Gender.Woman.rawValue}
+        default:
+            return data
+        }
+        
+        let newData = MatchSesac(fromQueueDB: list, fromQueueDBRequested: data.fromQueueDBRequested, fromRecommend: data.fromRecommend)
+
+        return newData
     }
 }
