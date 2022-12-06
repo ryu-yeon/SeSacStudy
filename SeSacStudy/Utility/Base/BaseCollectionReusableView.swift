@@ -11,6 +11,8 @@ import SnapKit
 
 final class BaseCollectionHeaderView: UICollectionReusableView {
     
+    static let reusseIdentifier = "BaseCollectionHeaderView"
+    
     let label: UILabel = {
         let view = UILabel()
         view.textColor = .black
