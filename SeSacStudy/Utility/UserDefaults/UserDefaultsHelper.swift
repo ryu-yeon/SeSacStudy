@@ -8,7 +8,7 @@
 import Foundation
 
 enum Key: String {
-    case idToken, start, fcmToken, user, authVerificationID
+    case idToken, start, fcmToken, user, authVerificationID, coordinate, gender
 }
 
 final class UserDefaultsHelper {
@@ -62,5 +62,23 @@ final class UserDefaultsHelper {
     func loadUser() -> User? {
         guard let savedData = UserDefaults.standard.value(forKey: Key.user.rawValue) as? Data, let user = try? PropertyListDecoder().decode(User.self, from: savedData) else { return nil}
         return user
+    }
+
+    func saveCoordinate(coordinate: Coordinate?) {
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(coordinate), forKey: Key.coordinate.rawValue)
+    }
+    
+    func loadCoordinate() -> Coordinate? {
+        guard let savedData = UserDefaults.standard.value(forKey: Key.coordinate.rawValue) as? Data, let coordinate = try? PropertyListDecoder().decode(Coordinate.self, from: savedData) else { return nil}
+        return coordinate
+    }
+    
+    var gender: Int {
+        get {
+            return userDefault.integer(forKey: Key.gender.rawValue)
+        }
+        set {
+            userDefault.set(newValue, forKey: Key.gender.rawValue)
+        }
     }
 }
