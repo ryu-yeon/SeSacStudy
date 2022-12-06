@@ -22,8 +22,8 @@ class LoginCheckViewModel {
     var code = ""
     var profile = Profile(phoneNumber: "", nickname: "", birth: Date(), email: "", gender: .Nothing)
     
-    let firebaseAuthManager = FirebaseAuthManager()
-    let userService = UserAPIService()
+    private let firebaseAuthManager = FirebaseAuthManager()
+    private let userService = UserAPIService()
     
     func isValidNumber() {
         let phoneRegex = "^[0-9]{6}$"
@@ -55,9 +55,8 @@ class LoginCheckViewModel {
         getPhoneNumber()
         FirebaseTokenManager.shared.getIdToken { [weak self] idToken in
             self?.userService.login(idToken: idToken) { user, statusCode in
-                guard let userStatusCode = UserStatusCode(rawValue: statusCode) else { return }
                 self?.user = user
-                self?.loginCode.accept(userStatusCode)
+                self?.loginCode.accept(UserStatusCode(rawValue: statusCode) ?? .UnknownError)
             }
         }
     }

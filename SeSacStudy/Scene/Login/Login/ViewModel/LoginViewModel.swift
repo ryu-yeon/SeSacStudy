@@ -16,7 +16,7 @@ final class LoginViewModel {
     var text = PublishRelay<String>()
     var firebaseCode = PublishRelay<FirebaseAuthStatusCode>()
     
-    let firebaseAuthManager = FirebaseAuthManager()
+    private let firebaseAuthManager = FirebaseAuthManager()
     var phoneNumber = ""
     
     func withHypen(number: String) {

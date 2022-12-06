@@ -12,7 +12,7 @@ import RxRelay
 
 final class BirthViewModel {
     
-    let dateFormatter = DateFormatter()
+    private let dateFormatter = DateFormatter()
     var date = BehaviorSubject(value: Date())
     var vaild = BehaviorRelay(value: false)
     var year = ""
