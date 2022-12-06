@@ -16,6 +16,10 @@ final class SetSearchView: BaseView {
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
         view.backgroundColor = .clear
+        
+        view.register(StudyCollectionViewCell.self, forCellWithReuseIdentifier: StudyCollectionViewCell.reusableIdentifier)
+        view.register(
+            BaseCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: BaseCollectionHeaderView.reusseIdentifier)
         return view
     }()
         
@@ -60,16 +64,14 @@ final class SetSearchView: BaseView {
         
         item.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: .fixed(8), bottom: .fixed(8))
         
-        // Group
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .estimated(100)
+            heightDimension: itemSize.heightDimension
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
-        group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: .fixed(8), bottom: .fixed(8))
+        group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: .fixed(8))
         
-        // Section
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 24, trailing: 0)
         
@@ -85,5 +87,22 @@ final class SetSearchView: BaseView {
         
         return UICollectionViewCompositionalLayout(section: section)
         
+    }
+    
+    func updateSearchButton(keyboardVisibleHeight: CGFloat) {
+        if keyboardVisibleHeight == 0 {
+            searchButton.layer.cornerRadius = 8
+            searchButton.snp.updateConstraints { make in
+                make.horizontalEdges.equalToSuperview().inset(16)
+                make.bottom.equalToSuperview().inset(50)
+            }
+        } else {
+            let totalHeight = keyboardVisibleHeight
+            searchButton.layer.cornerRadius = 0
+            searchButton.snp.updateConstraints { make in
+                make.horizontalEdges.equalToSuperview()
+                make.bottom.equalToSuperview().inset(totalHeight)
+            }
+        }
     }
 }

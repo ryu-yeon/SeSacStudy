@@ -736,6 +736,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		888BCFE3293CFACB0060322A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8895468F29266A7D00F88C3F /* SetSearchView.swift */,
+				8895469229266AA700F88C3F /* SetSearchViewController.swift */,
+				4254E429292B4FC600563062 /* StudyCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		888BCFE4293CFAD20060322A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				887F6B142928B1AF007B043E /* SetSearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		889215ED2919783500DE147C /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -815,10 +833,8 @@
 		8895469129266A8400F88C3F /* SetSearch */ = {
 			isa = PBXGroup;
 			children = (
-				8895468F29266A7D00F88C3F /* SetSearchView.swift */,
-				8895469229266AA700F88C3F /* SetSearchViewController.swift */,
-				887F6B142928B1AF007B043E /* SetSearchViewModel.swift */,
-				4254E429292B4FC600563062 /* StudyCollectionViewCell.swift */,
+				888BCFE3293CFACB0060322A /* View */,
+				888BCFE4293CFAD20060322A /* ViewModel */,
 			);
 			path = SetSearch;
 			sourceTree = "<group>";
