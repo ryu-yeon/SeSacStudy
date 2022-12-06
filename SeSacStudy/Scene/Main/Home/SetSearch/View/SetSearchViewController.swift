@@ -96,16 +96,16 @@ final class SetSearchViewController: BaseViewController {
                     self.navigationController?.pushViewController(nextVC, animated: true)
                     print("찾기 요청 성공🟢")
                 case .BlackList:
-                    self.mainView.makeToast("신고가 누적되어 이용하실 수 없습니다", duration: 1.0, position: .top)
+                    self.mainView.makeToast(searchQueueStatusCode.message, duration: 1.0, position: .top)
                     print("신고하기 3번이상 받은 유저🟡")
                 case .PenaltyLv1:
-                    self.mainView.makeToast("스터디 취소 패널티로, 1분동안 이용하실 수 없습니다", duration: 1.0, position: .top)
+                    self.mainView.makeToast(searchQueueStatusCode.message, duration: 1.0, position: .top)
                     print("스터디 취소 페널티 1단계🟡")
                 case .PenaltyLv2:
-                    self.mainView.makeToast("스터디 취소 패널티로, 2분동안 이용하실 수 없습니다", duration: 1.0, position: .top)
+                    self.mainView.makeToast(searchQueueStatusCode.message, duration: 1.0, position: .top)
                     print("스터디 취소 페널티 2단계🟡")
                 case .PenaltyLv3:
-                    self.mainView.makeToast("스터디 취소 패널티로, 3분동안 이용하실 수 없습니다", duration: 1.0, position: .top)
+                    self.mainView.makeToast(searchQueueStatusCode.message, duration: 1.0, position: .top)
                     print("스터디 취소 페널티 3단계🟡")
                 case .FirebaseTokenError:
                     FirebaseTokenManager.shared.getIdToken { [self] idToken in
@@ -130,7 +130,7 @@ extension SetSearchViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else {
-            self.mainView.makeToast("최소 한 자 이상, 최대 8글자까지 작성 가능합니다", duration: 1.0, position: .top)
+            self.mainView.makeToast(InVaild.StudyName.message, duration: 1.0, position: .top)
             return
         }
         
@@ -139,12 +139,12 @@ extension SetSearchViewController: UISearchBarDelegate {
         input.forEach {
             if $0.count >= 1 && $0.count <= 8 {
                 if viewModel.studyList.count >= 8 {
-                    self.mainView.makeToast("스터디를 더 이상 추가할 수 없습니다", duration: 1.0, position: .top)
+                    self.mainView.makeToast(InVaild.StudyCount.message, duration: 1.0, position: .top)
                 } else {
                     
                     for i in viewModel.studyList {
                         if i.title == $0 {
-                            self.mainView.makeToast("이미 등록된 스터디입니다.", duration: 1.0, position: .top)
+                            self.mainView.makeToast(InVaild.DuplicatedStudy.message, duration: 1.0, position: .top)
                             return
                         }
                     }
@@ -153,7 +153,7 @@ extension SetSearchViewController: UISearchBarDelegate {
                     viewModel.studyList.append(study)
                 }
             } else {
-                self.mainView.makeToast("최소 한 자 이상, 최대 8글자까지 작성 가능합니다", duration: 1.0, position: .top)
+                self.mainView.makeToast(InVaild.StudyName.message, duration: 1.0, position: .top)
             }
         }
         snapshot.appendItems(viewModel.studyList, toSection: .study)
@@ -219,12 +219,12 @@ extension SetSearchViewController: UICollectionViewDelegate {
         case SearchSection.near.rawValue:
             for i in viewModel.studyList {
                 if i.title == viewModel.nearList[indexPath.item].title {
-                    self.mainView.makeToast("이미 등록된 스터디입니다.", duration: 1.0, position: .top)
+                    self.mainView.makeToast(InVaild.DuplicatedStudy.message, duration: 1.0, position: .top)
                     return
                 }
             }
             if viewModel.studyList.count >= 8 {
-                self.mainView.makeToast("스터디를 더 이상 추가할 수 없습니다", duration: 1.0, position: .top)
+                self.mainView.makeToast(InVaild.StudyCount.message, duration: 1.0, position: .top)
             } else {
                 let study = Study(title: viewModel.nearList[indexPath.item].title)
                 viewModel.studyList.append(study)

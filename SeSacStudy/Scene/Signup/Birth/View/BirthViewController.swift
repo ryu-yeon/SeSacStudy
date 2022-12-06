@@ -70,7 +70,7 @@ final class BirthViewController: BaseViewController {
                     nextVC.viewModel.profile = vc.viewModel.profile
                     vc.navigationController?.pushViewController(nextVC, animated: true)
                 } else {
-                    vc.mainView.makeToast("새싹스터디는 만 17세 이상만 사용할 수 있습니다.", duration: 1.0, position: .top)
+                    vc.mainView.makeToast(InVaild.Birth.message, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)

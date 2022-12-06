@@ -9,18 +9,6 @@ import Foundation
 
 import FirebaseAuth
 
-enum FBAError: Int {
-    case manyTry = 17010
-}
-
-enum FBAMessage: String {
-    case start = "전화 번호 인증 시작"
-    case manyTry = "과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요."
-    case error = "에러가 발생했습니다. 다시 시도해주세요"
-    case invaild = "잘못된 전화번호 형식입니다."
-    case fail = "전화 번호 인증 실패"
-}
-
 final class FirebaseAuthManager {
     
     func sendSMS(phoneNumber: String, handler: @escaping (Error?, Int) -> Void) {

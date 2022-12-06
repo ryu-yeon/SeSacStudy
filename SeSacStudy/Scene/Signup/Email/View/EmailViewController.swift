@@ -60,7 +60,7 @@ final class EmailViewController: BaseViewController {
                     nextVC.viewModel.profile = vc.viewModel.profile
                     vc.navigationController?.pushViewController(nextVC, animated: true)
                 } else {
-                    vc.mainView.makeToast("이메일 형식이 올바르지 않습니다.", duration: 1.0, position: .top)
+                    vc.mainView.makeToast(InVaild.Email.message, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)

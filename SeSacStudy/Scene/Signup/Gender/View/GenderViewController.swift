@@ -76,7 +76,7 @@ final class GenderViewController: BaseViewController {
                     vc.viewModel.signup()
                     vc.bindSignupCode()
                 } else {
-                    vc.mainView.makeToast("성별을 선택해 주세요.", duration: 1.0, position: .top)
+                    vc.mainView.makeToast(InVaild.Gender.message, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)

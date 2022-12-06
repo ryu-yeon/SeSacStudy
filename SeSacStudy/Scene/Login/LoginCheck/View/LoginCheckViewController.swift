@@ -58,13 +58,13 @@ final class LoginCheckViewController: BaseViewController {
             .bind { (vc, _) in
                 if vc.viewModel.vaild.value {
                     if vc.viewModel.checkAuth() != nil {
-                        vc.mainView.makeToast(FBAMessage.fail.rawValue, duration: 1.0, position: .top)
+                        vc.mainView.makeToast(FirebaseAuthStatusCode.Fail.message, duration: 1.0, position: .top)
                     } else {
                         vc.viewModel.checkUser()
                         vc.bindLoginCode()
                     }
                 } else {
-                    vc.mainView.makeToast(FBAMessage.fail.rawValue, duration: 1.0, position: .top)
+                    vc.mainView.makeToast(FirebaseAuthStatusCode.Fail.message, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)
@@ -119,14 +119,14 @@ final class LoginCheckViewController: BaseViewController {
             .drive { [self] firebaseStatusCode in
                 switch firebaseStatusCode {
                 case .Success:
-                    mainView.makeToast(FBAMessage.start.rawValue, duration: 1.0, position: .top)
+                    mainView.makeToast(firebaseStatusCode.message, duration: 1.0, position: .top)
                     let nextVC = LoginCheckViewController()
                     navigationController?.pushViewController(nextVC, animated: true)
                     nextVC.viewModel.phoneNumber = viewModel.phoneNumber
                 case .ManyTry:
-                    mainView.makeToast(FBAMessage.manyTry.rawValue, duration: 1.0, position: .top)
+                    mainView.makeToast(firebaseStatusCode.message, duration: 1.0, position: .top)
                 default:
-                    mainView.makeToast(FBAMessage.error.rawValue, duration: 1.0, position: .top)
+                    mainView.makeToast(FirebaseAuthStatusCode.UnknownError.message, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)

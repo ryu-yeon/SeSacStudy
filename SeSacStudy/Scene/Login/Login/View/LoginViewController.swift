@@ -71,7 +71,7 @@ final class LoginViewController: BaseViewController {
                     vc.viewModel.requestAuth()
                     vc.bindFirebaseCode()
                 } else {
-                    vc.mainView.makeToast(FBAMessage.invaild.rawValue, duration: 1.0, position: .top)
+                    vc.mainView.makeToast(InVaild.Phone.message, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)
@@ -84,14 +84,14 @@ final class LoginViewController: BaseViewController {
             .drive { [self] statusCode in
                 switch statusCode {
                 case .Success:
-                    mainView.makeToast(FBAMessage.start.rawValue, duration: 1.0, position: .top)
+                    mainView.makeToast(statusCode.message, duration: 1.0, position: .top)
                     let nextVC = LoginCheckViewController()
                     navigationController?.pushViewController(nextVC, animated: true)
                     nextVC.viewModel.phoneNumber = viewModel.phoneNumber
                 case .ManyTry:
-                    mainView.makeToast(FBAMessage.manyTry.rawValue, duration: 1.0, position: .top)
+                    mainView.makeToast(statusCode.message, duration: 1.0, position: .top)
                 default:
-                    mainView.makeToast(FBAMessage.error.rawValue, duration: 1.0, position: .top)
+                    mainView.makeToast(FirebaseAuthStatusCode.UnknownError.message, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)

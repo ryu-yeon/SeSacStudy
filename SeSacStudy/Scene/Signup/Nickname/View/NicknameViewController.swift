@@ -60,7 +60,7 @@ final class NicknameViewController: BaseViewController {
                     nextVC.viewModel.profile = vc.viewModel.profile
                     vc.navigationController?.pushViewController(nextVC, animated: true)
                 } else {
-                    vc.mainView.makeToast("닉네임은 1자 이상 10자 이내로 부탁드려요.", duration: 1.0, position: .top)
+                    vc.mainView.makeToast(InVaild.Nickname.message, duration: 1.0, position: .top)
                 }
             }
             .disposed(by: disposeBag)

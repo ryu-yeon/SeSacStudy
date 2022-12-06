@@ -36,6 +36,7 @@
 		880559B9291E488300F4D4A2 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559B8291E488300F4D4A2 /* SplashViewModel.swift */; };
 		880559C1291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */; };
 		880559C3291F2BB800F4D4A2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */; };
+		881274D1293FF04D00032ACF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881274D0293FF04D00032ACF /* Image.swift */; };
 		881D4F292937CF92009C7090 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F282937CF92009C7090 /* ChatViewModel.swift */; };
 		881D4F2B2937F13C009C7090 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */; };
 		881D4F2D2937F432009C7090 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */; };
@@ -151,6 +152,7 @@
 		880559B8291E488300F4D4A2 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		881274D0293FF04D00032ACF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		881D4F282937CF92009C7090 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
 		881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -314,6 +316,24 @@
 				888BCFC7293C4DE00060322A /* ViewModel */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		881274CE293FA1F200032ACF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8895468429254CA000F88C3F /* SearchView.swift */,
+				8895468829254CE200F88C3F /* SearchViewController.swift */,
+				887F6B562932882B007B043E /* SearchCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		881274CF293FA1FC00032ACF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42DD49D6293462CC00730F48 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		881D4F262937CE4B009C7090 /* UserDefaults */ = {
@@ -510,6 +530,7 @@
 				888BCFC3293BAB090060322A /* StatusCode.swift */,
 				888BCFDC293CDCBB0060322A /* Coordinate.swift */,
 				88055985291CFC1200F4D4A2 /* EndPoint.swift */,
+				881274D0293FF04D00032ACF /* Image.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -810,10 +831,8 @@
 		8895468629254CA400F88C3F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				8895468429254CA000F88C3F /* SearchView.swift */,
-				8895468829254CE200F88C3F /* SearchViewController.swift */,
-				42DD49D6293462CC00730F48 /* SearchViewModel.swift */,
-				887F6B562932882B007B043E /* SearchCollectionViewCell.swift */,
+				881274CE293FA1F200032ACF /* View */,
+				881274CF293FA1FC00032ACF /* ViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1055,6 +1074,7 @@
 				8895469D29268A9300F88C3F /* MatchSesac.swift in Sources */,
 				8826E2D6291C5A1100AF8023 /* GenderView.swift in Sources */,
 				885570072919586A003CD336 /* OnboardingViewModel.swift in Sources */,
+				881274D1293FF04D00032ACF /* Image.swift in Sources */,
 				88921601291A29EF00DE147C /* LoginCheckView.swift in Sources */,
 				88921603291A29FC00DE147C /* LoginCheckViewController.swift in Sources */,
 				8826E2C3291B718900AF8023 /* FirebaseAuthManager.swift in Sources */,
