@@ -42,3 +42,16 @@ enum MyQueueStatusCode: Int {
     case ClientError = 501
     case UnknownError = -1
 }
+
+enum SearchQueueStatusCode: Int {
+    case Success = 200
+    case BlackList = 201
+    case PenaltyLv1 = 203
+    case PenaltyLv2 = 204
+    case PenaltyLv3 = 205
+    case FirebaseTokenError = 401
+    case NotSignupUser = 406
+    case ServerError = 500
+    case ClientError = 501
+    case UnknownError = -1
+}
