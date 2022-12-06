@@ -77,8 +77,7 @@ final class HomeViewController: BaseViewController {
                         .bind { [self] _ in
                             let nextVC = SearchViewController()
                             nextVC.viewModel.searchData = viewModel.matchSesac
-                            nextVC.viewModel.lat = mainView.mapView.centerCoordinate.latitude
-                            nextVC.viewModel.long = mainView.mapView.centerCoordinate.longitude
+                            nextVC.viewModel.coordinate = Coordinate(lat: mainView.mapView.centerCoordinate.latitude, long: mainView.mapView.centerCoordinate.longitude)
                             self.navigationController?.pushViewController(nextVC, animated: true)
                         }
                         .disposed(by: disposeBag)
@@ -100,8 +99,7 @@ final class HomeViewController: BaseViewController {
                         .bind { [self] _ in
                             let nextVC = SetSearchViewController()
                             nextVC.viewModel.searchData = viewModel.matchSesac
-                            nextVC.viewModel.lat = mainView.mapView.centerCoordinate.latitude
-                            nextVC.viewModel.long = mainView.mapView.centerCoordinate.longitude
+                            nextVC.viewModel.coordinate = Coordinate(lat: mainView.mapView.centerCoordinate.latitude, long: mainView.mapView.centerCoordinate.longitude)
                             self.navigationController?.pushViewController(nextVC, animated: true)
                         }
                         .disposed(by: disposeBag)
@@ -115,6 +113,7 @@ final class HomeViewController: BaseViewController {
             .map { $0.fromQueueDB}
             .asDriver(onErrorJustReturn: [])
             .drive { [self] value in
+                mainView.mapView.removeAnnotations(mainView.mapView.annotations)
                 var list: [Sesac] = []
                 switch viewModel.gender.value {
                 case .Man:
