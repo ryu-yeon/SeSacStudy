@@ -53,7 +53,7 @@ final class SetSearchViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
     }
     
-    func setTapGesture() {
+    private func setTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tap))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
