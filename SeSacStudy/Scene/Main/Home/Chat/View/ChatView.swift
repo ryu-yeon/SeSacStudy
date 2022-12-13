@@ -206,4 +206,10 @@ final class ChatView: BaseView {
             make.height.equalTo(72)
         }
     }
+    
+    func updateTextContainer(keyboardVisibleHeight: CGFloat) {
+        textContainer.snp.updateConstraints { make in
+            make.bottom.equalTo(self.safeAreaLayoutGuide).offset(-16 - keyboardVisibleHeight)
+        }
+    }
 }
