@@ -78,6 +78,8 @@ final class ChatViewController: BaseViewController {
     
     private func setChatView() {
         
+        mainView.textView.delegate = self
+        
         mainView.textView.rx.text
             .orEmpty
             .withUnretained(self)
@@ -145,10 +147,11 @@ final class ChatViewController: BaseViewController {
     }
     
     private func setMenuButton() {
-        let nextVC = PopupViewController()
+        
         mainView.cancleButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
+                let nextVC = PopupViewController()
                 nextVC.modalPresentationStyle = .overFullScreen
                 nextVC.setTitle(title: "스터디를 취소하겠습니까?")
                 nextVC.setSubtitle(subtitle: "스터디를 취소하시면 패널티가 부과됩니다")
@@ -161,13 +164,12 @@ final class ChatViewController: BaseViewController {
         mainView.reviewButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
+                let nextVC = ReviewViewController()
                 nextVC.modalPresentationStyle = .overFullScreen
                 nextVC.setTitle(title: "리뷰 등록")
                 nextVC.setSubtitle(subtitle: "\(vc.viewModel.yourNickname)님과의 스터디는 어떠셨나요?")
                 nextVC.setSubtitleColor(.brandGreen)
-                nextVC.setOnlyOkButton()
-                nextVC.uid = vc.viewModel.yourID
-                nextVC.registerReview()
+                nextVC.uid = "\(vc.viewModel.yourID)"
                 vc.present(nextVC, animated: true)
             }
             .disposed(by: disposeBag)
@@ -228,5 +230,22 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+extension ChatViewController: UITextViewDelegate {
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text =  "메세지를 입력하세요"
+            textView.textColor = .gray7
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .gray7 {
+            textView.text = nil
+            textView.textColor = .black
+        }
     }
 }

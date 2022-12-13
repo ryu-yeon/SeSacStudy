@@ -67,6 +67,10 @@ final class ChatView: BaseView {
     let textView: UITextView = {
         let view = UITextView()
         view.backgroundColor = .clear
+        view.text =  "메세지를 입력하세요"
+        view.font = .body3_R14
+        view.textColor = .gray7
+        view.textContainerInset = .zero 
         return view
     }()
     
