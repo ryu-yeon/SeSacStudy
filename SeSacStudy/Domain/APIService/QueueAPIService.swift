@@ -149,4 +149,27 @@ final class QueueAPIService {
             complitionHandler(statusCode)
         }
     }
+    
+    func registerReview(idToken: String, uid: String, reputation: [Int], comment: String, complitionHandler: @escaping (Int) -> Void) {
+        let url = EndPoint.baseURL + "/v1/queue/rate/" + uid
+        let headers: HTTPHeaders = [
+            "accept" : "application/json",
+            "idtoken": idToken
+        ]
+        
+        let parameters: [String: Any] = [
+            "otheruid" : uid,
+            "reputation": reputation,
+            "comment" : comment
+        ]
+        
+        let encoder = URLEncoding(arrayEncoding: .noBrackets)
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: encoder, headers: headers).responseString { response in
+            
+            let statusCode = response.response?.statusCode ?? 0
+
+            complitionHandler(statusCode)
+        }
+    }
 }
