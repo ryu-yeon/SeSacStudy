@@ -31,6 +31,17 @@ final class PopupViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCancelButton()
+        setTapGesture()
+    }
+    
+    private func setTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tap))
+        tap.cancelsTouchesInView = false
+        mainView.addGestureRecognizer(tap)
+    }
+    
+    @objc func tap() {
+        self.dismiss(animated: true)
     }
     
     func setCancelButton() {
