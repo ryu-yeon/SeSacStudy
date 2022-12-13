@@ -37,6 +37,10 @@
 		880559C1291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */; };
 		880559C3291F2BB800F4D4A2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */; };
 		881274D1293FF04D00032ACF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881274D0293FF04D00032ACF /* Image.swift */; };
+		881274DA294146CC00032ACF /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 881274D9294146CC00032ACF /* Realm */; };
+		881274DC294146CC00032ACF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 881274DB294146CC00032ACF /* RealmSwift */; };
+		881274DF2941472600032ACF /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881274DE2941472600032ACF /* ChatRepository.swift */; };
+		881274E1294148E700032ACF /* ChatRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881274E0294148E700032ACF /* ChatRealm.swift */; };
 		881D4F292937CF92009C7090 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F282937CF92009C7090 /* ChatViewModel.swift */; };
 		881D4F2B2937F13C009C7090 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */; };
 		881D4F2D2937F432009C7090 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */; };
@@ -123,6 +127,8 @@
 		88B8B8BE2938C48100329CD2 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 88B8B8BD2938C48100329CD2 /* SocketIO */; };
 		88B8B8C02938EEA400329CD2 /* SocketIOMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8B8BF2938EEA400329CD2 /* SocketIOMananger.swift */; };
 		88B8B8C22938EFF000329CD2 /* FirebaseTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8B8C12938EFF000329CD2 /* FirebaseTokenManager.swift */; };
+		88C14B7C29486B5700F6BA6B /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C14B7B29486B5700F6BA6B /* ReviewView.swift */; };
+		88C14B7E29486E5400F6BA6B /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C14B7D29486E5400F6BA6B /* ReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +159,8 @@
 		880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		881274D0293FF04D00032ACF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		881274DE2941472600032ACF /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		881274E0294148E700032ACF /* ChatRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRealm.swift; sourceTree = "<group>"; };
 		881D4F282937CF92009C7090 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
 		881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -235,6 +243,8 @@
 		8899279E292505EC00294B6B /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		88B8B8BF2938EEA400329CD2 /* SocketIOMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOMananger.swift; sourceTree = "<group>"; };
 		88B8B8C12938EFF000329CD2 /* FirebaseTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTokenManager.swift; sourceTree = "<group>"; };
+		88C14B7B29486B5700F6BA6B /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		88C14B7D29486E5400F6BA6B /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +252,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881274DC294146CC00032ACF /* RealmSwift in Frameworks */,
+				881274DA294146CC00032ACF /* Realm in Frameworks */,
 				885570052919585A003CD336 /* RxSwift in Frameworks */,
 				8899279A2924CA4B00294B6B /* MultiSlider in Frameworks */,
 				88055995291D22B400F4D4A2 /* FirebaseAuth in Frameworks */,
@@ -261,6 +273,7 @@
 		88055984291CFBF000F4D4A2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				881274DD294146DF00032ACF /* Realm */,
 				8855700E29196011003CD336 /* Model */,
 				8826E2C4291B718E00AF8023 /* Firebase */,
 				888BCFC2293BAAE30060322A /* APIService */,
@@ -334,6 +347,34 @@
 				42DD49D6293462CC00730F48 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		881274D6293FFF7800032ACF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				881D4F282937CF92009C7090 /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		881274D7293FFF8300032ACF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8895469429266BC400F88C3F /* ChatView.swift */,
+				8895469629266BCD00F88C3F /* ChatViewController.swift */,
+				881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */,
+				881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		881274DD294146DF00032ACF /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				881274DE2941472600032ACF /* ChatRepository.swift */,
+				881274E0294148E700032ACF /* ChatRealm.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		881D4F262937CE4B009C7090 /* UserDefaults */ = {
@@ -519,13 +560,13 @@
 			isa = PBXGroup;
 			children = (
 				8855700C2919600F003CD336 /* OnboardingData.swift */,
+				881D4F2E2937F8CC009C7090 /* Chat.swift */,
 				8805598A291CFDFD00F4D4A2 /* User.swift */,
 				88055991291D1D4100F4D4A2 /* Profile.swift */,
 				8895468D292664F600F88C3F /* MatchStatus.swift */,
 				8895469A292689F100F88C3F /* Sesac.swift */,
 				8895469C29268A9300F88C3F /* MatchSesac.swift */,
 				42228722292B923600063FC8 /* Study.swift */,
-				881D4F2E2937F8CC009C7090 /* Chat.swift */,
 				881D4F3229380158009C7090 /* ChatList.swift */,
 				888BCFC3293BAB090060322A /* StatusCode.swift */,
 				888BCFDC293CDCBB0060322A /* Coordinate.swift */,
@@ -840,11 +881,8 @@
 		8895468729254CB600F88C3F /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				8895469429266BC400F88C3F /* ChatView.swift */,
-				8895469629266BCD00F88C3F /* ChatViewController.swift */,
-				881D4F282937CF92009C7090 /* ChatViewModel.swift */,
-				881D4F2A2937F13C009C7090 /* YourChatTableViewCell.swift */,
-				881D4F2C2937F432009C7090 /* MyChatTableViewCell.swift */,
+				881274D7293FFF8300032ACF /* View */,
+				881274D6293FFF7800032ACF /* ViewModel */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -881,8 +919,18 @@
 			children = (
 				88992786292377FB00294B6B /* PopupView.swift */,
 				8899278929237B0C00294B6B /* PopupViewController.swift */,
+				88D95BD229487ED3006878A7 /* Review */,
 			);
 			path = Popup;
+			sourceTree = "<group>";
+		};
+		88D95BD229487ED3006878A7 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				88C14B7B29486B5700F6BA6B /* ReviewView.swift */,
+				88C14B7D29486E5400F6BA6B /* ReviewViewController.swift */,
+			);
+			path = Review;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -912,6 +960,8 @@
 				889927992924CA4B00294B6B /* MultiSlider */,
 				887F6B172928B338007B043E /* RxKeyboard */,
 				88B8B8BD2938C48100329CD2 /* SocketIO */,
+				881274D9294146CC00032ACF /* Realm */,
+				881274DB294146CC00032ACF /* RealmSwift */,
 			);
 			productName = SeSacStudy;
 			productReference = 88556FCA2918E248003CD336 /* SeSacStudy.app */;
@@ -950,6 +1000,7 @@
 				889927982924CA4B00294B6B /* XCRemoteSwiftPackageReference "MultiSlider" */,
 				887F6B162928B338007B043E /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				88B8B8BC2938C48100329CD2 /* XCRemoteSwiftPackageReference "socket" */,
+				881274D8294146CC00032ACF /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 88556FCB2918E248003CD336 /* Products */;
 			projectDirPath = "";
@@ -984,6 +1035,7 @@
 				8895469529266BC400F88C3F /* ChatView.swift in Sources */,
 				8899278E2923A91300294B6B /* BaseTextField.swift in Sources */,
 				4254E42A292B4FC600563062 /* StudyCollectionViewCell.swift in Sources */,
+				881274DF2941472600032ACF /* ChatRepository.swift in Sources */,
 				881D4F312937FD4B009C7090 /* ChatAPIService.swift in Sources */,
 				888BCFDB293CD8780060322A /* QueueAPIService.swift in Sources */,
 				880559A8291DED7F00F4D4A2 /* FriendView.swift in Sources */,
@@ -997,6 +1049,7 @@
 				8895469B292689F100F88C3F /* Sesac.swift in Sources */,
 				8895468E292664F600F88C3F /* MatchStatus.swift in Sources */,
 				881D4F2F2937F8CC009C7090 /* Chat.swift in Sources */,
+				88C14B7C29486B5700F6BA6B /* ReviewView.swift in Sources */,
 				8805599D291DEA0A00F4D4A2 /* HomeViewModel.swift in Sources */,
 				42228723292B923600063FC8 /* Study.swift in Sources */,
 				88556FD22918E248003CD336 /* ViewController.swift in Sources */,
@@ -1033,12 +1086,14 @@
 				889215FD291A1EDD00DE147C /* Extension+UILabel.swift in Sources */,
 				8805599B291DE9FD00F4D4A2 /* HomeView.swift in Sources */,
 				880559B4291E485600F4D4A2 /* SplashView.swift in Sources */,
+				88C14B7E29486E5400F6BA6B /* ReviewViewController.swift in Sources */,
 				8826E2BA291AFAA600AF8023 /* NicknameView.swift in Sources */,
 				880559AE291DEE4800F4D4A2 /* MyInfoView.swift in Sources */,
 				88556FCE2918E248003CD336 /* AppDelegate.swift in Sources */,
 				8826E2CA291B82CF00AF8023 /* BirthViewModel.swift in Sources */,
 				8855700B29195D04003CD336 /* BaseCollectionViewCell.swift in Sources */,
 				880559B2291DEE9200F4D4A2 /* MyInfoViewModel.swift in Sources */,
+				881274E1294148E700032ACF /* ChatRealm.swift in Sources */,
 				888BCFC1293BA7860060322A /* UserAPIService.swift in Sources */,
 				885570002918F651003CD336 /* Extension+UIFont.swift in Sources */,
 				8805598B291CFDFD00F4D4A2 /* User.swift in Sources */,
@@ -1326,6 +1381,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		881274D8294146CC00032ACF /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.33.0;
+			};
+		};
 		88556FF32918EF31003CD336 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1391,6 +1454,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88055993291D22B400F4D4A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		881274D9294146CC00032ACF /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 881274D8294146CC00032ACF /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		881274DB294146CC00032ACF /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 881274D8294146CC00032ACF /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		88556FF42918EF31003CD336 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
