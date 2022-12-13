@@ -12,6 +12,7 @@ import SnapKit
 
 protocol SCVDelegate {
     func goToVC(index: Int, request: Bool, uid: String, nickname: String)
+    func refrash()
 }
 
 final class SearchCollectionViewCell: BaseCollectionViewCell {
@@ -74,6 +75,12 @@ final class SearchCollectionViewCell: BaseCollectionViewCell {
         tableView.dataSource = self
         tableView.register(CardTableViewCell.self, forCellReuseIdentifier: CardTableViewCell.reusableIdentifier)
         
+        refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
+        
+    }
+    
+    @objc func refreshButtonClicked() {
+        delegate?.refrash()
     }
     
     override func setConstraints() {
@@ -127,8 +134,10 @@ extension SearchCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.requestButton.tag = indexPath.section
         cell.requestButton.addTarget(self, action: #selector(requestButtonClicked), for: .touchUpInside)
         
-        cell.backgroundImageView.image = UIImage(named: "sesac_background_\(sesacList[indexPath.section].background + 1)")
-        cell.profileImageView.image = UIImage(named: "sesac_face_\(sesacList[indexPath.section].sesac + 1)")
+        let background = BackgroundImage(rawValue: sesacList[indexPath.section].background) ?? .sesac_background_1
+        cell.backgroundImageView.image = UIImage(named: background.image)
+        let sesac = SesacImage(rawValue: sesacList[indexPath.section].sesac) ?? .sesac_face_1
+        cell.profileImageView.image = UIImage(named: sesac.image)
         
         cell.infoView.nicknameLabel.text = sesacList[indexPath.section].nick
         cell.infoView.list = sesacList[indexPath.section].reputation
