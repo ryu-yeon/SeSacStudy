@@ -57,6 +57,8 @@ final class SearchView: BaseView {
         view.showsVerticalScrollIndicator = false
         view.isPagingEnabled = true
         view.decelerationRate = .fast
+        
+        view.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.reusableIdentifier)
         return view
     }()
     
