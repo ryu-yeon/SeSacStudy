@@ -125,7 +125,11 @@ final class ChatView: BaseView {
             stackView.addArrangedSubview($0)
         }
         
-        [dateLabel, iconImageView, titleLabel, subTitleLabel, tableView, textContainer, textView, sendButton, view, stackView].forEach {
+        [textView, sendButton].forEach {
+            textContainer.addSubview($0)
+        }
+        
+        [dateLabel, iconImageView, titleLabel, subTitleLabel, tableView, textContainer, view, stackView].forEach {
             self.addSubview($0)
         }
     }
@@ -159,7 +163,6 @@ final class ChatView: BaseView {
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(12)
-            make.centerX.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(16)
             make.bottom.equalTo(textContainer.snp.top).offset(-8)
         }
@@ -179,19 +182,18 @@ final class ChatView: BaseView {
         textContainer.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(16)
             make.bottom.equalTo(self.safeAreaLayoutGuide).offset(-16)
-            make.height.equalTo(52)
         }
         
         textView.snp.makeConstraints { make in
-            make.centerY.equalTo(textContainer.snp.centerY)
-            make.leading.equalTo(textContainer).inset(12)
-            make.trailing.equalTo(textContainer).inset(44)
-            make.height.equalTo(24)
+            make.verticalEdges.equalToSuperview().inset(14)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(44)
+            make.height.equalTo(20)
         }
         
         sendButton.snp.makeConstraints { make in
-            make.centerY.equalTo(textContainer.snp.centerY)
-            make.trailing.equalTo(textContainer).inset(16)
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(16)
             make.size.equalTo(20)
         }
         
@@ -214,6 +216,26 @@ final class ChatView: BaseView {
     func updateTextContainer(keyboardVisibleHeight: CGFloat) {
         textContainer.snp.updateConstraints { make in
             make.bottom.equalTo(self.safeAreaLayoutGuide).offset(-16 - keyboardVisibleHeight)
+        }
+    }
+    
+    func updateTextView(height: CGFloat, line: CGFloat) {
+        if line >= 3 {
+            textView.snp.remakeConstraints { make in
+                make.height.equalTo(height * 3)
+                make.verticalEdges.equalToSuperview().inset(14)
+                make.leading.equalToSuperview().inset(12)
+                make.trailing.equalToSuperview().inset(44)
+            }
+            textView.isScrollEnabled = true
+            textView.invalidateIntrinsicContentSize()
+        } else {
+            textView.isScrollEnabled = false
+            textView.snp.remakeConstraints { make in
+                make.verticalEdges.equalToSuperview().inset(14)
+                make.leading.equalToSuperview().offset(12)
+                make.trailing.equalToSuperview().offset(8)
+            }
         }
     }
 }

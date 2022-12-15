@@ -79,15 +79,6 @@ final class ChatViewController: BaseViewController {
     private func setChatView() {
         
         mainView.textView.delegate = self
-        
-        mainView.textView.rx.text
-            .orEmpty
-            .withUnretained(self)
-            .bind { (vc, value) in
-                let sendButtonImage = value.count > 0 ? UIImage(named: "send_act") : UIImage(named: "send_inact")
-                vc.mainView.sendButton.setImage(sendButtonImage, for: .normal)
-            }
-            .disposed(by: disposeBag)
     }
     
     private func setSendButton() {
@@ -247,5 +238,18 @@ extension ChatViewController: UITextViewDelegate {
             textView.text = nil
             textView.textColor = .black
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        if textView.text.count > 0 {
+            mainView.sendButton.setImage(UIImage(named: "send_act"), for: .normal)
+        } else {
+            mainView.sendButton.setImage(UIImage(named: "send_inact"), for: .normal)
+        }
+        
+        guard let height = self.mainView.textView.font?.lineHeight else { return }
+        let line = self.mainView.textView.contentSize.height / height
+        mainView.updateTextView(height: height, line: line)
     }
 }
