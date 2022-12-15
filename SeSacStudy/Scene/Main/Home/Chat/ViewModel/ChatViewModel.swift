@@ -64,6 +64,7 @@ final class ChatViewModel {
     
     func calaculatedDate() -> String {
         dateFormatter.dateFormat = "M월 d일 EEEE"
+        dateFormatter.locale = Locale(identifier: "ko")
         if let date = chatData.last?.createdAt {
             return dateFormatter.string(from: (dateFormatter.date(from: date) ?? Date()))
         } else {
@@ -73,6 +74,7 @@ final class ChatViewModel {
     
     func calculatedChatDate(creatAt: String) -> String {
         dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.locale = Locale(identifier: "ko")
         return dateFormatter.string(from: (dateFormatter.date(from: creatAt) ?? Date()))
     }
 }
