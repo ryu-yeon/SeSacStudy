@@ -12,8 +12,18 @@ import RealmSwift
 final class ChatViewModel {
     
     let chatService = ChatAPIService()
-    let dateFormatter = DateFormatter()
     let chatRepository = ChatRepository()
+    var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        return formatter
+    }()
+    
+    var isoDateFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions.insert(.withFractionalSeconds)
+        return formatter
+    }()
     
     var chatData: Results<ChatRealm>!
     let myID = UserDefaultsHelper.standard.loadUser()?.uid
@@ -64,17 +74,17 @@ final class ChatViewModel {
     
     func calaculatedDate() -> String {
         dateFormatter.dateFormat = "M월 d일 EEEE"
-        dateFormatter.locale = Locale(identifier: "ko")
-        if let date = chatData.last?.createdAt {
-            return dateFormatter.string(from: (dateFormatter.date(from: date) ?? Date()))
+        if let createdAt = chatData.last?.createdAt {
+            let date = isoDateFormatter.date(from: createdAt) ?? Date()
+            return dateFormatter.string(from: date)
         } else {
             return dateFormatter.string(from: Date())
         }
     }
     
     func calculatedChatDate(creatAt: String) -> String {
+        let date = isoDateFormatter.date(from: creatAt) ?? Date()
         dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.locale = Locale(identifier: "ko")
-        return dateFormatter.string(from: (dateFormatter.date(from: creatAt) ?? Date()))
+        return dateFormatter.string(from: date)
     }
 }
