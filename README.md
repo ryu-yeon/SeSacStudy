@@ -1,6 +1,6 @@
 # **새싹 스터디 - Service Levle Project**
 
-<img src="">
+<img src="https://velog.velcdn.com/images/rytak108/post/603bed5b-e908-4936-94f8-020eed67676b/image.png">
 
 <br> 
 
