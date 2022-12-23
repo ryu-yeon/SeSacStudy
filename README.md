@@ -2,8 +2,6 @@
 
 <img src="https://velog.velcdn.com/images/rytak108/post/2b460747-b102-4136-85b0-eb6a2e8bd46a/image.png">
 
-<br> 
-
 ## **📲 앱 소개**
 ### 사용자가 지도를 통해 주제에 따라 검색, 매칭, 채팅으로 스터디원을 찾는데 도움을 주는 앱
 - 로그인 & 회원가입
@@ -11,19 +9,13 @@
 - 내 정보 확인, 수정, 회원탈퇴
 - 프로필 아이콘, 배경화면 인앱결제
 
-<br>
-
 ## **🗓️ 개발기간**
 ### 2022.11.07 ~
-
-<br>
 
 ## **🛠️ Framwork & Tech Stack**
 - ### ```MVC```, ```MVVM```
 - ### ```UIKit```, ```MapKit```, ```CoreLocation```, ```Push Notification```, ```StoreKit```
 - ### ```SnapKit```, ```Alamofire```, ```SocketIO```, ```Realm```, ```RxSwift```, ```RxCocoa```, ```RxKeyboard```, ```Firebase Auth```, ```Firebase Cloud Messaging```, ```Toast```, ```MultiSlider```
-
-<br>
 
 ---
 ## **🔴 Trouble Shooting**
@@ -113,8 +105,6 @@ mainView.pageControl.addTarget(self, action: #selector(pageChanged), for: .value
         return user
     }
 ```
-
-<br>
 
 ---
 ## **🤔 회고**
