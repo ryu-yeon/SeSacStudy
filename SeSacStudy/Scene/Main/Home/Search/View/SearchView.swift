@@ -14,6 +14,7 @@ final class SearchView: BaseView {
     let nearButton: UIButton = {
         let view = UIButton()
         view.setTitle("주변 새싹", for: .normal)
+        view.titleLabel?.font = .title3_M14
         view.setTitleColor(.brandGreen, for: .normal)
         var lineView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, 1))
         lineView.backgroundColor = UIColor.brandGreen
@@ -30,6 +31,7 @@ final class SearchView: BaseView {
     let recieveButton: UIButton = {
         let view = UIButton()
         view.setTitle("받은 요청", for: .normal)
+        view.titleLabel?.font = .title3_M14
         view.setTitleColor(.gray6, for: .normal)
         var lineView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, 1))
         lineView.backgroundColor = UIColor.gray6
