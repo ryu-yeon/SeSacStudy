@@ -56,20 +56,20 @@ final class UserDefaultsHelper {
     }
     
     func saveUser(user: User?) {
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(user), forKey: Key.user.rawValue)
+        userDefault.set(try? PropertyListEncoder().encode(user), forKey: Key.user.rawValue)
     }
     
     func loadUser() -> User? {
-        guard let savedData = UserDefaults.standard.value(forKey: Key.user.rawValue) as? Data, let user = try? PropertyListDecoder().decode(User.self, from: savedData) else { return nil}
+        guard let savedData = userDefault.value(forKey: Key.user.rawValue) as? Data, let user = try? PropertyListDecoder().decode(User.self, from: savedData) else { return nil}
         return user
     }
 
     func saveCoordinate(coordinate: Coordinate?) {
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(coordinate), forKey: Key.coordinate.rawValue)
+        userDefault.set(try? PropertyListEncoder().encode(coordinate), forKey: Key.coordinate.rawValue)
     }
     
     func loadCoordinate() -> Coordinate? {
-        guard let savedData = UserDefaults.standard.value(forKey: Key.coordinate.rawValue) as? Data, let coordinate = try? PropertyListDecoder().decode(Coordinate.self, from: savedData) else { return nil}
+        guard let savedData = userDefault.value(forKey: Key.coordinate.rawValue) as? Data, let coordinate = try? PropertyListDecoder().decode(Coordinate.self, from: savedData) else { return nil}
         return coordinate
     }
     
