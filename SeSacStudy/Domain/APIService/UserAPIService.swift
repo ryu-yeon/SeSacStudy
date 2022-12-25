@@ -91,4 +91,23 @@ final class UserAPIService {
             complitionHandler(statusCode ?? 0)
         }
     }
+    
+    func updateItem(idToken: String, selectSesac: Int, selectBackground: Int, complitionHandler: @escaping (Int) -> Void) {
+        let url = EndPoint.baseURL + "v1/user/shop/item"
+        let headers: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+        
+        let parameters: [String: Int] = [
+            "sesac": selectSesac,
+            "background": selectBackground
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters,headers: headers).responseString { response in
+            
+            let statusCode = response.response?.statusCode
+            
+            complitionHandler(statusCode ?? 0)
+        }
+    }
 }
