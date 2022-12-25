@@ -36,6 +36,9 @@ enum BackgroundImage: Int {
     case sesac_background_3
     case sesac_background_4
     case sesac_background_5
+    case sesac_background_6
+    case sesac_background_7
+    case sesac_background_8
     
     var image: String {
         switch self {
@@ -49,6 +52,12 @@ enum BackgroundImage: Int {
             return "sesac_background_4"
         case .sesac_background_5:
             return "sesac_background_5"
+        case .sesac_background_6:
+            return "sesac_background_6"
+        case .sesac_background_7:
+            return "sesac_background_7"
+        case .sesac_background_8:
+            return "sesac_background_8"
         }
     }
 }
