@@ -127,3 +127,22 @@ enum StopQueueStatusCode: Int {
     case ClientError = 501
     case UnknownError = -1
 }
+
+enum ShopItemStatusCode: Int {
+    case Success = 200
+    case NotHaveItem = 201
+    case FirebaseTokenError = 401
+    case NotSignupUser = 406
+    case ServerError = 500
+    case ClientError = 501
+    case UnknownError = -1
+    
+    var message: String {
+        switch self {
+        case .Success:
+            return "성공적으로 저장되었습니다."
+        default:
+            return "구매가 필요한 아이템이 있어요."
+        }
+    }
+}
