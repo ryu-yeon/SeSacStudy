@@ -21,6 +21,7 @@ struct User: Codable {
     var sesac: Int
     var sesacCollection: [Int]
     var background: Int
+    var backgroundCollection: [Int]
     var purchaseToken: [String]
     var transactionId: [String]
     var reviewedBefore: [String]
