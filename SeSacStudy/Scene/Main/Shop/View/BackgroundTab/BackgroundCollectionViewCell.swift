@@ -48,6 +48,13 @@ final class BackgroundCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        buyButton.setTitleColor(.white, for: .normal)
+        buyButton.isEnabled = true
+        buyButton.backgroundColor = .brandGreen
+    }
+    
     override func setConstraints() {
         
         backgroundImageView.snp.makeConstraints { make in

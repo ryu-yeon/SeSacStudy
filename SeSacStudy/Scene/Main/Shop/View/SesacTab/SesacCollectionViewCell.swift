@@ -50,6 +50,13 @@ final class SesacCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        buyButton.setTitleColor(.white, for: .normal)
+        buyButton.isEnabled = true
+        buyButton.backgroundColor = .brandGreen
+    }
+    
     override func setConstraints() {
         
         sesacImageView.snp.makeConstraints { make in

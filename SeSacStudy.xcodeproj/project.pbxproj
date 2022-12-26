@@ -36,6 +36,10 @@
 		880559B9291E488300F4D4A2 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559B8291E488300F4D4A2 /* SplashViewModel.swift */; };
 		880559C1291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */; };
 		880559C3291F2BB800F4D4A2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */; };
+		880962C029580FEE0083A211 /* SesacShopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880962BF29580FEE0083A211 /* SesacShopTabView.swift */; };
+		880962C4295815810083A211 /* SesacItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880962C3295815810083A211 /* SesacItem.swift */; };
+		880962C6295818DB0083A211 /* BackgroundShopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880962C5295818DB0083A211 /* BackgroundShopTabView.swift */; };
+		880962C829581A1F0083A211 /* BackgroundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880962C729581A1F0083A211 /* BackgroundItem.swift */; };
 		881274D1293FF04D00032ACF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881274D0293FF04D00032ACF /* Image.swift */; };
 		881274DA294146CC00032ACF /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 881274D9294146CC00032ACF /* Realm */; };
 		881274DC294146CC00032ACF /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 881274DB294146CC00032ACF /* RealmSwift */; };
@@ -80,6 +84,13 @@
 		885570092919591A003CD336 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885570082919591A003CD336 /* OnboardingCollectionViewCell.swift */; };
 		8855700B29195D04003CD336 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855700A29195D04003CD336 /* BaseCollectionViewCell.swift */; };
 		8855700D2919600F003CD336 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855700C2919600F003CD336 /* OnboardingData.swift */; };
+		885FA7F1295703BE00F8E235 /* SesacCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885FA7F0295703BE00F8E235 /* SesacCollectionViewCell.swift */; };
+		885FA7F529574D3400F8E235 /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885FA7F429574D3400F8E235 /* BackgroundCollectionViewCell.swift */; };
+		885FA7FA2957507500F8E235 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 885FA7F92957507500F8E235 /* Tabman */; };
+		885FA7FD295753C200F8E235 /* Pageboy in Frameworks */ = {isa = PBXBuildFile; productRef = 885FA7FC295753C200F8E235 /* Pageboy */; };
+		885FA7FF2957559E00F8E235 /* SesacShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885FA7FE2957559E00F8E235 /* SesacShopTabViewController.swift */; };
+		885FA801295755ED00F8E235 /* BackgroundShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885FA800295755ED00F8E235 /* BackgroundShopTabViewController.swift */; };
+		885FA8032957579400F8E235 /* ShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885FA8022957579400F8E235 /* ShopTabViewController.swift */; };
 		887F6B152928B1AF007B043E /* SetSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F6B142928B1AF007B043E /* SetSearchViewModel.swift */; };
 		887F6B182928B338007B043E /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 887F6B172928B338007B043E /* RxKeyboard */; };
 		887F6B1A29290909007B043E /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F6B1929290909007B043E /* CustomAnnotationView.swift */; };
@@ -158,6 +169,10 @@
 		880559B8291E488300F4D4A2 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		880559C0291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		880559C2291F2BB800F4D4A2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		880962BF29580FEE0083A211 /* SesacShopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopTabView.swift; sourceTree = "<group>"; };
+		880962C3295815810083A211 /* SesacItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacItem.swift; sourceTree = "<group>"; };
+		880962C5295818DB0083A211 /* BackgroundShopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundShopTabView.swift; sourceTree = "<group>"; };
+		880962C729581A1F0083A211 /* BackgroundItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundItem.swift; sourceTree = "<group>"; };
 		881274D0293FF04D00032ACF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		881274DE2941472600032ACF /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		881274E0294148E700032ACF /* ChatRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRealm.swift; sourceTree = "<group>"; };
@@ -199,6 +214,11 @@
 		885570082919591A003CD336 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		8855700A29195D04003CD336 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		8855700C2919600F003CD336 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		885FA7F0295703BE00F8E235 /* SesacCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacCollectionViewCell.swift; sourceTree = "<group>"; };
+		885FA7F429574D3400F8E235 /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
+		885FA7FE2957559E00F8E235 /* SesacShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacShopTabViewController.swift; sourceTree = "<group>"; };
+		885FA800295755ED00F8E235 /* BackgroundShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundShopTabViewController.swift; sourceTree = "<group>"; };
+		885FA8022957579400F8E235 /* ShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabViewController.swift; sourceTree = "<group>"; };
 		887F6B142928B1AF007B043E /* SetSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSearchViewModel.swift; sourceTree = "<group>"; };
 		887F6B1929290909007B043E /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		887F6B4C292DD7C5007B043E /* BaseCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -252,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885FA7FA2957507500F8E235 /* Tabman in Frameworks */,
 				881274DC294146CC00032ACF /* RealmSwift in Frameworks */,
 				881274DA294146CC00032ACF /* Realm in Frameworks */,
 				885570052919585A003CD336 /* RxSwift in Frameworks */,
@@ -263,6 +284,7 @@
 				88556FF52918EF31003CD336 /* SnapKit in Frameworks */,
 				88055989291CFC5300F4D4A2 /* Alamofire in Frameworks */,
 				88921612291AD5C200DE147C /* Toast in Frameworks */,
+				885FA7FD295753C200F8E235 /* Pageboy in Frameworks */,
 				887F6B182928B338007B043E /* RxKeyboard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,9 +318,8 @@
 		8805599E291DEACF00F4D4A2 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				8805599F291DEADE00F4D4A2 /* ShopView.swift */,
-				880559A1291DEAFA00F4D4A2 /* ShopViewController.swift */,
-				880559A3291DEB2800F4D4A2 /* ShopViewModel.swift */,
+				885FA7F22957072400F8E235 /* View */,
+				885FA7F329574D0800F8E235 /* ViewModel */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -329,6 +350,26 @@
 				888BCFC7293C4DE00060322A /* ViewModel */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		880962C9295840A20083A211 /* SesacTab */ = {
+			isa = PBXGroup;
+			children = (
+				880962BF29580FEE0083A211 /* SesacShopTabView.swift */,
+				885FA7FE2957559E00F8E235 /* SesacShopTabViewController.swift */,
+				885FA7F0295703BE00F8E235 /* SesacCollectionViewCell.swift */,
+			);
+			path = SesacTab;
+			sourceTree = "<group>";
+		};
+		880962CA295840B40083A211 /* BackgroundTab */ = {
+			isa = PBXGroup;
+			children = (
+				880962C5295818DB0083A211 /* BackgroundShopTabView.swift */,
+				885FA800295755ED00F8E235 /* BackgroundShopTabViewController.swift */,
+				885FA7F429574D3400F8E235 /* BackgroundCollectionViewCell.swift */,
+			);
+			path = BackgroundTab;
 			sourceTree = "<group>";
 		};
 		881274CE293FA1F200032ACF /* View */ = {
@@ -572,8 +613,30 @@
 				888BCFDC293CDCBB0060322A /* Coordinate.swift */,
 				88055985291CFC1200F4D4A2 /* EndPoint.swift */,
 				881274D0293FF04D00032ACF /* Image.swift */,
+				880962C3295815810083A211 /* SesacItem.swift */,
+				880962C729581A1F0083A211 /* BackgroundItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		885FA7F22957072400F8E235 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8805599F291DEADE00F4D4A2 /* ShopView.swift */,
+				880559A1291DEAFA00F4D4A2 /* ShopViewController.swift */,
+				885FA8022957579400F8E235 /* ShopTabViewController.swift */,
+				880962C9295840A20083A211 /* SesacTab */,
+				880962CA295840B40083A211 /* BackgroundTab */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		885FA7F329574D0800F8E235 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				880559A3291DEB2800F4D4A2 /* ShopViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		888BCFC2293BAAE30060322A /* APIService */ = {
@@ -962,6 +1025,8 @@
 				88B8B8BD2938C48100329CD2 /* SocketIO */,
 				881274D9294146CC00032ACF /* Realm */,
 				881274DB294146CC00032ACF /* RealmSwift */,
+				885FA7F92957507500F8E235 /* Tabman */,
+				885FA7FC295753C200F8E235 /* Pageboy */,
 			);
 			productName = SeSacStudy;
 			productReference = 88556FCA2918E248003CD336 /* SeSacStudy.app */;
@@ -1001,6 +1066,8 @@
 				887F6B162928B338007B043E /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				88B8B8BC2938C48100329CD2 /* XCRemoteSwiftPackageReference "socket" */,
 				881274D8294146CC00032ACF /* XCRemoteSwiftPackageReference "realm-swift" */,
+				885FA7F82957507400F8E235 /* XCRemoteSwiftPackageReference "Tabman" */,
+				885FA7FB295753C200F8E235 /* XCRemoteSwiftPackageReference "Pageboy" */,
 			);
 			productRefGroup = 88556FCB2918E248003CD336 /* Products */;
 			projectDirPath = "";
@@ -1037,6 +1104,7 @@
 				4254E42A292B4FC600563062 /* StudyCollectionViewCell.swift in Sources */,
 				881274DF2941472600032ACF /* ChatRepository.swift in Sources */,
 				881D4F312937FD4B009C7090 /* ChatAPIService.swift in Sources */,
+				885FA7F1295703BE00F8E235 /* SesacCollectionViewCell.swift in Sources */,
 				888BCFDB293CD8780060322A /* QueueAPIService.swift in Sources */,
 				880559A8291DED7F00F4D4A2 /* FriendView.swift in Sources */,
 				880559C1291F2B9C00F4D4A2 /* MyInfoTableViewCell.swift in Sources */,
@@ -1055,7 +1123,9 @@
 				88556FD22918E248003CD336 /* ViewController.swift in Sources */,
 				8826E2D4291C58F800AF8023 /* EmailViewModel.swift in Sources */,
 				88921605291A2A0500DE147C /* LoginCheckViewModel.swift in Sources */,
+				880962C4295815810083A211 /* SesacItem.swift in Sources */,
 				880559AC291DEE2F00F4D4A2 /* FriendViewModel.swift in Sources */,
+				880962C829581A1F0083A211 /* BackgroundItem.swift in Sources */,
 				8826E2D8291C5A1700AF8023 /* GenderViewController.swift in Sources */,
 				8899277C29223B2000294B6B /* SetInfoViewModel.swift in Sources */,
 				8826E2C6291B818200AF8023 /* BirthView.swift in Sources */,
@@ -1067,11 +1137,13 @@
 				880559B9291E488300F4D4A2 /* SplashViewModel.swift in Sources */,
 				8895469729266BCD00F88C3F /* ChatViewController.swift in Sources */,
 				8826E2BC291AFC5100AF8023 /* NicknameViewController.swift in Sources */,
+				885FA7F529574D3400F8E235 /* BackgroundCollectionViewCell.swift in Sources */,
 				887F6B1A29290909007B043E /* CustomAnnotationView.swift in Sources */,
 				8895468C2926323000F88C3F /* ButtonWithShadow.swift in Sources */,
 				88556FE72918E74B003CD336 /* BaseView.swift in Sources */,
 				8899278229224C4900294B6B /* SetInfoTableViewCell.swift in Sources */,
 				881D4F2D2937F432009C7090 /* MyChatTableViewCell.swift in Sources */,
+				885FA8032957579400F8E235 /* ShopTabViewController.swift in Sources */,
 				887F6B152928B1AF007B043E /* SetSearchViewModel.swift in Sources */,
 				8899277A292239DB00294B6B /* SetInfoViewController.swift in Sources */,
 				887F6B572932882B007B043E /* SearchCollectionViewCell.swift in Sources */,
@@ -1097,6 +1169,7 @@
 				888BCFC1293BA7860060322A /* UserAPIService.swift in Sources */,
 				885570002918F651003CD336 /* Extension+UIFont.swift in Sources */,
 				8805598B291CFDFD00F4D4A2 /* User.swift in Sources */,
+				885FA7FF2957559E00F8E235 /* SesacShopTabViewController.swift in Sources */,
 				88556FFB2918F153003CD336 /* OnboardingViewController.swift in Sources */,
 				889215FB2919887100DE147C /* LoginViewModel.swift in Sources */,
 				88556FD02918E248003CD336 /* SceneDelegate.swift in Sources */,
@@ -1105,6 +1178,7 @@
 				889215F3291983AF00DE147C /* ReusableViewProtocol.swift in Sources */,
 				8899279F292505EC00294B6B /* UserDefaultsHelper.swift in Sources */,
 				88055986291CFC1200F4D4A2 /* EndPoint.swift in Sources */,
+				880962C029580FEE0083A211 /* SesacShopTabView.swift in Sources */,
 				88B8B8C02938EEA400329CD2 /* SocketIOMananger.swift in Sources */,
 				8826E2C8291B829900AF8023 /* BirthViewController.swift in Sources */,
 				88556FFD2918F28C003CD336 /* Extension+UIColor.swift in Sources */,
@@ -1121,6 +1195,8 @@
 				88055999291DE90800F4D4A2 /* MainTabBarController.swift in Sources */,
 				8826E2D2291BF91A00AF8023 /* EmailViewController.swift in Sources */,
 				8899277E292248D900294B6B /* CardTabeViewCell.swift in Sources */,
+				885FA801295755ED00F8E235 /* BackgroundShopTabViewController.swift in Sources */,
+				880962C6295818DB0083A211 /* BackgroundShopTabView.swift in Sources */,
 				88B8B8C22938EFF000329CD2 /* FirebaseTokenManager.swift in Sources */,
 				42DD49D7293462CC00730F48 /* SearchViewModel.swift in Sources */,
 				8895468929254CE200F88C3F /* SearchViewController.swift in Sources */,
@@ -1413,6 +1489,22 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		885FA7F82957507400F8E235 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.1;
+			};
+		};
+		885FA7FB295753C200F8E235 /* XCRemoteSwiftPackageReference "Pageboy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Pageboy.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.2;
+			};
+		};
 		887F6B162928B338007B043E /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard.git";
@@ -1487,6 +1579,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 885570012919585A003CD336 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		885FA7F92957507500F8E235 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 885FA7F82957507400F8E235 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
+		885FA7FC295753C200F8E235 /* Pageboy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 885FA7FB295753C200F8E235 /* XCRemoteSwiftPackageReference "Pageboy" */;
+			productName = Pageboy;
 		};
 		887F6B172928B338007B043E /* RxKeyboard */ = {
 			isa = XCSwiftPackageProductDependency;
