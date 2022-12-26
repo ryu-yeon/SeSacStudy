@@ -21,7 +21,6 @@ final class UserAPIService {
         AF.request(url, method: .get, headers: headers).responseDecodable(of: User.self) { response in
             
             let statusCode = response.response?.statusCode ?? 0
-            print("STATUS CODE", statusCode)
             
             switch response.result {
                 
@@ -93,7 +92,7 @@ final class UserAPIService {
     }
     
     func updateItem(idToken: String, selectSesac: Int, selectBackground: Int, complitionHandler: @escaping (Int) -> Void) {
-        let url = EndPoint.baseURL + "v1/user/shop/item"
+        let url = EndPoint.baseURL + "/v1/user/shop/item"
         let headers: HTTPHeaders = [
             "idtoken": idToken
         ]
@@ -108,6 +107,45 @@ final class UserAPIService {
             let statusCode = response.response?.statusCode
             
             complitionHandler(statusCode ?? 0)
+        }
+    }
+    
+    func buyItem(idToken: String, receipt: String, product: String, complitionHandler: @escaping (Int) -> Void) {
+        let url = EndPoint.baseURL + "/v1/user/shop/ios"
+        let headers: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+        
+        let parameters: [String: String] = [
+            "receipt": receipt,
+            "product": product
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseString { response in
+            
+            let statusCode = response.response?.statusCode
+            
+            complitionHandler(statusCode ?? 0)
+        }
+    }
+    
+    func updateItemInfo(idToken: String, complitionHandler: @escaping (User?, Int) -> Void) {
+        let url = EndPoint.baseURL + "/v1/user/shop/myinfo"
+        let headers: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: User.self) { response in
+            
+            let statusCode = response.response?.statusCode ?? 0
+            
+            switch response.result {
+                
+            case .success(let data):
+                complitionHandler(data, statusCode)
+            case .failure(_):
+                complitionHandler(nil, statusCode)
+            }
         }
     }
 }
