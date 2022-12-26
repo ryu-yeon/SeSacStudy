@@ -38,7 +38,7 @@ final class SesacCollectionViewCell: BaseCollectionViewCell {
     
     let buyButton: UIButton = {
         let view = UIButton()
-        view.layer.cornerRadius = 30
+        view.layer.cornerRadius = 10
         view.titleLabel?.font = .title5_M12
         return view
     }()
