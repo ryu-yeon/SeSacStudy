@@ -23,5 +23,7 @@ struct BackgroundItem {
         BackgroundItem(background: BackgroundImage(rawValue: 6)!, title: "홈트방", detail: "집에서 운동을 할 수 있도록 기구를 갖춘 방입니다.", price: "2,500"),
         BackgroundItem(background: BackgroundImage(rawValue: 7)!, title: "뮤지션 작업실", detail: "여러가지 음악 작업을 할 수 있는 작업실입니다.", price: "2,500")
     ]
+    
+    static let productIdentifiers: Set<String> = ["com.memolease.sesac1.background1", "com.memolease.sesac1.background2", "com.memolease.sesac1.background3", "com.memolease.sesac1.background4", "com.memolease.sesac1.background5", "com.memolease.sesac1.background6", "com.memolease.sesac1.background7"]
 }
 
