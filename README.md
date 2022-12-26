@@ -1,6 +1,6 @@
 # **새싹 스터디 - Service Levle Project**
 
-<img src="https://velog.velcdn.com/images/rytak108/post/2b460747-b102-4136-85b0-eb6a2e8bd46a/image.png">
+<img src="https://velog.velcdn.com/images/rytak108/post/eb187bf5-8ddc-446e-887c-1f9071ba1a54/image.png">
 
 ## **📲 앱 소개**
 ### 사용자가 지도를 통해 주제에 따라 검색, 매칭, 채팅으로 스터디원을 찾는데 도움을 주는 앱
@@ -15,7 +15,7 @@
 ## **🛠️ Framwork & Tech Stack**
 - ### ```MVC```, ```MVVM```
 - ### ```UIKit```, ```MapKit```, ```CoreLocation```, ```Push Notification```, ```StoreKit```
-- ### ```SnapKit```, ```Alamofire```, ```SocketIO```, ```Realm```, ```RxSwift```, ```RxCocoa```, ```RxKeyboard```, ```Firebase Auth```, ```Firebase Cloud Messaging```, ```Toast```, ```MultiSlider```
+- ### ```SnapKit```, ```Alamofire```, ```SocketIO```, ```Realm```, ```RxSwift```, ```RxCocoa```, ```RxKeyboard```, ```Firebase Auth```, ```Firebase Cloud Messaging```, ```Toast```, ```MultiSlider```, ```Tabman```, ```Pageboy```
 
 ---
 ## **🔴 Trouble Shooting**
