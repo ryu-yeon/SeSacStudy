@@ -1,4 +1,4 @@
-# **새싹 스터디 - Service Levle Project**
+# **새싹 스터디 - Service Level Project**
 
 <img src="https://velog.velcdn.com/images/rytak108/post/eb187bf5-8ddc-446e-887c-1f9071ba1a54/image.png">
 
